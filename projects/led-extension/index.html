@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
-  <title>Lighting Every Darkness in Two Pairs: A Calibration-Free Pipeline for RAW Denoising</title>
+  <title>Make Explict Calibration Implicit: "Calibrate" Denoiser Instead of The Noise Model</title>
   
   <meta name="author" content="Xin Jin">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,8 +72,8 @@
         More Research
         </a>
         <div class="navbar-dropdown">
-            <a class="navbar-item" href="https://srameo.github.io/projects/led-extension">
-                LED Extension
+            <a class="navbar-item" href="https://srameo.github.io/projects/led-iccv23">
+                LED (ICCV 2023)
             </a>
             <a class="navbar-item" href="https://github.com/Srameo/DNF">
                 DNF (RAW LLIE)
@@ -89,46 +89,44 @@
     <div style="width: 100%;">
         <!-- Title -->
         <div class="root-content" style="padding-top: 30px;">
-            <center><img src="./assets/logo.svg" style="width: 20%; margin-bottom: 10px;"/></center>
-            <name><span style="color: red;">L</span>ighting <span style="color: red;">E</span>very <span style="color: red;">D</span>arkness in Two Pairs:<br/>A Calibration-Free Pipeline for RAW Denoising</name>
+            <center><img src="/projects/led-iccv23/assets/logo.svg" style="width: 20%; margin-bottom: 10px;"/></center>
+            <name>Make Explict Calibration Implicit: <br/>"Calibrate" Denoiser Instead of The Noise Model</name>
             <br>
             <div id="author-list"">
-                <a href="https://srameo.github.io">Xin Jin</a><sup>1*</sup>&nbsp;&nbsp;&nbsp;
-                <a href="https://github.com/schuy1er">Jia-Wen Xiao</a><sup>1*</sup>&nbsp;&nbsp;&nbsp;
-                <a href="https://scholar.google.com/citations?user=0ooNdgUAAAAJ&hl=en">Ling-Hao Han</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
-                <a href="https://mmcheng.net/clguo/">Chunle Guo</a><sup>1#</sup>&nbsp;&nbsp;&nbsp;
-                Ruixun Zhang<sup>2</sup>&nbsp;&nbsp;&nbsp;
-                <a href="https://mmcheng.net/xliu/">Xialei Liu</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
-                <a href="https://li-chongyi.github.io/">Chong-Yi Li</a><sup>1,3</sup>&nbsp;&nbsp;&nbsp;
+                <a href="https://srameo.github.io">Xin Jin</a>&nbsp;&nbsp;&nbsp;
+                <a href="https://github.com/schuy1er">Jia-Wen Xiao</a>&nbsp;&nbsp;&nbsp;
+                <a href="https://scholar.google.com/citations?user=0ooNdgUAAAAJ&hl=en">Ling-Hao Han</a>&nbsp;&nbsp;&nbsp;
+                <a href="https://mmcheng.net/clguo/">Chunle Guo</a>&nbsp;&nbsp;&nbsp;
+                <a href="https://mmcheng.net/xliu/">Xialei Liu</a>&nbsp;&nbsp;&nbsp;
+                <a href="https://li-chongyi.github.io/">Chongyi Li</a>&nbsp;&nbsp;&nbsp;
+                <a href="https://mmcheng.net/">Ming-Ming Cheng</a>&nbsp;&nbsp;&nbsp;
             </div>
             <div id="institution-list">
-                <sup>1</sup>VCIP, CS, Nankai University&nbsp;&nbsp;&nbsp;
-                <sup>2</sup> School of Mathematical Sciences, Peking University&nbsp;&nbsp;&nbsp;<br>
-                <sup>3</sup>S-Lab, Nanyang Technological University&nbsp;&nbsp;&nbsp;
+                VCIP, CS, Nankai University
             </div>
             <p id="publication">
-                ICCV 2023
+                Arxiv 2023
             </p>
             <p style="font-size: xx-large;">
-                <span style="color:brown;">A extented version of this paper can be found in <a href="https://srameo.github.io/projects/led-extension/">here</a>!</span>
+                <span style="color:brown;">This is an extension of our <a href="https://srameo.github.io/projects/led-iccv23/">LED, ICCV 2023</a>.</span>
             </p>
             <div id="button-list">
                 <span class="link-button">
-                    <a class="link-button-content", href="https://arxiv.org/abs/2308.03448", target="_blank">
+                    <a class="link-button-content", href="", target="_blank">
                         <span>
                             <svg class="svg-inline--fa fa-file-pdf fa-w-12" style="position: relative; top: 0.15em;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg>
                         </span>
                         &nbsp;
-                        Paper
+                        Paper (TBD)
                     </a>
                 </span>
                 <span class="link-button">
-                    <a class="link-button-content", href="/projects/led-iccv23/assets/paper/1819_arxiv_v1_more_visual_results.pdf", target="_blank">
+                    <a class="link-button-content", href="", target="_blank">
                         <span>
-                            <svg class="svg-inline--fa fa-file-pdf fa-w-12" style="position: relative; top: 0.15em;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg>
+                            <svg class="svg-inline--fa fa-file-pdf fa-w-12" style="position: relative; top: 0.15em;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M480 416v16c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V176c0-26.51 21.49-48 48-48h16v48H54a6 6 0 0 0-6 6v244a6 6 0 0 0 6 6h372a6 6 0 0 0 6-6v-10h48zm42-336H150a6 6 0 0 0-6 6v244a6 6 0 0 0 6 6h372a6 6 0 0 0 6-6V86a6 6 0 0 0-6-6zm6-48c26.51 0 48 21.49 48 48v256c0 26.51-21.49 48-48 48H144c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h384zM264 144c0 22.091-17.909 40-40 40s-40-17.909-40-40 17.909-40 40-40 40 17.909 40 40zm-72 96l39.515-39.515c4.686-4.686 12.284-4.686 16.971 0L288 240l103.515-103.515c4.686-4.686 12.284-4.686 16.971 0L480 208v80H192v-48z"></path></svg>
                         </span>
-                        &nbsp;  
-                        Paper (With More Visual Results)
+                        &nbsp;
+                        Dataset (TBD)
                     </a>
                 </span>
                 <span class="link-button">
@@ -138,15 +136,6 @@
                         </span>
                         &nbsp; 
                         Code + Pretrained Models
-                    </a>
-                </span>
-                <span class="link-button">
-                    <a class="link-button-content" href="/projects/led-iccv23/assets/slides/iccv23_slides_en.pdf", target="_blank">
-                        <span>
-                            <svg class="svg-inline--fa fa-file-pdf fa-w-12" style="position: relative; top: 0.15em;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg>
-                        </span>
-                        &nbsp; 
-                        Slides
                     </a>
                 </span>
                 <span class="link-button">
@@ -165,80 +154,107 @@
         <!-- Visual Results -->
         <div style="background-color: #f5f5f5; margin-right: auto; margin-left: auto;">
             <div class="root-content" style="padding-top: 10px;">
-                <h1 class="section-name">&#128293; Tired for Calibrating the Noise Model? Try Our LED! &#128293;</h1>
+                <h1 class="section-name">&#128293; Effectiveness Across <b>Various Network Architectures</b>! &#128293;</h1>
                 <span class="section-name" style="font-size: xx-large;">2 pairs<span style="color: darkgray; font-size: small;"> for each ratio</span> + 1.5k iterations = SOTA Performance!</span>
-                <details>
-                    <summary> Click for more details</summary>
-                    Compared with the SOTA <a href="https://github.com/Vandermode/ELD">ELD (CVPR, 2020, Oral)</a> (left), LED (right) only requires <strong style="color: brown;">0.26% of the training time</strong> (and <strong style="color: brown;">5% of the training data</strong>, which denotes the data requirement for calibration in ELD), while demonstrating a significant performance improvement on the <a href="https://cchen156.github.io/SID.html">SID</a> Sony dataset!
-                    <table style="border: 0px black solid; border-top: 0;">
-                        <tbody>
-                            <tr>
-                                <td style="padding: 10px; width:510; text-align: left;"><img width="500" src="./assets/log/log_eld.png"/></td>
-                                <td style="padding: 10px; width:510; text-align: right;"><img width="500" src="./assets/log/log_led.png"/></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </details>
                 <p class="section-content-text">
-                    Compared to previous algorithms that require a large amount of paired data for training (or requires extensive calibrating), 
-                    LED only needs two pairs of data for each ratio (<span style="color:brown;">six pairs</span> in total) and 1.5k iterations (<span style="color:brown;">0.5% of previous method</span>) to achieve state-of-the-art (SOTA) performance!
-                    Also, LED has reduced the training time from nearly one day to <span style="color:brown;">less than 4 minutes</span>!
-                    <p style="font-size: large;">Here are some results with LED.</p>
+                    By simply replacing the convolutional operators of other 
+                    structures with our proposed RepNR Block, LED can be easily
+                    migrated to architectures beyond UNet. In Tab. 8, we experimented
+                    with Restormer and NAFNet, transformer-based and convolution-
+                    based, respectively. Results demonstrating that LED still possesses
+                    performance comparable to calibration-based methods. 
+                    Moreover, relative to the training time of <b>ELD (32h22min / 11h42min), 
+                    LED (10min26s / 12min6s) requires only 0.5%/1.7% of it.</b>
+                    <details>
+                        <summary>Experiments on More Architectures</summary>
+                        <img src="assets/exps/arch.png" width="80%" />
+                    </details>
                 </p>
-                
-                <div style="width: 100%; display: inline-block;">
-                <center>
-                <div class="compare" style="margin: 10px; width: 48%; float: left;">
-                    <!-- The after image is last -->
-                    <img class="slider-image" src="./assets/results/10185_00_0.1s/10185_00_0.1s.ARW.jpg"/>
-                     <!-- The before image is first -->
-                    <img class="slider-image" src="./assets/results/10185_00_0.1s/10185_00_0.1s.ARW_1502.png"/>
-                </div>
-                </center>
-                <center>
-                <div class="compare" style="margin: 10px; width: 48%; float: right;">
-                    <!-- The after image is last -->
-                    <img class="slider-image" src="./assets/results/10199_00_0.1s/10199_00_0.1s.ARW.jpg"/>
-                     <!-- The before image is first -->
-                    <img class="slider-image" src="./assets/results/10199_00_0.1s/10199_00_0.1s.ARW_1502.png"/>
-                </div>
-                </center><br/>
 
-                <center>
-                    <div class="compare" style="margin: 10px; width: 48%; float: left;">
-                        <!-- The after image is last -->
-                        <img class="slider-image" src="./assets/results/10105_00_0.1s/10105_00_0.1s.ARW.jpg"/>
-                         <!-- The before image is first -->
-                        <img class="slider-image" src="./assets/results/10105_00_0.1s/10105_00_0.1s.ARW_1502.png"/>
-                    </div>
-                </center>
+                <h1 class="section-name">📸 A <b>Brand-New Dataset</b> Spanning Multiple Camera Models!</h1>
+                <p class="section-content-text">
+                    To further validate the effectiveness of LED across different
+                    cameras, we introduce the DarkRAW dataset. Compared to
+                    existing datasets, our DarkRAW dataset has the following
+                    advantages: 
+                    <details>
+                        <summary>More Details</summary>
+                        <ul>
+                            <li>
+                                <b>Multi-Camera Data</b>: To further demonstrate the 
+                                effectiveness of LED across different cameras (
+                                corresponding to different noise parameters, coordinates
+                                C), our dataset includes five distinct models that are
+                                not covered in existing datasets. Additionally, DarkRAW
+                                includes not only full-frame cameras but also
+                                APS-C format cameras with smaller sensor areas,
+                                which often exhibit stronger noise characteristics.
+                            </li>
+                            <li>
+                                <b>Varied Illumination Settings</b>: The dataset contains
+                                data under five different illumination ratios ($\times$1,
+                                $\times$10, $\times$100, $\times$200 and $\times$300), each representing vary-
+                                ing levels of denoising difficulty.
+                            </li>
+                            <li>
+                                <b>Dual ISO Configurations</b>: For each scene and each
+                                illumination setting, there are two different ISO settings.
+                                These can be used not only for the finetuning
+                                stage of the LED method but also for testing the
+                                robustness of the algorithm under different illumination settings.
+                            </li>
+                        </ul>
+                    </details>
+                    <center><img src="assets/multiraw.jpg" /></center>
+                </p>
+
+                <h1 class="section-name">🎑 More Visual Result 🌅</h1>
+
+                <div style="width: 100%; display: inline-block;">
                 <center>
                     <div class="compare" style="margin: 10px; width: 48%; float: right;">
                         <!-- The after image is last -->
-                        <img class="slider-image" src="./assets/results/10077_00_0.1s/10077_00_0.1s.ARW.jpg"/>
-                         <!-- The before image is first -->
-                        <img class="slider-image" src="./assets/results/10077_00_0.1s/10077_00_0.1s.ARW_1502.png"/>
+                        <img class="slider-image" src="/projects/led-iccv23/assets/results/10077_00_0.1s/10077_00_0.1s.ARW.jpg"/>
+                            <!-- The before image is first -->
+                        <img class="slider-image" src="/projects/led-iccv23/assets/results/10077_00_0.1s/10077_00_0.1s.ARW_1502.png"/>
                     </div>
                 </center>
+                <center>
+                    <div class="compare" style="margin: 10px; width: 48%; float: left;">
+                        <!-- The after image is last -->
+                        <img class="slider-image" src="/projects/led-iccv23/assets/results/10105_00_0.1s/10105_00_0.1s.ARW.jpg"/>
+                            <!-- The before image is first -->
+                        <img class="slider-image" src="/projects/led-iccv23/assets/results/10105_00_0.1s/10105_00_0.1s.ARW_1502.png"/>
+                    </div>
+                </center><br/>
+
+                
+                <center>
+                    <div class="compare" style="margin: 10px; width: 48%; float: right;">
+                        <!-- The after image is last -->
+                        <img class="slider-image" src="/projects/led-iccv23/assets/results/10199_00_0.1s/10199_00_0.1s.ARW.jpg"/>
+                            <!-- The before image is first -->
+                        <img class="slider-image" src="/projects/led-iccv23/assets/results/10199_00_0.1s/10199_00_0.1s.ARW_1502.png"/>
+                    </div>
+                </center>
+                <center>
+                <div class="compare" style="margin: 10px; width: 48%; float: left;">
+                    <!-- The after image is last -->
+                    <img class="slider-image" src="/projects/led-iccv23/assets/results/10185_00_0.1s/10185_00_0.1s.ARW.jpg"/>
+                        <!-- The before image is first -->
+                    <img class="slider-image" src="/projects/led-iccv23/assets/results/10185_00_0.1s/10185_00_0.1s.ARW_1502.png"/>
                 </div>
+                </center>
+                </div><br/>
 
-                <h1 class="section-name">🤖️ Powerful Ability to Remove Out-Of-Model Noise!</h1>
-                <details>
-                    <summary> Click for more details</summary>
-                    Due to the previous state-of-the-art (SOTA) <a href="https://github.com/Vandermode/ELD">ELD (CVPR, 2020, Oral)</a> being trained solely on synthetic noise, it is unable to handle noise caused by the lens aperture (which is a kind of out-of-model noise).
-                </details>
-                <p class="section-content-text">
-                    Due to fine-tuning with the few-shot real data pairs, our LED can remove noise that was not predefined in the noise model (denoted out-of-model noise), which is also an inherent limitation of calibration-based algorithms.
-                </p>
-
-                <div>
+                <div padding-top="10">
                     <center>
                         <div class="compare" style="margin: 10px; width: 80%;">
                             <!-- The after image is last -->
-                            <img class="slider-image" src="./assets/results/10140_00_0.1s/10140_00_0.1s.ARW.jpg"/>
+                            <img class="slider-image" src="/projects/led-iccv23/assets/results/10140_00_0.1s/10140_00_0.1s.ARW.jpg"/>
                             <!-- The before image is first -->
-                            <img id="eld_image" class="slider-image" src="./assets/results/10140_00_0.1s/10140_00_0.1s.ARW_0_eld_38.8426.jpg"/>
-                            <img id="led_image" class="slider-image" style="display: none;" src="./assets/results/10140_00_0.1s/10140_00_0.1s.ARW_5_cf_39.4064.jpg"/>
+                            <img id="eld_image" class="slider-image" src="/projects/led-iccv23/assets/results/10140_00_0.1s/10140_00_0.1s.ARW_0_eld_38.8426.jpg"/>
+                            <img id="led_image" class="slider-image" style="display: none;" src="/projects/led-iccv23/assets/results/10140_00_0.1s/10140_00_0.1s.ARW_5_cf_39.4064.jpg"/>
                         </div>
                     </center>
             
@@ -256,22 +272,27 @@
 
         <!-- Paper Information -->
         <div class="root-content" style="padding-top: 30px;">
-            <div class="section-content">
-                <h1 class="section-name"> Video </h1>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/Jo8OTAnUYkU?si=mewWnZohYKfRNxiz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
 
             <div class="section-content">
             <h1 class="section-name"> Abstract </h1>
-                <center><img src="assets/teaser.svg" width="600"/></center>
+                <center><img src="/projects/led-iccv23/assets/teaser.svg" width="600"/></center>
                 <p class="section-content-text">
-                    Calibration-based methods (left) have dominated RAW image denoising under extremely low-light environments. However, these methods suffer from several main deficiencies: 1) the calibration procedure is laborious and time-consuming, 2) denoisers for different cameras are difficult to transfer, and 3) the discrepancy between synthetic noise and real noise is enlarged by high digital gain. To overcome the above shortcomings, we propose a calibration-free pipeline for <span style="color: red;">L</span>ighting <span style="color: red;">E</span>very <span style="color: red;">D</span>arkness (<span style="color: red;">LED</span>) (right), regardless of the digital gain or camera sensor. Instead of calibrating the noise parameters and training repeatedly, our method could adapt to a target camera only with few-shot paired data and fine-tuning. In addition, well-designed structural modification during both stages alleviates the domain gap between synthetic and real noise without any extra computational cost. With 2 pairs for each additional digital gain (in total <b style="color: red;">6 pairs</b>) and <b style="color: red;">0.5%</b> iterations, our method achieves superior performance over other calibration-based methods.
+                    Explicit calibration-based methods have dominated RAW image denoising under extremely low-light environments.
+                    However, these approaches are impeded by several critical limitations: a) the calibration process is labor-intensive and time-intensive,
+                    b) there is a challenge in transferring denoisers across different camera models, and c) the disparity between synthetic and real noise
+                    is exacerbated by elevated digital gain. To address these issues, we introduce a groundbreaking pipeline named Lighting Every
+                    Darkness (LED), which is effective regardless of the digital gain or the type of camera sensor used. LED eliminates the need for explicit
+                    noise model calibration, instead utilizing an implicit fine-tuning process that allows quick deployment and requires minimal data. Our
+                    proposed method also includes structural modifications to effectively reduce the discrepancy between synthetic and real noise, without
+                    extra computational demands. It surpasses existing methods in various camera models, including new ones not in public datasets, with
+                    just two pairs per digital gain and only 0.5% of the typical iterations. Furthermore, LED also allows researchers to focus more on deep
+                    learning advancements while still utilizing sensor engineering benefits
                 </p>
             </div>
 
             <div style="padding-top: 20px;">
                 <h1 class="section-name">Method</h1>
-                <center><img src="assets/led_pipeline.svg" width="1000"/></center>
+                <center><img src="/projects/led-iccv23/assets/led_pipeline.svg" width="1000"/></center>
                 <p class="section-content-text">
                     Overview of our LED. <br/>
                     Unlike typical calibration-based algorithms, our method, as shown in the figure, consists of four steps in total:
@@ -290,8 +311,32 @@
                     <details>
                         <summary>Details when deploy</summary>
                         LED's another highlight lies in its final deployment, where the neural network remains completely consistent with other methods! No additional computational overhead is added, thanks to the following reparameterization process.
-                        <center><img src="assets/rep.svg" width="600"/></center>
+                        <center><img src="/projects/led-iccv23/assets/rep.svg" width="600"/></center>
                     </details>
+                </p>
+            </div>
+
+            <div style="padding-top: 20px;">
+                <h1 class="section-name">
+                    LED Pre-training Could Boost Existing Methods!
+                </h1>
+                <details>
+                    <summary>Experiments on Pre-Traning</summary>
+                    <center><img src="assets/exps/boost.png" width="80%"/></center>
+                </details>
+                <p class="section-content-text">
+                    LED pre-training could boost the performance of other
+                    methods. By integrating LED pre-training into various existing
+                    calibration-based or paired data-based methods, ELD and SID,
+                    our approach facilitates notable enhancements in performance.
+                     These improvements are not uniform
+                    but rather depend on the difference of the pre-training
+                    strategies employed. This proves particularly effective in the
+                    industrial applications, where the demands for efficiency are
+                    paramount. The strategic application of LED pre-training
+                    not only boost the performance of the denoiser but also
+                    paves the way for more advanced, adaptable, and efficient
+                    denoising.
                 </p>
             </div>
 
@@ -299,7 +344,7 @@
                 <h1 class="section-name">
                     Discussion on "Why Two Pairs"?
                 </h1>
-                <center><img src="assets/fewshot_list.svg" height="220"/><img src="assets/two_pairs.svg" height="220"/></center>
+                <center><img src="/projects/led-iccv23/assets/fewshot_list.svg" height="220"/><img src="/projects/led-iccv23/assets/two_pairs.svg" height="220"/></center>
                 <p class="section-content-text">
                     The left figure shows the performance of LED as it varies with the number of few-shot data pairs. Notice that when using only one data pair for fine-tuning, LED's performance is not as high as ELD. However, with two data pairs, LED's performance significantly surpasses that of ELD.
                     <br/><br/>
@@ -308,15 +353,6 @@
                     However, due to the presence of errors, the horizontal coordinates of these two points need to be sufficiently different. In other words, the two pairs of images used by LED should have a significant difference in their ISO settings at the time of capture (ISO &lt; 500 and ISO &gt; 5000).
                     <br/><br/>
                     More details (including validation experiments) can be found in our main paper.
-                </p>
-            </div>
-
-            <div style="padding-top: 20px;">
-                <h1 class="section-name">
-                    Customize a Denoiser for Your 📷!
-                </h1>
-                <p class="section-content-text">
-                    We are currently dedicated to training an exceptionally capable network that can generalize well to various scenarios using <strong style="color: brown;">only two data pairs</strong>! We will update this section once we achieve our goal. Stay tuned and look forward to it!
                 </p>
             </div>
 
@@ -333,9 +369,9 @@
                 <pre style="margin-top: 5px;" class="bibtex">
 <code>
 @inproceedings{jin2023lighting,
-    title={Lighting Every Darkness in Two Pairs: A Calibration-Free Pipeline for RAW Denoising},
-    author={Jin, Xin and Xiao, Jia-Wen and Han, Ling-Hao and Guo, Chunle and Zhang, Ruixun and Liu, Xialei and Li, Chongyi},
-    journal={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+    title={Make Explict Calibration Implicit: "Calibrate" Denoiser Instead of The Noise Model},
+    author={Jin, Xin and Xiao, Jia-Wen and Han, Ling-Hao and Guo, Chunle and Liu, Xialei and Li, Chongyi and Cheng Ming-Ming},
+    journal={Arxiv},
     year={2023}
 }</code>
                 </pre>
