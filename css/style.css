@@ -49,3 +49,129 @@ p {line-height: 1.5em;}
     .publication .row-text {display: block; width: 100%; margin-left: 0;}
     .press {display: block;}
 }
+
+
+/* time line */
+.timeline {
+    /* width: 60%; */
+    /* background: white; */
+    padding: 20px;
+    /* border-radius: 10px; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+.timeline-item {
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 50px;
+}
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+.timeline-item:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: #4285f4;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.timeline-item:after {
+    content: "";
+    position: absolute;
+    left: 9px;
+    top: 30px;
+    height: calc(100% - 20px);
+    width: 2px;
+    background: #4285f4;
+}
+.timeline-item:last-child:after {
+    display: none;
+}
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+td {
+    vertical-align: top;
+    /* padding: 10px; */
+}
+.icon {
+    width: 200px;
+    text-align: center;
+}
+.icon img {
+    height: 50px;
+    object-fit: contain;
+}
+.description {
+    border-left: 2px solid #eee;
+    padding-left: 20px;
+}
+.description h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.description p {
+    margin: 0;
+    color: #666;
+}
+
+/* news */
+.news-container {
+    /* width: 60%; */
+    margin: auto;
+    /* background: white; */
+    /* padding: 20px; */
+    /* border-radius: 10px; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    max-height: 250px; /* 限制高度以实现滚动效果 */
+    overflow-y: auto; /* 使内容可垂直滚动 */
+}
+.news-container h2 {
+    margin-top: 0;
+}
+.news-list {
+    list-style-type: none;
+    padding: 0;
+}
+.news-item {
+    margin-bottom: 10px;
+}
+.news-item span {
+    font-weight: bold;
+}
+.news-item a {
+    color: #1a0dab;
+    text-decoration: none;
+}
+.news-item a:hover {
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+/* navbar */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 5px;
+    padding-left: 20%;
+    padding-right: 20%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    text-align: center;
+}
+.navbar a:hover {
+    background-color: #575757;
+}

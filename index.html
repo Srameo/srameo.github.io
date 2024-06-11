@@ -13,7 +13,15 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<div class="header noselect">
+<!-- <div class="navbar">
+    <a href="#about">About</a>
+    <a href="#news">News</a>
+    <a href="#publications">Publications</a>
+    <a href="#experiences">Experiences</a>
+    <a href="#contact">Contact</a>
+</div> -->
+
+<div class="header noselect" id="about">
     <div class="content row">
         <div class="header-profile-picture"></div>
         <div class="header-text">
@@ -41,26 +49,43 @@
 
 <div class="content" style="padding-bottom: 64px;">
     <!-- News -->
-    <div>
+    <div id="news">
         <h2 class="noselect">News</h2>
-        <ul class="noselect">
-            <li style="margin-bottom: 8px;">2023/07 -- One paper got accepted by ICCV 2023.</li>
-            <li style="margin-bottom: 8px;">2023/05 -- The official code of <span class="italic">DNF: Decouple and Feedback Network for Seeing in The Dark</span> has been released on <a href="https://github.com/Srameo/DNF">Github</a>!</li>
-            <li style="margin-bottom: 8px;">2023/03 -- Excited to announce one paper accepted by CVPR 2023 was selected as <span class="bold">Highlight, 10% of accepted papers, 2.5% of submissions</span>!</li>
-            <li style="margin-bottom: 8px;">2023/03 -- One paper got accepted by CVPR 2023.</li>
-            <li style="margin-bottom: 8px;">2023/01 -- Our paper was awarded <span class="bold">oral presentation</span> qualification by AAAI.</li>
-            <li style="margin-bottom: 8px;">2022/11 -- One paper got accepted by AAAI 2023.</li>
-            <!-- <li style="margin-bottom: 8px;">2022/04 -- I have won the third place in RAW Image Blind De-noising as the team leader in Megcup 2022!</li>
-            <li style="margin-bottom: 8px;">2022/04 -- Our team have won the third place in Night Photography Rendering Challenge, CVPRW 2022!</li>
-            <li style="margin-bottom: 8px;">2022/03 -- One paper got accepted by ICPR 2022 and selected as <span class="bold">oral presentation</span>.</li> -->
-        </ul>
+        <div class="news-container">
+            <ul class="news-list noselect">
+                <li class="news-item">2024/06 -- We present <a href="/projects/le3d/">LE3D</a>, enabling real-time rendering for HDR view synthesis!</li>
+                <li class="news-item">2024/01 -- The <a href="https://codalab.lisn.upsaclay.fr/competitions/17017">Few-shot RAW Image Denoising Track</a> in MIPI 2024 has started!</li>
+                <li class="news-item">2023/12 -- A honor to co-organize the <a href="https://mipi-challenge.org/MIPI2024/">MIPI workshop</a> @ CVPR2024 with NTU S-Lab!</li>
+                <li class="news-item">2023/12 -- We have released a <a href="/projects/led-extension/">extension version</a> of our <a href="/projects/led-iccv23/">LED</a>. Code is also released on <a href="https://github.com/Srameo/LED">Github</a>!</li>
+                <li class="news-item">2023/07 -- The official code of <span class="italic">Lighting Every Darkness in Two Pairs: A Calibration-Free Pipeline for RAW Denoising</span> has been released on <a href="https://github.com/Srameo/LED">Github</a>!</li>
+                <li class="news-item">2023/07 -- One paper, including <a href="/projects/led-iccv23/">LED</a>, got accepted by ICCV 2023.</li>
+                <li class="news-item">2023/05 -- The official code of <span class="italic">DNF: Decouple and Feedback Network for Seeing in The Dark</span> has been released on <a href="https://github.com/Srameo/DNF">Github</a>!</li>
+                <li class="news-item">2023/03 -- Excited to announce one paper accepted by CVPR 2023 was selected as <span class="bold">Highlight, 10% of accepted papers, 2.5% of submissions</span>!</li>
+                <li class="news-item">2023/03 -- One paper got accepted by CVPR 2023.</li>
+                <li class="news-item">2023/01 -- Our paper was awarded <span class="bold">oral presentation</span> qualification by AAAI.</li>
+                <li class="news-item">2022/11 -- One paper got accepted by AAAI 2023.</li>
+                <li class="news-item">2022/04 -- I have won the third place in RAW Image Blind De-noising as the team leader in Megcup 2022!</li>
+                <li class="news-item">2022/04 -- Our team have won the third place in Night Photography Rendering Challenge, CVPRW 2022!</li>
+                <li class="news-item">2022/03 -- One paper got accepted by ICPR 2022 and selected as <span class="bold">oral presentation</span>.</li>
+            </ul>
+        </div>
     </div>
 
     <!-- Publications -->
-    <div>
+    <div id="publications">
         <h2 class="noselect">Publications</h2>
-        <p>* Eauql contribution. # Corresponding author.</p>
+        <p>* Eauql contribution. # Corresponding author. Representative papers are <span style="background-color: #fff8df">highlighted</span>.</p>
         <!-- <p>Papers sorted by recency. Representative papers are <span style="background-color: #fff8df">highlighted</span>.</p> -->
+        <div class="highlight publication row clearfix">
+            <div class="row-media" style="height: 120px; background-image: url(/assets/paper_teaser/le3d.gif); background-color: black;"></div>
+            <div class="row-text">
+                <a class="publication-title bold" href="/projects/le3d">Lighting Every Darkness with 3DGS: Fast Training and Real-Time Rendering for HDR View Synthesis</a><br/>
+                <span class="bold">Xin Jin</span>*, Pengyi Jiao*, Zheng-Peng Duan, Xingchao Yang, Chun-Le Guo, Bo Ren, Chongyi Li.<br/>
+                <span class="italic">arxiv</span>, 2024 
+                <img style="position: relative; top:6px;" src="https://img.shields.io/github/stars/Srameo/LE3D?label=%F0%9F%8C%9F%20Star&color=blue">&nbsp;<img style="position: relative; top:6px;" src="https://img.shields.io/github/forks/Srameo/LE3D?label=%F0%9F%94%A7%20Fork&color=green"><br/>
+                <a class="btn btn-dark" href="/projects/le3d">project</a> / <a class="btn btn-red" href="">paper</a> / <a class="btn btn-dark" href="https://github.com/Srameo/LE3D">code</a> / <a class="btn btn-dark" href="bibtex/jin2024le3d.html">bibtex</a>
+            </div>
+        </div>
         <div class="publication row clearfix">
             <div class="row-media" style="background-image: url(/projects/led-extension/assets/multiraw.jpg);"></div>
             <div class="row-text">
@@ -72,7 +97,7 @@
                 <a class="btn btn-dark" href="/projects/led-extension">project</a> / <a class="btn btn-red" href="https://arxiv.org/abs/2308.03448v2">paper</a> / <a class="btn btn-dark" href="https://github.com/Srameo/LED">code</a> / <a class="btn btn-dark" href="bibtex/jin2023make.html">bibtex</a>
             </div>
         </div>
-        <div class="publication row clearfix">
+        <div class="highlight publication row clearfix">
             <div class="row-media" style="background-image: url(/assets/paper_teaser/led_teaser.png);"></div>
             <div class="row-text">
                 <a class="publication-title bold" href="https://arxiv.org/abs/2308.03448v1">Lighting Every Darkness in Two Pairs: A Calibration-Free Pipeline for RAW Denoising</a><br/>
@@ -87,7 +112,7 @@
                 <a class="publication-title bold" href="https://openaccess.thecvf.com/content/CVPR2023/papers/Jin_DNF_Decouple_and_Feedback_Network_for_Seeing_in_the_Dark_CVPR_2023_paper.pdf">DNF: Decouple and Feedback Network for Seeing in the Dark</a><br/>
                 <span class="bold">Xin Jin</span>*, Ling-Hao Han*, Zhen Li, Chun-Le Guo#,  Zhi Chai, Chong-Yi Li.<br/>
                 <span class="italic"><a href="https://cvpr2023.thecvf.com/">CVPR</a></span>, 2023, (<span style="color: #f09228;">Highlight</span>) <img style="position: relative; top:6px;" src="https://img.shields.io/github/stars/Srameo/DNF?label=%F0%9F%8C%9F%20Star&color=blue">&nbsp;<img style="position: relative; top:6px;" src="https://img.shields.io/github/forks/Srameo/DNF?label=%F0%9F%94%A7%20Fork&color=green"><br/>
-                <a class="btn btn-dark" href="">project [TBD]</a> / <a class="btn btn-red" href="https://openaccess.thecvf.com/content/CVPR2023/papers/Jin_DNF_Decouple_and_Feedback_Network_for_Seeing_in_the_Dark_CVPR_2023_paper.pdf">paper</a> / <a class="btn btn-dark" href="https://github.com/Srameo/DNF">code</a> / <a class="btn btn-dark" href="bibtex/jin2023dnf.html">bibtex</a>
+                <a class="btn btn-red" href="https://openaccess.thecvf.com/content/CVPR2023/papers/Jin_DNF_Decouple_and_Feedback_Network_for_Seeing_in_the_Dark_CVPR_2023_paper.pdf">paper</a> / <a class="btn btn-dark" href="https://github.com/Srameo/DNF">code</a> / <a class="btn btn-dark" href="bibtex/jin2023dnf.html">bibtex</a>
             </div>
         </div>
         <div class="publication row clearfix">
@@ -110,6 +135,73 @@
         </div>
     </div>
 
+    <!-- Experience -->
+    <div id="experiences">
+        <h2 class="noselect">Experience</h2>
+        <div class="timeline noselect">
+            <div class="timeline-item">
+                <table>
+                    <tr>
+                        <td class="icon">
+                            <a href="https://adobe.com/">
+                            <img style="width: 125px;" src="https://www.adobe.com/home/assets/adobe_logo_red.svg" alt="Adobe"></a><br>
+                            <span style="font-size: 13px;">2024/06 - Present <br> San Jose CA, USA</span>
+                        </td>
+                        <td class="description">
+                            <h4><b>Research Scientist Intern</b></h4>
+                            <p style="font-size: 13px;">Working with amazing researchers such as <a href="https://sniklaus.com/">Simon Niklaus</a>, <a href="https://likesum.github.io/">Zhihao Xia</a> and <a href="https://people.csail.mit.edu/jiawen/">Jiawen Chen</a>.</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="timeline-item">
+                <table>
+                    <tr>
+                        <td class="icon">
+                            <a href="https://mipi-challenge.org/MIPI2024/">
+                            <img src="/assets/experience/mipi.png" alt="MIPI"></a><br>
+                            <span style="font-size: 13px;">2023/12 - 2024/06<br> Seattle WA, USA</span>
+                        </td>
+                        <td class="description">
+                            <h4><b>Joint Organizer</b></h4>
+                            <p style="font-size: 13px;">Organized the MIPI workshop @ CVPR 2024 with <a href="https://www.mmlab-ntu.com/person/ccloy/">Chen Change Loy</a>, <a href="https://www.jimmyren.com/">Jimmy S. Ren</a>, <a href="https://shangchenzhou.com/">Shangchen Zhou</a>, etc. I lead the <a href="https://codalab.lisn.upsaclay.fr/competitions/17017">Few-shot RAW Image Denoising Track</a>.</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="timeline-item">
+                <table>
+                    <tr>
+                        <td class="icon">
+                            <a href="https://en.megvii.com/">
+                            <img src="/assets/experience/megvii.png" alt="Megvii"></a><br>
+                            <span style="font-size: 13px;">2023/05 - 2024/06<br> Beijing, China</span>
+                        </td>
+                        <td class="description">
+                            <h4><b>Research Scientist Intern</b></h4>
+                            <p style="font-size: 13px;">Worked with Xingchao Yang, where we worked on Burst Denoising and HDR view synthesis (<a href="/projects/le3d/">LE3D</a>).</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="timeline-item">
+                <table>
+                    <tr>
+                        <td class="icon">
+                            <a href="https://en.megvii.com/">
+                            <img src="/assets/experience/megvii.png" alt="Megvii"></a><br>
+                            <span style="font-size: 13px;">2022/05 - 2022/09<br> Beijing, China</span>
+                        </td>
+                        <td class="description">
+                            <h4><b>Research Engineer Intern</b></h4>
+                            <p style="font-size: 13px;">Worked with <a href="https://bigeagle.me/about/">Yuzhi Wang</a>, where I came up with the idea of <a href="/projects/led-iccv23/">LED</a>.</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
     <!-- Awards -->
     <div>
         <h2 class="noselect">Competitions and Awards</h2>
@@ -119,15 +211,13 @@
         </ul>
     </div>
 
-    <!-- Experience -->
+    <!-- Education -->
     <div>
-        <h2 class="noselect">Experience</h2>
+        <h2 class="noselect">Education</h2>
         <div  class="noselect">
-            <span><strong>2022.9 - now</strong>, I am a Ph.D student at <a href="https://cc.nankai.edu.cn/">College of Computer Science, Nankai University</a>, under the supervision of Prof. <a href="https://mmcheng.net/">Ming-Ming Cheng</a>.</span>
+            <span><strong>2022/09 - Present</strong>, I am a Ph.D student at <a href="https://cc.nankai.edu.cn/">College of Computer Science, Nankai University</a>, under the supervision of Prof. <a href="https://mmcheng.net/">Ming-Ming Cheng</a>.</span>
             <br/><br/>
-            <span><strong>2022.5 - 2022.9</strong>, I interned at <a href="https://en.megvii.com/">Megvii Technology</a>, supervised by <a href="https://bigeagle.me/about/">Yuzhi Wang</a>.</span>
-            <br/><br/>
-            <span><strong>2018.9 - 2022.7</strong>, I was an undergraduate student at <a href="https://csen.nankai.edu.cn/">College of Software, Nankai University</a>.</span>
+            <span><strong>2018/09 - 2022/07</strong>, I was an undergraduate student at <a href="https://csen.nankai.edu.cn/">College of Software, Nankai University</a>.</span>
         </div>
     </div>
 
