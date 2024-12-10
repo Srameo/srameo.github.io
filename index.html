@@ -53,6 +53,7 @@
         <h2 class="noselect">News</h2>
         <div class="news-container">
             <ul class="news-list noselect">
+                <li class="news-item">2024/12 -- <a href="https://arxiv.org/abs/2407.03757">DiffRetouch</a> has been accepted by AAAI 2025!</li>
                 <li class="news-item">2024/10 -- <a href="/projects/le3d/">LE3D</a> has been accepted by NeurIPS 2024! We are working on the release of the code. Please stay tuned! Hope to see you guys at Vancouver, Canada!</li>
                 <li class="news-item">2024/06 -- We present <a href="/projects/le3d/">LE3D</a>, enabling real-time rendering for HDR view synthesis!</li>
                 <li class="news-item">2024/01 -- The <a href="https://codalab.lisn.upsaclay.fr/competitions/17017">Few-shot RAW Image Denoising Track</a> in MIPI 2024 has started!</li>
@@ -74,10 +75,29 @@
 
     <!-- Publications -->
     <div id="publications">
-        <h2 class="noselect">Publications</h2>
-        <p>* Eauql contribution. # Corresponding author. Representative papers are <span style="background-color: #fff8df">highlighted</span>.</p>
-        <!-- <p>Papers sorted by recency. Representative papers are <span style="background-color: #fff8df">highlighted</span>.</p> -->
-        <div class="highlight publication row clearfix">
+        <h2 class="noselect">Publications <span style="font-size: 12px; color: #666;">(click to sort: 
+            <a class="btn active" id="sort-author" onclick="sortPublications('author')">first author</a> / 
+            <a class="btn" id="sort-date" onclick="sortPublications('date')">date</a>)</span></h2>
+        <p>* Equal contribution. # Corresponding author. Representative papers are <span style="background-color: #fff8df">highlighted</span>.</p>
+        <div class="publication row clearfix" data-author="Zhong-Yu Li" data-date="202412">
+            <div class="row-media" style="height: 120px; background-image: url(/assets/paper_teaser/aodraw_teaser.jpg);"></div>
+            <div class="row-text">
+                <a class="publication-title bold" href="https://arxiv.org/abs/2411.15678">Towards RAW Object Detection in Diverse Conditions</a><br/>
+                Zhong-Yu Li, <span class="bold">Xin Jin</span>, Boyuan Sun, Chun-Le Guo, Ming-Ming Cheng <br/>
+                <span class="italic">arxiv</span>, 2024 <br/>
+                <a class="btn btn-red" href="https://arxiv.org/abs/2411.15678">paper</a> / <a class="btn btn-dark" href="https://github.com/lzyhha/AODRaw">code</a> / <a class="btn btn-dark" href="bibtex/li2024towards.html">bibtex</a>
+            </div>
+        </div>
+        <div class="publication row clearfix" data-author="Zheng-Peng Duan" data-date="202407">
+            <div class="row-media" style="height: 100px; background-image: url(/assets/paper_teaser/diffretouch_teaser.png);"></div>
+            <div class="row-text">
+                <a class="publication-title bold" href="https://arxiv.org/abs/2407.03757">DiffRetouch: Using Diffusion to Retouch on the Shoulder of Experts</a><br/>
+                Zheng-Peng Duan, Jiawei zhang, Zheng Lin, <span class="bold">Xin Jin</span>, Dongqing Zou, Chunle Guo, Chongyi Li <br/>
+                <span class="italic"><a href="https://aaai.org/conference/aaai/aaai-25/">AAAI</a></span>, 2025 <br/>
+                <a class="btn btn-red" href="https://arxiv.org/abs/2407.03757">paper</a> / <a class="btn btn-dark" href="bibtex/duan2024diffretouch.html">bibtex</a>
+            </div>
+        </div>
+        <div class="highlight publication row clearfix" data-author="Xin Jin" data-date="202405">
             <div class="row-media" style="height: 120px; background-image: url(/assets/paper_teaser/le3d.gif); background-color: black;"></div>
             <div class="row-text">
                 <a class="publication-title bold" href="/projects/le3d">Lighting Every Darkness with 3DGS: Fast Training and Real-Time Rendering for HDR View Synthesis</a><br/>
@@ -87,7 +107,7 @@
                 <a class="btn btn-dark" href="/projects/le3d">project</a> / <a class="btn btn-red" href="https://arxiv.org/abs/2406.06216">paper</a> / <a class="btn btn-dark" href="https://github.com/Srameo/LE3D">code</a> / <a class="btn btn-dark" href="bibtex/jin2024le3d.html">bibtex</a>
             </div>
         </div>
-        <div class="publication row clearfix">
+        <div class="publication row clearfix" data-author="Xin Jin" data-date="202312">
             <div class="row-media" style="background-image: url(/projects/led-extension/assets/multiraw.jpg);"></div>
             <div class="row-text">
                 <a class="publication-title bold" href="https://arxiv.org/abs/2308.03448v2">Make Explict Calibration Implicit: "Calibrate" Denoiser Instead of The Noise Model</a><br/>
@@ -98,7 +118,7 @@
                 <a class="btn btn-dark" href="/projects/led-extension">project</a> / <a class="btn btn-red" href="https://arxiv.org/abs/2308.03448v2">paper</a> / <a class="btn btn-dark" href="https://github.com/Srameo/LED">code</a> / <a class="btn btn-dark" href="bibtex/jin2023make.html">bibtex</a>
             </div>
         </div>
-        <div class="highlight publication row clearfix">
+        <div class="highlight publication row clearfix" data-author="Xin Jin" data-date="202308">
             <div class="row-media" style="background-image: url(/assets/paper_teaser/led_teaser.png);"></div>
             <div class="row-text">
                 <a class="publication-title bold" href="https://arxiv.org/abs/2308.03448v1">Lighting Every Darkness in Two Pairs: A Calibration-Free Pipeline for RAW Denoising</a><br/>
@@ -107,7 +127,7 @@
                 <a class="btn btn-dark" href="/projects/led-iccv23">project</a> / <a class="btn btn-red" href="https://arxiv.org/abs/2308.03448v1">paper</a> / <a class="btn btn-dark" href="https://github.com/Srameo/LED">code</a> / <a class="btn btn-dark" href="bibtex/jin2023lighting.html">bibtex</a>
             </div>
         </div>
-        <div class="publication row clearfix">
+        <div class="publication row clearfix" data-author="Xin Jin" data-date="202305">
             <div class="row-media" style="height: 120px; background-image: url(/assets/paper_teaser/dnf_teaser.gif);"></div>
             <div class="row-text">
                 <a class="publication-title bold" href="https://openaccess.thecvf.com/content/CVPR2023/papers/Jin_DNF_Decouple_and_Feedback_Network_for_Seeing_in_the_Dark_CVPR_2023_paper.pdf">DNF: Decouple and Feedback Network for Seeing in the Dark</a><br/>
@@ -116,7 +136,7 @@
                 <a class="btn btn-red" href="https://openaccess.thecvf.com/content/CVPR2023/papers/Jin_DNF_Decouple_and_Feedback_Network_for_Seeing_in_the_Dark_CVPR_2023_paper.pdf">paper</a> / <a class="btn btn-dark" href="https://github.com/Srameo/DNF">code</a> / <a class="btn btn-dark" href="bibtex/jin2023dnf.html">bibtex</a>
             </div>
         </div>
-        <div class="publication row clearfix">
+        <div class="publication row clearfix" data-author="Chun-Le Guo" data-date="202302">
             <div class="row-media" style="background-image: url(/assets/paper_teaser/uranker_teaser.png);"></div>
             <div class="row-text">
                 <a class="publication-title bold" href="https://arxiv.org/abs/2208.06857">Underwater Ranker: Learn Which Is Better and How to Be Better</a><br/>
@@ -125,7 +145,7 @@
                 <a class="btn btn-dark" href="https://li-chongyi.github.io/URanker_files/">project</a> / <a class="btn btn-red" href="https://arxiv.org/abs/2208.06857">paper</a> / <a class="btn btn-dark" href="https://github.com/RQ-Wu/UnderwaterRanker">code</a> / <a class="btn btn-dark" href="https://pan.baidu.com/share/init?surl=K29p3gJWYa1ZM0vMHqI4uA">dataset (pwd: nuin)</a> / <a class="btn btn-dark" href="bibtex/guo2023underwater.html">bibtex</a>
             </div>
         </div>
-        <div class="publication row clearfix">
+        <div class="publication row clearfix" data-author="Jiacen Guo" data-date="202208">
             <div class="row-media" style="background-image: url(/assets/paper_teaser/icpr2023teaser.png);"></div>
             <div class="row-text">
                 <a class="publication-title bold" href="https://ieeexplore.ieee.org/abstract/document/9956275/">A Novel Low-light Image Enhancement Algorithm Based On Information Assistance</a><br/>
@@ -146,11 +166,11 @@
                         <td class="icon">
                             <a href="https://adobe.com/">
                             <img style="width: 125px;" src="https://www.adobe.com/home/assets/adobe_logo_red.svg" alt="Adobe"></a><br>
-                            <span style="font-size: 13px;">2024/06 - 2024/11 <br> San Jose CA, USA & Remote</span>
+                            <span style="font-size: 13px;">2024/06 - 2024/11 <br> San Jose CA, USA</span>
                         </td>
                         <td class="description">
                             <h4><b>Research Scientist Intern</b></h4>
-                            <p style="font-size: 13px;">Working with amazing researchers such as <a href="https://sniklaus.com/">Simon Niklaus</a>, <a href="https://likesum.github.io/">Zhihao Xia</a>, <a href="https://ztzhang.info/">Zhoutong Zhang</a> and <a href="https://people.csail.mit.edu/jiawen/">Jiawen Chen</a> (<a href="https://graphics.stanford.edu/~levoy/">Marc Levoy</a>'s team), where I am working on practical denoising for in-the-wild videos and provide tech-support for <a href="https://www.adobe.com/products/premiere.html">Premiere Pro</a>.</p>
+                            <p style="font-size: 13px;">Working with amazing researchers such as <a href="https://sniklaus.com/">Simon Niklaus</a>, <a href="https://likesum.github.io/">Zhihao Xia</a>, <a href="https://ztzhang.info/">Zhoutong Zhang</a> and <a href="https://people.csail.mit.edu/jiawen/">Jiawen Chen</a> (<a href="https://graphics.stanford.edu/~levoy/">Marc Levoy</a>'s team), where I was designing novel algorithms on practical denoising for in-the-wild videos and provide tech-support for <a href="https://www.adobe.com/products/premiere.html">Premiere Pro</a>.</p>
                         </td>
                     </tr>
                 </table>
@@ -226,6 +246,45 @@
 
 <div class="footer noselect">
     <div class="footer-content">
-        &copy; 2022 Xin Jin. Acknowledgement to the wonderful homepage template provided by <a style="color: white; text-decoration: underline;" href="https://nicklashansen.github.io">Nicklas Hansen</a>!
+        &copy; 2022 Xin Jin. Acknowledgement to the template provided by <a style="color: white; text-decoration: underline;" href="https://nicklashansen.github.io">Nicklas Hansen</a>, but currently has been modified a lot by myself.
     </div>
 </div>
+
+<script>
+function sortPublications(criteria) {
+    const container = document.getElementById('publications');
+    const publications = Array.from(container.getElementsByClassName('publication'));
+
+    publications.sort((a, b) => {
+        if (criteria === 'author') {
+            if (a.getAttribute('data-author') === 'Xin Jin' && b.getAttribute('data-author') !== 'Xin Jin') {
+                return -1;
+            } else if (a.getAttribute('data-author') !== 'Xin Jin' && b.getAttribute('data-author') === 'Xin Jin') {
+                return 1;
+            } else {
+                return b.getAttribute('data-date') - a.getAttribute('data-date');
+            }
+        } else if (criteria === 'date') {
+            return b.getAttribute('data-date') - a.getAttribute('data-date');
+        }
+    });
+
+    publications.forEach(pub => {
+        container.appendChild(pub);
+        // Add gray overlay to non-first-author publications
+        if (criteria === 'author' && pub.getAttribute('data-author') !== 'Xin Jin') {
+            pub.classList.add('gray-overlay');
+        } else {
+            pub.classList.remove('gray-overlay');
+        }
+    });
+
+    // Toggle active class
+    document.getElementById('sort-author').classList.toggle('active', criteria === 'author');
+    document.getElementById('sort-date').classList.toggle('active', criteria === 'date');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    sortPublications('author');
+});
+</script>
