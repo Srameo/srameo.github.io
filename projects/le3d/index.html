@@ -23,6 +23,23 @@
   <link rel="stylesheet" href="/css/bulma/bulma-carousel.min.css"> -->
 
   <link rel="stylesheet" type="text/css" href="lamp.css">
+  <style>
+    .slider-container {
+        margin: 20px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    .slider-label {
+        margin-bottom: 0;
+        font-size: 16px;
+        color: #333;
+    }
+    input[type="range"] {
+        flex: 1;
+        width: auto;
+    }
+  </style>
 </head>
 
 <body style="width: 100%;">
@@ -141,11 +158,45 @@
     <a name="method"></a>
     <div class="root-content" style="padding-top: 10px; width: 65%;">
         <h1 class="section-name">&#x1F9D1;&#x200D;&#x1F3A8; Create Your Own Video Storyboard! &#x1F9D1;&#x200D;&#x1F3A8;</h1>
+
+        You could try to create your own video storyboard by tuning the exposure, color temperature, and camera pose. Try it out! &#x2B07;
+        <details style="margin-top: 10px; margin-bottom: 20px;">
+            <summary>Tunable Image & Poses</summary>
+            <img id="imageDisplay" src="/projects/le3d/assets/tunable/cam00_ratio5.78_temp7333.jpg" alt="tunable image" style="width:80%; margin: 20px auto; display: block;">
+            <div class="slider-container">
+                <label class="slider-label" for="exposure">Exposure</label>
+                <input type="range" id="exposure" min="0" max="9" step="0.05" value="4.5">
+                <label class="slider-label" for="colorTemperature">Color Temperature</label>
+                <input type="range" id="colorTemperature" min="0" max="9" step="0.05" value="4.5">
+                <label class="slider-label" for="cameraPose">Camera Pose</label>
+                <input type="range" id="cameraPose" min="0" max="9" step="1" value="0">
+            </div>
+        </details>
+
         <video style="width: 100%; margin: auto; display: block;" controls muted>
             <source src="assets/demo_video_interactive_viewer_compressed.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <p class="section-content-text" style="padding-bottom: 20px;">Due to LE3D's capability for real-time rendering, once the reconstruction results are obtained, we can perform <b>real-time rendering</b> on them. Additionally, since the reconstruction results from LE3D are in the HDR color space, it allows for exposure variation as well as local and global tone-mapping operations. Our interactive viewer enables users to edit the scene in real-time, and it will provide functionality for creating video storyboards using keyframes in the future.</p>
+
+        <script>
+            function updateImage() {
+                const exposureList = [0.5, 1.56, 2.61, 3.67, 4.72, 5.78, 6.83, 7.89, 8.94, 10.0];
+                const colorTemperatureList = [4000, 4666, 5333, 6000, 6666, 7333, 8000, 8666, 9333, 10000];
+
+                const exposureValue = exposureList[Math.round(document.getElementById('exposure').value)].toFixed(2);
+                const colorTemperatureValue = colorTemperatureList[Math.round(document.getElementById('colorTemperature').value)];
+                const cameraPoseValue = document.getElementById('cameraPose').value.padStart(2, '0');
+
+                const imagePath = `/projects/le3d/assets/tunable/cam${cameraPoseValue}_ratio${exposureValue}_temp${colorTemperatureValue}.jpg`;
+                console.log(imagePath);
+                document.getElementById('imageDisplay').src = imagePath;
+            }
+
+            document.getElementById('exposure').addEventListener('input', updateImage);
+            document.getElementById('colorTemperature').addEventListener('input', updateImage);
+            document.getElementById('cameraPose').addEventListener('input', updateImage);
+        </script>
     </div>
 </div>
 <div style="background-color: #f5f5f5; margin-right: auto; margin-left: auto;">

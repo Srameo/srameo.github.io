@@ -1,0 +1,18 @@
+
+        EXP_ROOT       = /jiaopengyi/RawGS/RawGS/output/rawgs_v3_2k_training/gardenlights/baseline+cone_scatter_init+color_mlp+near_far_reg
+        ITERATION      = latest
+        N_FRAMES       = 10
+        N_ROTS         = 1
+        FFMPEG_PATH    = /bin/ffmpeg
+        RENDER_DEPTH   = 1
+        RENDER_NEARFAR = 1
+        MAX_RATIO      = 10.0
+        MIN_RATIO      = 0.5
+        NEED_ISP       = True
+        APPLY_HDR      = False
+        EXTR_FILE      = sparse/0/images.bin
+        INTR_FILE      = sparse/0/cameras.bin
+        SHAPE          = (1512, 2016)
+        FIND_META_FROM = datasets/rawnerf
+        DEVICE         = cuda
+    
