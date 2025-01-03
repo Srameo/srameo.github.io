@@ -1401,6 +1401,7 @@ async function main() {
     let sceneIndex = 0;
 
     document.getElementById('prevScene').addEventListener('click', () => {
+        if (!isRendering) return; // 如果正在切换场景，防止多次点击
         isRendering = false;
         sceneIndex = (sceneIndex - 1 + scenes.length) % scenes.length;
         console.log('切换到上一个场景');
@@ -1409,6 +1410,7 @@ async function main() {
     });
 
     document.getElementById('nextScene').addEventListener('click', () => {
+        if (!isRendering) return; // 如果正在切换场景，防止多次点击
         isRendering = false;
         sceneIndex = (sceneIndex + 1) % scenes.length;
         console.log('切换到下一个场景');
