@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<title>LE3D</title>
+
+<meta name="author" content="Ruiqi Wu">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+<link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💡</text></svg>">
+<!-- flexbox -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/twentytwenty/js/jquery-3.2.1.min.js" defer type="text/javascript"></script>
+<script src="/twentytwenty/js/jquery.event.move.js" defer type="text/javascript"></script>
+<script src="/twentytwenty/js/jquery.twentytwenty.js" defer type="text/javascript"></script>
+<link rel="stylesheet" href="/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+<!-- <script src="/js/compare.js"></script> -->
+<!-- navbar -->
+<!-- <script src="/js/navbar.js"></script>
+  <link rel="stylesheet" href="/css/bulma/bulma.min.css">
+  <link rel="stylesheet" href="/css/bulma/bulma-carousel.min.css"> -->
+
+<link rel="stylesheet" type="text/css" href="lamp.css">
+<style>
+    .slider-container {
+        margin: 20px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .slider-label {
+        margin-bottom: 0;
+        font-size: 16px;
+        color: #333;
+    }
+
+    input[type="range"] {
+        flex: 1;
+        width: auto;
+    }
+</style>
+</head>
+
+<body style="width: 100%;">
+    <!-- <nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: transparent; position: absolute;">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://srameo.github.io">
+        <span class="icon">
+            <svg class="svg-inline--fa fa-home fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>
+        </span>
+        </a>
+    
+        <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+            More Research
+            </a>
+            <div class="navbar-dropdown">
+                <a class="navbar-item" href="https://srameo.github.io/projects/led-iccv23">
+                    LED (ICCV 2023)
+                </a>
+                <a class="navbar-item" href="https://github.com/Srameo/DNF">
+                    DNF (RAW LLIE)
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</nav> -->
+
+    <div style="background-color: black;" id="video-box">
+        <!-- <div class="cc rowup"> -->
+        <video style="height: 100%; margin: auto; display: block;" id="teaser-video" autoplay muted>
+            <source src="assets/demo_video_homepage_part1_compressed.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <!-- </div> -->
+    </div>
+    <div class="title-mask" , id="title-mask">
+        <div style="position: absolute; top:20%; left: 0; right: 0;">
+            <h1>
+                <font style="color: red; text-shadow: 0.05em -0.05em rgba(255, 200, 160, 0.634);">L</font>ighting <font
+                    style="color: red; text-shadow: 0.05em -0.05em rgba(255, 200, 160, 0.634);">E</font>very Darkness
+                with <font style="color: red; text-shadow: 0.05em -0.05em rgba(255, 200, 160, 0.634);">3D</font>GS: <br>
+                Fast Training and Real-Time Rendering for HDR View Synthesis
+            </h1>
+            <p style="font-size: 28px; color: rgb(220, 220, 220);"> NeurIPS 2024</p>
+            <br>
+            <p style="font-size: 20px; color: rgb(220, 220, 220);">
+                Xin Jin<sup>1,2,*,#</sup>, &nbsp;&nbsp;
+                Pengyi Jiao<sup>1,*</sup>, &nbsp;&nbsp;
+                Zheng-Peng Duan<sup>1</sup>, &nbsp;&nbsp;
+                Xingchao Yang<sup>2</sup>, &nbsp;&nbsp;
+                Chongyi Li<sup>1</sup>, &nbsp;&nbsp;
+                Chun-Le Guo<sup>1,&dagger;</sup>, &nbsp;&nbsp;
+                Bo Ren<sup>1,&dagger;</sup>
+            </p>
+            <p style="font-size: 15px; color: rgb(220, 220, 220);">
+                <sup>1</sup>VCIP, CS, Nankai University, &nbsp;&nbsp;
+                <sup>2</sup>MEGVII Technology, &nbsp;&nbsp;
+                <sup>*</sup>Equal Contribution, &nbsp;&nbsp;
+                <sup>&dagger;</sup>Corresponding Authors <br>
+                <sup>#</sup>This project is done during Xin Jin's Internship @ MEGVII Technology
+            </p>
+        </div>
+        <div id="button-list">
+            <span class="link-button">
+                <a class="link-button-content" , href="https://arxiv.org/abs/2406.06216">
+                    <span>
+                        <svg class="svg-inline--fa fa-file-pdf fa-w-12" style="position: relative; top: 0.15em;"
+                            aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z">
+                            </path>
+                        </svg>
+                    </span>
+                    &nbsp;
+                    Paper
+                </a>
+            </span>
+            <span class="link-button">
+                <a class="link-button-content" , href="">
+                    <span>
+                        <svg class="svg-inline--fa fa-file-pdf fa-w-12" style="position: relative; top: 0.15em;"
+                            aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z">
+                            </path>
+                        </svg>
+                    </span>
+                    &nbsp;
+                    Supp (Details on Postprocessing)
+                </a>
+            </span>
+            <span class="link-button">
+                <a class="link-button-content" , href="index.html">
+                    <svg class="svg-inline--fa fa-tv" aria-hidden="true" style="position: relative; top: 0.15em;"
+                        width="1em" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill="currentColor" d="M2.5 13h11a.5.5 0 0 0 .5-.5V4h-12v8.5a.5.5 0 0 0 .5.5zM0 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 
+                    2v9a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3z" />
+                    </svg>
+                    &nbsp;
+                    Web Demo
+                </a>
+            </span>
+            <span class="link-button">
+                <a class="link-button-content" href="https://github.com/Srameo/LE3D" , target="_blank">
+                    <span>
+                        <svg class="svg-inline--fa fa-file-pdf" aria-hidden="true" version="1.1" viewBox="0 0 16 16"
+                            width="1.2em" style="position: relative; top: 0.25em;">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+                            </path>
+                        </svg>
+                    </span>
+                    &nbsp;
+                    Code & Interactive Viewer
+                </a>
+            </span>
+            <span class="link-button">
+                <a class="link-button-content" , href="#bib">
+                    <span>
+                        <svg class="svg-inline--fa fa-file-pdf" aria-hidden="true"
+                            style="position: relative; top: 0.15em;" width="1em" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" class="bi bi-bookmarks" viewBox="0 0 16 16">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"
+                                fill="white"></path>
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"
+                                fill="white"></path>
+                        </svg>
+                    </span>
+                    &nbsp;
+                    BibTex
+                </a>
+            </span>
+            <br>
+        </div>
+        <div class="click" , id="scroll-btn">
+            <div class="circle-breath"></div>
+        </div>
+        <div class="click">
+            <p>Click to learn more</p>
+        </div>
+    </div>
+    <div style="background-color: white; margin-right: auto; margin-left: auto;">
+        <a name="method"></a>
+        <div class="root-content" style="padding-top: 10px; width: 65%;">
+            <h1 class="section-name">&#x1F9D1;&#x200D;&#x1F3A8; Create Your Own Video Storyboard!
+                &#x1F9D1;&#x200D;&#x1F3A8;</h1>
+
+            You could try to create your own video storyboard by tuning the exposure, color temperature, and camera
+            pose. Try it out! &#x2B07;
+            <details style="margin-top: 10px; margin-bottom: 20px;">
+                <summary>Tunable Image & Poses</summary>
+                <img id="imageDisplay" src="/projects/le3d/assets/tunable/cam00_ratio5.78_temp7333.jpg"
+                    alt="tunable image" style="width:80%; margin: 20px auto; display: block;">
+                <div class="slider-container">
+                    <label class="slider-label" for="exposure">Exposure</label>
+                    <input type="range" id="exposure" min="0" max="9" step="0.05" value="4.5">
+                    <label class="slider-label" for="colorTemperature">Color Temperature</label>
+                    <input type="range" id="colorTemperature" min="0" max="9" step="0.05" value="4.5">
+                    <label class="slider-label" for="cameraPose">Camera Pose</label>
+                    <input type="range" id="cameraPose" min="0" max="9" step="1" value="0">
+                </div>
+            </details>
+
+            <video style="width: 100%; margin: auto; display: block;" controls muted>
+                <source src="assets/demo_video_interactive_viewer_compressed.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="section-content-text" style="padding-bottom: 20px;">Due to LE3D's capability for real-time
+                rendering, once the reconstruction results are obtained, we can perform <b>real-time rendering</b> on
+                them. Additionally, since the reconstruction results from LE3D are in the HDR color space, it allows for
+                exposure variation as well as local and global tone-mapping operations. Our interactive viewer enables
+                users to edit the scene in real-time, and it will provide functionality for creating video storyboards
+                using keyframes in the future.</p>
+
+            <script>
+                function updateImage() {
+                    const exposureList = [0.5, 1.56, 2.61, 3.67, 4.72, 5.78, 6.83, 7.89, 8.94, 10.0];
+                    const colorTemperatureList = [4000, 4666, 5333, 6000, 6666, 7333, 8000, 8666, 9333, 10000];
+
+                    const exposureValue = exposureList[Math.round(document.getElementById('exposure').value)].toFixed(2);
+                    const colorTemperatureValue = colorTemperatureList[Math.round(document.getElementById('colorTemperature').value)];
+                    const cameraPoseValue = document.getElementById('cameraPose').value.padStart(2, '0');
+
+                    const imagePath = `/projects/le3d/assets/tunable/cam${cameraPoseValue}_ratio${exposureValue}_temp${colorTemperatureValue}.jpg`;
+                    console.log(imagePath);
+                    document.getElementById('imageDisplay').src = imagePath;
+                }
+
+                document.getElementById('exposure').addEventListener('input', updateImage);
+                document.getElementById('colorTemperature').addEventListener('input', updateImage);
+                document.getElementById('cameraPose').addEventListener('input', updateImage);
+            </script>
+        </div>
+    </div>
+    <div style="background-color: #f5f5f5; margin-right: auto; margin-left: auto;">
+        <div class="root-content" style="padding-top: 10px; width: 65%; padding-bottom: 10px;">
+            <h1 class="section-name" style="margin-bottom: 0px;">&#127386; Comparison Between LE3D, RawNeRF and
+                RawGS<sup>*</sup></h1>
+            <p>RawGS<sup>*</sup> denotes a 3DGS trained with RawNeRF's weighted loss and multi-exposure strategy.</p>
+            <table style="width: 100%;">
+                <tbody>
+                    <tr class="result-row">
+                        <td>
+                            <video style="width: 100%; margin: auto; display: block;" controls muted>
+                                <source src="assets/demo_video_compare_rawnerf_compressed.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video><br>
+                            <span style="font-size: 22px;">Comparison with RawNeRF</span>
+                        </td>
+                        <td>
+                            <video style="width: 100%; margin: auto; display: block;" controls muted>
+                                <source src="assets/demo_video_compare_rawgs_compressed.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video><br>
+                            <span style="font-size: 22px;">Comparison with RawGS</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="section-content-text">Compared to RawNeRF (left), LE3D can perform real-time rendering at 2K
+                resolution, and as a result, it can also conduct nearly real-time postprocessing (our interactive
+                viewer). In comparison with RawGS, LE3D possesses superior capabilities in scene structure optimization,
+                and additionally, it has fewer residual floaters in the air.</p>
+        </div>
+    </div>
+    <div style="background-color: white; margin-right: auto; margin-left: auto;">
+        <div class="root-content" style="padding-top: 10px;width: 65%; padding-bottom: 10px;">
+            <h1 class="section-name">&#127889; Denoising Ability &#127747;</h1>
+            <table style="width: 100%;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="compare" style="width: 100%;">
+                                <!-- The after image is last -->
+                                <img class="slider-image" src="assets/noisy_1.jpg" />
+                                <!-- The before image is first -->
+                                <img class="slider-image" src="assets/le3d_1.jpg" />
+                            </div>
+                        </td>
+                        <td>
+                            <div class="compare" style="width: 100%;">
+                                <!-- The after image is last -->
+                                <img class="slider-image" src="assets/noisy_2.jpg" />
+                                <!-- The before image is first -->
+                                <img class="slider-image" src="assets/le3d_2.jpg" />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="compare" style="width: 100%;">
+                                <!-- The after image is last -->
+                                <img class="slider-image" src="assets/noisy_3.jpg" />
+                                <!-- The before image is first -->
+                                <img class="slider-image" src="assets/le3d_3.jpg" />
+                            </div>
+                        </td>
+                        <td>
+                            <div class="compare" style="width: 100%;">
+                                <!-- The after image is last -->
+                                <img class="slider-image" src="assets/noisy_4.jpg" />
+                                <!-- The before image is first -->
+                                <img class="slider-image" src="assets/le3d_4.jpg" />
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="section-content-text">LE3D has a natural noise resistance similar to RawNeRF, which is attributed
+                to the noise2noise assumption and the fact that the noise is entirely located on the camera plane,
+                rather than being distributed in space.</p>
+        </div>
+    </div>
+    <div style="background-color: #f5f5f5; margin-right: auto; margin-left: auto;">
+        <div class="root-content" style="padding-top: 10px; width: 65%; padding-bottom: 10px;">
+            <div>
+                <h1 class="section-name" style="margin-top: 30px; text-align: left; font-size: 25px;">
+                    BibTex
+                </h1>
+                <a name="bib"></a>
+                <pre style="margin-top: 5px;" class="bibtex">
+<code>
+@inproceedings{jin2024le3d,
+      title={Lighting Every Darkness with 3DGS: Fast Training and Real-Time Rendering for HDR View Synthesis},
+      author={Jin, Xin and Jiao, Pengyi and Duan, Zheng-Peng and Yang, Xingchao and Guo, Chun-Le and Ren, Bo and Li, Chong-Yi},
+      booktitle={NeurIPS},
+      year={2024}
+}</code></pre>
+            </div>
+            <div style="margin-bottom: 0px;">
+                <h1 class="section-name"
+                    style="margin-top: 0px; margin-bottom: 10px; text-align: left; font-size: 25px;">
+                    Contact
+                </h1>
+                <p class="section-content-text">
+                    Feel free to contact us at <strong>xjin[AT]mail.nankai.edu.cn</strong>!
+                </p>
+            </div>
+        </div>
+    </div>
+    <center>
+        <div style="background-color: white; margin-top: 20px;">
+            <img src="https://counter4.optistats.ovh/private/freecounterstat.php?c=568y6qtpmt9mabtqjyhulwcb2qym9fry"
+                title="hit counter" alt="hit counter">
+            <p>Visitor Count</p>
+        </div>
+    </center>
+
+
+    <script>
+        var vid = document.getElementById("teaser-video");
+        var playInterval = 1000; // 间隔时间，单位为毫秒，这里设置为5秒
+
+        vid.addEventListener('ended', function () {
+            // 视频结束后，暂停指定的间隔时间
+            vid.pause();
+            setTimeout(function () {
+                vid.play(); // 间隔时间结束后继续播放
+            }, playInterval);
+        });
+    </script>
+    <script src="/js/compare.js"></script>
+</body>
+
+<script>
+    window_height = document.documentElement.clientHeight;
+    video_box = document.getElementById('video-box');
+    title_mask = document.getElementById('title-mask');
+    document.getElementsByTagName
+    imgs = video_box.getElementsByTagName('img');
+    console.log(String(window_height) + 'px')
+    video_box.style.height = String(window_height) + 'px'
+    title_mask.style.height = String(window_height) + 'px'
+    for (i in imgs) {
+        if (i < 64) {
+            imgs[i].style.height = String(window_height / 4) + 'px';
+        }
+    }
+
+    var scroll_btn = document.getElementById('scroll-btn');
+    scroll_btn.addEventListener("click", function () {
+        window.scrollTo({ top: window_height, behavior: 'smooth' });
+    })
+</script>
