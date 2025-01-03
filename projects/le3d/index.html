@@ -1,344 +1,466 @@
-<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
-  <title>LE3D</title>
-  
-  <meta name="author" content="Ruiqi Wu">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💡</text></svg>">
-  <!-- flexbox -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="/twentytwenty/js/jquery-3.2.1.min.js" defer type="text/javascript"></script>
-  <script src="/twentytwenty/js/jquery.event.move.js" defer type="text/javascript"></script>
-  <script src="/twentytwenty/js/jquery.twentytwenty.js" defer type="text/javascript"></script>
-  <link rel="stylesheet" href="/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" /> 
-  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-  <!-- <script src="/js/compare.js"></script> -->
-  <!-- navbar -->
-  <!-- <script src="/js/navbar.js"></script>
-  <link rel="stylesheet" href="/css/bulma/bulma.min.css">
-  <link rel="stylesheet" href="/css/bulma/bulma-carousel.min.css"> -->
+<head>
+    <title>LE3D: Lighting Every Darkness with 3DGS</title>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <style>
+        body {
+            overflow: hidden;
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+            font-family: sans-serif;
+            background: black;
+            text-shadow: 0 0 3px black;
+        }
 
-  <link rel="stylesheet" type="text/css" href="lamp.css">
-  <style>
-    .slider-container {
-        margin: 20px;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-    .slider-label {
-        margin-bottom: 0;
-        font-size: 16px;
-        color: #333;
-    }
-    input[type="range"] {
-        flex: 1;
-        width: auto;
-    }
-  </style>
-</head>
+        a,
+        body {
+            color: white;
+        }
 
-<body style="width: 100%;">
-<!-- <nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: transparent; position: absolute;">
-    <div class="navbar-brand">
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        </a>
-    </div>
-    <div class="navbar-menu">
-        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-        <a class="navbar-item" href="https://srameo.github.io">
-        <span class="icon">
-            <svg class="svg-inline--fa fa-home fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>
-        </span>
-        </a>
-    
-        <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-            More Research
-            </a>
-            <div class="navbar-dropdown">
-                <a class="navbar-item" href="https://srameo.github.io/projects/led-iccv23">
-                    LED (ICCV 2023)
-                </a>
-                <a class="navbar-item" href="https://github.com/Srameo/DNF">
-                    DNF (RAW LLIE)
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-</nav> -->
-    
-<div style="background-color: black;" id="video-box">
-    <!-- <div class="cc rowup"> -->
-    <video style="height: 100%; margin: auto; display: block;" id="teaser-video" autoplay muted>
-        <source src="assets/demo_video_homepage_part1_compressed.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <!-- </div> -->
-</div>
-<div class="title-mask", id="title-mask">
-    <div style="position: absolute; top:20%; left: 0; right: 0;">
-        <h1>
-            <font style="color: red; text-shadow: 0.05em -0.05em rgba(255, 200, 160, 0.634);">L</font>ighting <font style="color: red; text-shadow: 0.05em -0.05em rgba(255, 200, 160, 0.634);">E</font>very Darkness with <font style="color: red; text-shadow: 0.05em -0.05em rgba(255, 200, 160, 0.634);">3D</font>GS: <br>
-            Fast Training and Real-Time Rendering for HDR View Synthesis
-        </h1>  
-        <p style="font-size: 28px; color: rgb(220, 220, 220);"> NeurIPS 2024</p>
-        <br>
-        <p style="font-size: 20px; color: rgb(220, 220, 220);">
-            Xin Jin<sup>1,2,*,#</sup>, &nbsp;&nbsp;
-            Pengyi Jiao<sup>1,*</sup>, &nbsp;&nbsp;
-            Zheng-Peng Duan<sup>1</sup>, &nbsp;&nbsp;
-            Xingchao Yang<sup>2</sup>, &nbsp;&nbsp;
-            Chongyi Li<sup>1</sup>, &nbsp;&nbsp;
-            Chun-Le Guo<sup>1,&dagger;</sup>, &nbsp;&nbsp;
-            Bo Ren<sup>1,&dagger;</sup>
-        </p>
-        <p style="font-size: 15px; color: rgb(220, 220, 220);">
-            <sup>1</sup>VCIP, CS, Nankai University, &nbsp;&nbsp;
-            <sup>2</sup>MEGVII Technology, &nbsp;&nbsp;
-            <sup>*</sup>Equal Contribution, &nbsp;&nbsp;
-            <sup>&dagger;</sup>Corresponding Authors <br>
-            <sup>#</sup>This project is done during Xin Jin's Internship @ MEGVII Technology
-        </p>
-    </div>
-    <div id="button-list">
-        <span class="link-button">
-            <a class="link-button-content", href="https://arxiv.org/abs/2406.06216">
-                <span>
-                    <svg class="svg-inline--fa fa-file-pdf fa-w-12" style="position: relative; top: 0.15em;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg>
-                </span>
-                &nbsp;
-                Paper
-            </a>
-        </span>
-        <span class="link-button">
-            <a class="link-button-content", href="">
-                <span>
-                    <svg class="svg-inline--fa fa-file-pdf fa-w-12" style="position: relative; top: 0.15em;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg>
-                </span>
-                &nbsp;  
-                Supp (Details on Postprocessing)
-            </a>
-        </span>
-        <span class="link-button">
-            <a class="link-button-content" href="https://github.com/Srameo/LE3D", target="_blank">
-                <span>
-                    <svg class="svg-inline--fa fa-file-pdf" aria-hidden="true" version="1.1" viewBox="0 0 16 16" width="1.2em" style="position: relative; top: 0.25em;"><path fill="currentColor" fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
-                </span>
-                &nbsp; 
-                Code & Interactive Viewer
-            </a>
-        </span>
-        <span class="link-button">
-            <a class="link-button-content", href="#bib">
-                <span>
-                    <svg class="svg-inline--fa fa-file-pdf" aria-hidden="true" style="position: relative; top: 0.15em;" width="1em" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmarks" viewBox="0 0 16 16"> <path fill="currentColor" fill-rule="evenodd" d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z" fill="white"></path> <path fill="currentColor" fill-rule="evenodd" d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z" fill="white"></path> </svg>
-                </span>
-                &nbsp;  
-                BibTex
-            </a>
-        </span>
-    </div>
-    <div class="click", id="scroll-btn">
-        <div class="circle-breath"></div>
-    </div>
-    <div class="click">
-        <p>Click to learn more</p>
-    </div>
-</div>
-<div style="background-color: white; margin-right: auto; margin-left: auto;">
-    <a name="method"></a>
-    <div class="root-content" style="padding-top: 10px; width: 65%;">
-        <h1 class="section-name">&#x1F9D1;&#x200D;&#x1F3A8; Create Your Own Video Storyboard! &#x1F9D1;&#x200D;&#x1F3A8;</h1>
+        #info {
+            z-index: 100;
+            position: absolute;
+            top: 10px;
+            left: 15px;
+        }
 
-        You could try to create your own video storyboard by tuning the exposure, color temperature, and camera pose. Try it out! &#x2B07;
-        <details style="margin-top: 10px; margin-bottom: 20px;">
-            <summary>Tunable Image & Poses</summary>
-            <img id="imageDisplay" src="/projects/le3d/assets/tunable/cam00_ratio5.78_temp7333.jpg" alt="tunable image" style="width:80%; margin: 20px auto; display: block;">
-            <div class="slider-container">
-                <label class="slider-label" for="exposure">Exposure</label>
-                <input type="range" id="exposure" min="0" max="9" step="0.05" value="4.5">
-                <label class="slider-label" for="colorTemperature">Color Temperature</label>
-                <input type="range" id="colorTemperature" min="0" max="9" step="0.05" value="4.5">
-                <label class="slider-label" for="cameraPose">Camera Pose</label>
-                <input type="range" id="cameraPose" min="0" max="9" step="1" value="0">
-            </div>
-        </details>
+        #info .hover-text {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-style: italic;
+        }
 
-        <video style="width: 100%; margin: auto; display: block;" controls muted>
-            <source src="assets/demo_video_interactive_viewer_compressed.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <p class="section-content-text" style="padding-bottom: 20px;">Due to LE3D's capability for real-time rendering, once the reconstruction results are obtained, we can perform <b>real-time rendering</b> on them. Additionally, since the reconstruction results from LE3D are in the HDR color space, it allows for exposure variation as well as local and global tone-mapping operations. Our interactive viewer enables users to edit the scene in real-time, and it will provide functionality for creating video storyboards using keyframes in the future.</p>
+        #info:hover {
+            background: rgba(0, 0, 0, 0.6);
+        }
 
-        <script>
-            function updateImage() {
-                const exposureList = [0.5, 1.56, 2.61, 3.67, 4.72, 5.78, 6.83, 7.89, 8.94, 10.0];
-                const colorTemperatureList = [4000, 4666, 5333, 6000, 6666, 7333, 8000, 8666, 9333, 10000];
+        #info:hover .hover-text {
+            opacity: 1;
+        }
 
-                const exposureValue = exposureList[Math.round(document.getElementById('exposure').value)].toFixed(2);
-                const colorTemperatureValue = colorTemperatureList[Math.round(document.getElementById('colorTemperature').value)];
-                const cameraPoseValue = document.getElementById('cameraPose').value.padStart(2, '0');
+        h3 {
+            margin: 5px 0;
+        }
 
-                const imagePath = `/projects/le3d/assets/tunable/cam${cameraPoseValue}_ratio${exposureValue}_temp${colorTemperatureValue}.jpg`;
-                console.log(imagePath);
-                document.getElementById('imageDisplay').src = imagePath;
+        p {
+            margin: 5px 0;
+            font-size: small;
+        }
+
+        .cube-wrapper {
+            transform-style: preserve-3d;
+        }
+
+        .cube {
+            transform-style: preserve-3d;
+            transform: rotateX(45deg) rotateZ(45deg);
+            animation: rotation 2s infinite;
+        }
+
+        .cube-faces {
+            transform-style: preserve-3d;
+            height: 80px;
+            width: 80px;
+            position: relative;
+            transform-origin: 0 0;
+            transform: translateX(0) translateY(0) translateZ(-40px);
+        }
+
+        .cube-face {
+            position: absolute;
+            inset: 0;
+            background: #0017ff;
+            border: solid 1px #ffffff;
+        }
+
+        .cube-face.top {
+            transform: translateZ(80px);
+        }
+
+        .cube-face.front {
+            transform-origin: 0 50%;
+            transform: rotateY(-90deg);
+        }
+
+        .cube-face.back {
+            transform-origin: 0 50%;
+            transform: rotateY(-90deg) translateZ(-80px);
+        }
+
+        .cube-face.right {
+            transform-origin: 50% 0;
+            transform: rotateX(-90deg) translateY(-80px);
+        }
+
+        .cube-face.left {
+            transform-origin: 50% 0;
+            transform: rotateX(-90deg) translateY(-80px) translateZ(80px);
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotateX(45deg) rotateY(0) rotateZ(45deg);
+                animation-timing-function: cubic-bezier(0.17,
+                        0.84,
+                        0.44,
+                        1);
             }
 
-            document.getElementById('exposure').addEventListener('input', updateImage);
-            document.getElementById('colorTemperature').addEventListener('input', updateImage);
-            document.getElementById('cameraPose').addEventListener('input', updateImage);
-        </script>
-    </div>
-</div>
-<div style="background-color: #f5f5f5; margin-right: auto; margin-left: auto;">
-    <div class="root-content" style="padding-top: 10px; width: 65%; padding-bottom: 10px;">
-        <h1 class="section-name" style="margin-bottom: 0px;">&#127386; Comparison Between LE3D, RawNeRF and RawGS<sup>*</sup></h1>
-        <p>RawGS<sup>*</sup> denotes a 3DGS trained with RawNeRF's weighted loss and multi-exposure strategy.</p>
-        <table style="width: 100%;">
-            <tbody>
-                <tr class="result-row">
-                    <td>
-                        <video style="width: 100%; margin: auto; display: block;" controls muted>
-                            <source src="assets/demo_video_compare_rawnerf_compressed.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video><br>
-                        <span style="font-size: 22px;">Comparison with RawNeRF</span>
-                    </td>
-                    <td>
-                        <video style="width: 100%; margin: auto; display: block;" controls muted>
-                            <source src="assets/demo_video_compare_rawgs_compressed.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video><br>
-                        <span style="font-size: 22px;">Comparison with RawGS</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <p class="section-content-text">Compared to RawNeRF (left), LE3D can perform real-time rendering at 2K resolution, and as a result, it can also conduct nearly real-time postprocessing (our interactive viewer). In comparison with RawGS, LE3D possesses superior capabilities in scene structure optimization, and additionally, it has fewer residual floaters in the air.</p>
-    </div>
-</div>
-<div style="background-color: white; margin-right: auto; margin-left: auto;">
-    <div class="root-content" style="padding-top: 10px;width: 65%; padding-bottom: 10px;">
-        <h1 class="section-name">&#127889; Denoising Ability &#127747;</h1>
-        <table style="width: 100%;">
-            <tbody>
-                <tr>
-                    <td>
-        <div class="compare" style="width: 100%;">
-            <!-- The after image is last -->
-            <img class="slider-image" src="assets/noisy_1.jpg"/>
-            <!-- The before image is first -->
-            <img class="slider-image" src="assets/le3d_1.jpg"/>
-        </div>
-        </td>
-        <td>
-        <div class="compare" style="width: 100%;">
-            <!-- The after image is last -->
-            <img class="slider-image" src="assets/noisy_2.jpg"/>
-            <!-- The before image is first -->
-            <img class="slider-image" src="assets/le3d_2.jpg"/>
-        </div>
-        </td>
-    </tr>
+            50% {
+                transform: rotateX(45deg) rotateY(0) rotateZ(225deg);
+                animation-timing-function: cubic-bezier(0.76,
+                        0.05,
+                        0.86,
+                        0.06);
+            }
 
-    <tr>
-        <td>
-        <div class="compare" style="width: 100%;">
-            <!-- The after image is last -->
-            <img class="slider-image" src="assets/noisy_3.jpg"/>
-            <!-- The before image is first -->
-            <img class="slider-image" src="assets/le3d_3.jpg"/>
+            100% {
+                transform: rotateX(45deg) rotateY(0) rotateZ(405deg);
+                animation-timing-function: cubic-bezier(0.17,
+                        0.84,
+                        0.44,
+                        1);
+            }
+        }
+
+        .scene,
+        #message {
+            position: absolute;
+            display: flex;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 2;
+            height: 100%;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #message {
+            font-weight: bold;
+            font-size: large;
+            color: red;
+            pointer-events: none;
+        }
+
+        details {
+            font-size: small;
+
+        }
+
+        #progress {
+            position: absolute;
+            top: 0;
+            height: 5px;
+            background: blue;
+            z-index: 99;
+            transition: width 0.1s ease-in-out;
+        }
+
+        #quality {
+            position: absolute;
+            bottom: 10px;
+            z-index: 999;
+            right: 10px;
+        }
+
+        #caminfo {
+            position: absolute;
+            top: 10px;
+            z-index: 999;
+            right: 10px;
+            text-align: right;
+        }
+
+        #vistorcount {
+            position: absolute;
+            bottom: 10px;
+            z-index: 999;
+            left: 10px;
+        }
+
+        #canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+
+        #instructions {
+            background: rgba(0, 0, 0, 0.6);
+            white-space: pre-wrap;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: x-small;
+        }
+
+        body.nohf .nohf {
+            display: none;
+        }
+
+        body.nohf #progress,
+        body.nohf .cube-face {
+            background: #ff9d0d;
+        }
+
+        #Slider {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        /* 导航按钮样式 */
+        .nav-button {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+            z-index: 999;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .left-button {
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        .right-button {
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+
+        .bottom-button {
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .circle-breath {
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 0 0 0 rgb(255, 255, 255);
+            height: 36px;
+            width: 36px;
+            border-radius: 50%;
+            animation: donghua 2.4s infinite;
+            cursor: pointer;
+            scroll-behavior: smooth;
+            bottom: 30px;
+        }
+
+        .circle-breath:hover {
+            animation: donghua 0.4s infinite;
+        }
+
+        @keyframes donghua {
+            0% {
+                transform: scale(0.60);
+                /* 注意rgba中的a的设置 */
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 60%);
+            }
+
+            60% {
+                transform: scale(1);
+                box-shadow: 0 0 0 36px rgba(255, 255, 255, 0%);
+            }
+
+            100% {
+                transform: scale(0.60);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        if (location.host.includes('hf.space')) document.body.classList.add('nohf');
+    </script>
+    <div id="info">
+        <h3 class="nohf">WebGL <span style="color: #ff9d0d;">(HDR)</span> 3D Gaussian Splat Viewer</h3>
+        <p>
+            <small class="nohf">
+                By <a href="https://srameo.github.io" style="font-size: medium;">Xin Jin</a>.
+                Code on
+                <a href="https://github.com/Sramep/hdr-splat">Github</a>.
+            </small>
+        </p>
+        <p class="hover-text">Original code from <a href="https://twitter.com/antimatter15">Kevin Kwok</a> (MIT License).</p>
+
+        <details>
+            <summary>Use mouse or arrow keys to navigate.</summary>
+
+            <div id="instructions">movement (arrow keys)
+                - left/right arrow keys to strafe side to side
+                - up/down arrow keys to move forward/back
+                - space to jump
+
+                camera angle (wasd)
+                - a/d to turn camera left/right
+                - w/s to tilt camera up/down
+                - q/e to roll camera counterclockwise/clockwise
+                - i/k and j/l to orbit
+
+                trackpad
+                - scroll up/down/left/right to orbit
+                - pinch to move forward/back
+                - ctrl key + scroll to move forward/back
+                - shift + scroll to move up/down or strafe
+
+                mouse
+                - click and drag to orbit
+                - right click (or ctrl/cmd key) and drag up/down to move
+
+                touch (mobile)
+                - one finger to orbit
+                - two finger pinch to move forward/back
+                - two finger rotate to rotate camera clockwise/counterclockwise
+                - two finger pan to move side-to-side and up-down
+
+                gamepad
+                - if you have a game controller connected it should work
+
+                other
+                - press p to resume default animation
+                - press -/+ to change the camera view
+                - use the slider at bottom right corner for editing!
+            </div>
+
+        </details>
+
+    </div>
+
+    <div id="progress"></div>
+
+    <div id="message"></div>
+    <div class="scene" id="spinner">
+        <div class="cube-wrapper">
+            <div class="cube">
+                <div class="cube-faces">
+                    <div class="cube-face bottom"></div>
+                    <div class="cube-face top"></div>
+                    <div class="cube-face left"></div>
+                    <div class="cube-face right"></div>
+                    <div class="cube-face back"></div>
+                    <div class="cube-face front"></div>
+                </div>
+            </div>
         </div>
-    </td><td>
-        <div class="compare" style="width: 100%;">
-            <!-- The after image is last -->
-            <img class="slider-image" src="assets/noisy_4.jpg"/>
-            <!-- The before image is first -->
-            <img class="slider-image" src="assets/le3d_4.jpg"/>
-        </div>
-    </td>
+    </div>
+    <button id="prevScene" class="nav-button left-button">&#8592;</button>
+    <button id="nextScene" class="nav-button right-button">&#8594;</button>
+
+    <canvas id="canvas"></canvas>
+
+    <div id="quality">
+        <span style="font-size: large; font-weight: bold;">Here for some editing!</span><br>
+        <table>
+            <tr>
+                <td><span id="fps"></span></td>
+                <td></td>
+                <td></td>
             </tr>
-        </tbody>
-    </table>
-    <p class="section-content-text">LE3D has a natural noise resistance similar to RawNeRF, which is attributed to the noise2noise assumption and the fact that the noise is entirely located on the camera plane, rather than being distributed in space.</p>
+            <tr>
+                <td><label>Reinhard Tone Mapping:</label></td>
+                <td></td>
+                <td><input type="checkbox" id="reinhardCheckbox"></td>
+            </tr>
+            <tr>
+                <td><label for="exposureSlider">Exposure:</label></td>
+                <td><span id="exposureValue">0</span></td>
+                <td><input type="range" id="exposureSlider" min="-4" max="4" value="0" step="0.01"></td>
+            </tr>
+            <tr>
+                <td><label for="colorTempSlider">Color Temperature:</label></td>
+                <td><span id="colorTempValue">6600</span></td>
+                <td><input type="range" id="colorTempSlider" min="2000" max="40000" value="6600" step="100"></td>
+            </tr>
+            <tr>
+                <td><label for="whiteBalance">White Balance:</label></td>
+                <td><input type="button" id="whiteBalanceButton" value="Auto"></td>
+                <td>
+                    <input type="number" id="whiteBalanceR" min="0" max="10" value="0.837" step="0.001">
+                    <input type="number" id="whiteBalanceG" min="0" max="10" value="1.0" step="0.001">
+                    <input type="number" id="whiteBalanceB" min="0" max="10" value="0.5" step="0.001">
+                </td>
+            </tr>
+        </table>
     </div>
-</div>
-<div style="background-color: #f5f5f5; margin-right: auto; margin-left: auto;">
-    <div class="root-content" style="padding-top: 10px; width: 65%; padding-bottom: 10px;">
-        <div>
-            <h1 class="section-name" style="margin-top: 30px; text-align: left; font-size: 25px;">
-                BibTex
-            </h1>
-            <a name="bib"></a>
-            <pre style="margin-top: 5px;" class="bibtex">
-<code>
-@inproceedings{jin2024le3d,
-      title={Lighting Every Darkness with 3DGS: Fast Training and Real-Time Rendering for HDR View Synthesis},
-      author={Jin, Xin and Jiao, Pengyi and Duan, Zheng-Peng and Yang, Xingchao and Guo, Chun-Le and Ren, Bo and Li, Chong-Yi},
-      booktitle={NeurIPS},
-      year={2024}
-}</code></pre>
-        </div>
-        <div style="margin-bottom: 0px;">
-            <h1 class="section-name" style="margin-top: 0px; margin-bottom: 10px; text-align: left; font-size: 25px;">
-                Contact
-            </h1>
-            <p class="section-content-text">
-                Feel free to contact us at <strong>xjin[AT]mail.nankai.edu.cn</strong>!
-            </p>
-        </div>
+    <div id="caminfo">
+        <span id="camid"></span><br>
+        <span style="font-size: large; font-weight: bold;">If you want more details, please check out the <a
+                href="intro.html">intro</a> page.</span>
     </div>
-</div>
-<center>
-<div style="background-color: white; margin-top: 20px;">
-    <img src="https://counter4.optistats.ovh/private/freecounterstat.php?c=568y6qtpmt9mabtqjyhulwcb2qym9fry" title="hit counter" alt="hit counter">
-    <p>Visitor Count</p>
-</div>
-</center>
+    <div id="vistorcount">
+            <img src="https://counter4.optistats.ovh/private/freecounterstat.php?c=568y6qtpmt9mabtqjyhulwcb2qym9fry"
+                title="hit counter" alt="hit counter" style="width: 100px;">
+            <p>Visitor Count</p>
+    </div>
+    <script src="main.js"></script>
+    <script>
+        if (location.host.includes('hf.space')) document.body.classList.add('nohf');
+        
+        // 添加检测重叠的函数
+        function checkOverlap() {
+            const quality = document.getElementById('quality');
+            const visitorCount = document.getElementById('vistorcount');
+            
+            const qualityRect = quality.getBoundingClientRect();
+            const visitorRect = visitorCount.getBoundingClientRect();
+            
+            // 检查是否重叠
+            const isOverlapping1 = !(qualityRect.right < visitorRect.left || 
+                                  qualityRect.left > visitorRect.right || 
+                                  qualityRect.bottom < visitorRect.top || 
+                                  qualityRect.top > visitorRect.bottom);
+            
+            // 如果重叠，隐藏访客计数
+            visitorCount.style.display = isOverlapping1 ? 'none' : 'block';
 
+            const info = document.getElementById('info');
+            const infoRect = info.getBoundingClientRect();
+            const caminfo = document.getElementById('caminfo');
+            const caminfoRect = caminfo.getBoundingClientRect();
 
-<script>
-    var vid = document.getElementById("teaser-video");
-    var playInterval = 1000; // 间隔时间，单位为毫秒，这里设置为5秒
+            const isOverlapping2 = !(infoRect.right < caminfoRect.left || 
+                                  infoRect.left > caminfoRect.right || 
+                                  infoRect.bottom < caminfoRect.top || 
+                                  infoRect.top > caminfoRect.bottom);
+
+            caminfo.style.display = isOverlapping2 ? 'none' : 'block';
+
+        }
     
-    vid.addEventListener('ended', function() {
-      // 视频结束后，暂停指定的间隔时间
-      vid.pause();
-      setTimeout(function() {
-        vid.play(); // 间隔时间结束后继续播放
-      }, playInterval);
-    });
-</script>
-<script src="/js/compare.js"></script>
+        // 页面加载完成后检查
+        window.addEventListener('load', checkOverlap);
+        // 窗口大小改变时检查
+        window.addEventListener('resize', checkOverlap);
+    </script>
+
 </body>
 
-<script>
-    window_height =  document.documentElement.clientHeight;
-    video_box = document.getElementById('video-box');
-    title_mask = document.getElementById('title-mask');
-    document.getElementsByTagName
-    imgs = video_box.getElementsByTagName('img');
-    console.log(String(window_height)+'px')
-    video_box.style.height = String(window_height)+'px'
-    title_mask.style.height = String(window_height)+'px'
-    for (i in imgs)
-    {
-        if (i < 64){
-            imgs[i].style.height = String(window_height/4)+'px';
-        }
-    }
-
-var scroll_btn = document.getElementById('scroll-btn');
-    scroll_btn.addEventListener("click",function(){
-        window.scrollTo({top:window_height, behavior: 'smooth'});
-    })
-</script>
+</html>
