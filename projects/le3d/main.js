@@ -1397,14 +1397,17 @@ function stopRender() {
 }
 
 async function main() {
-    const scenes = ['./assets/splats/gardenlights', './assets/splats/candle', './assets/splats/livingroom', './assets/splats/windowlegovary'];
+    const scenes = ['./assets/splats/gardenlights', './assets/splats/windowlegovary', './assets/splats/candle', './assets/splats/livingroom', './assets/splats/stove'];
     let sceneIndex = 0;
+    const sceneSelect = document.getElementById('sceneSelect');
+    sceneSelect.innerHTML = scenes.map((scene, index) => `<option value="${index}">${scene.split('/').pop()}</option>`).join('');
 
     document.getElementById('prevScene').addEventListener('click', () => {
         if (!isRendering) return; // 如果正在切换场景，防止多次点击
         isRendering = false;
         sceneIndex = (sceneIndex - 1 + scenes.length) % scenes.length;
         console.log('切换到上一个场景');
+        sceneSelect.value = sceneIndex;
         stopRender();
         startRender(scenes[sceneIndex]);
     });
@@ -1414,6 +1417,16 @@ async function main() {
         isRendering = false;
         sceneIndex = (sceneIndex + 1) % scenes.length;
         console.log('切换到下一个场景');
+        sceneSelect.value = sceneIndex;
+        stopRender();
+        startRender(scenes[sceneIndex]);
+    });
+
+    document.getElementById('sceneSelect').addEventListener('change', (e) => {
+        if (!isRendering) return;
+        isRendering = false;
+        sceneIndex = parseInt(e.target.value);
+        console.log('切换到场景', sceneIndex);
         stopRender();
         startRender(scenes[sceneIndex]);
     });

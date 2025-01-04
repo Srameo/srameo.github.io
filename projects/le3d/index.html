@@ -413,9 +413,20 @@ other
         </table>
     </div>
     <div id="caminfo">
-        <span id="camid"></span><br>
         <span style="font-size: large; font-weight: bold;">If you want more details, please check out the <a
-                href="intro.html">intro</a> page.</span>
+                href="intro.html" style="color: #ff9d0d;">intro</a> page.</span><br>
+        <span style="font-size: small;">Scenes are trained with really noisy images, so their might be some artifacts.</span>
+        <div style="margin-top: 10px;">
+            <label for="sceneSelect">Scene selector: </label>
+            <select id="sceneSelect" style="background: rgba(0,0,0,0.6); color: white; border: 1px solid white; padding: 5px;">
+                <option value="0">gardenlights</option>
+                <option value="1">windowlegovary</option>
+                <option value="2">candle</option>
+                <option value="3">livingroom</option>
+                <option value="4">stove</option>
+            </select>
+        </div>
+        <span id="camid"></span>
     </div>
     <div id="vistorcount">
             <img src="https://counter4.optistats.ovh/private/freecounterstat.php?c=568y6qtpmt9mabtqjyhulwcb2qym9fry"
