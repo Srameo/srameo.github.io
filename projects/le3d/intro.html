@@ -205,7 +205,7 @@
             You could try to create your own video storyboard by tuning the exposure, color temperature, and camera
             pose. Try it out! &#x2B07;
             <details style="margin-top: 10px; margin-bottom: 20px;">
-                <summary>Tunable Image & Poses</summary>
+                <summary>Tunable Image & Poses (<span style="color: orange;">We strongly recommend you to use the <a href="index.html" style="text-decoration: underline;">updated viewer</a>!</span>)</summary>
                 <img id="imageDisplay" src="/projects/le3d/assets/tunable/cam00_ratio5.78_temp7333.jpg"
                     alt="tunable image" style="width:80%; margin: 20px auto; display: block;">
                 <div class="slider-container">
@@ -228,6 +228,28 @@
                 exposure variation as well as local and global tone-mapping operations. Our interactive viewer enables
                 users to edit the scene in real-time, and it will provide functionality for creating video storyboards
                 using keyframes in the future.</p>
+
+            <table style="width: 100%;">
+                <tbody>
+                    <tr class="result-row">
+                        <td>
+                            <video style="width: 100%; margin: auto; display: block;" controls muted>
+                                <source src="assets/demo_video_10bit_gardenlights.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video><br>
+                            <span style="font-size: 22px;">Comparison with RawNeRF</span>
+                        </td>
+                        <td>
+                            <video style="width: 100%; margin: auto; display: block;" controls muted>
+                                <source src="assets/demo_video_10bit_windowlegovary.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video><br>
+                            <span style="font-size: 22px;">Comparison with RawGS</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="section-content-text">Some selected scenes rendered by our <a href="https://github.com/Srameo/LE3D/blob/main/docs/editor.md">Editor</a> on our <a href="https://github.com/Srameo/LE3D">github</a>! <b>Please note</b>: These videos are encoded using HEVC with <span style="color: orange;">10-bit HDR colors</span> and are best viewed on a compatible display with HDR support, e.g. recent Apple devices..</p>
 
             <script>
                 function updateImage() {

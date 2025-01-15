@@ -200,3 +200,61 @@ td {
 .publication.gray-overlay:hover::after {
     background-color: rgba(255, 255, 255, 0.0); /* Fully transparent on hover */
 }
+
+.pinned-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 20px 0;
+}
+
+.pinned-item {
+    flex: 1;
+    min-width: 280px;
+    max-width: calc(33.33% - 16px);
+    background: white;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.pinned-item:hover {
+    transform: translateY(-1px);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 18px;
+}
+
+.pinned-item a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.pin-title {
+    display: block;
+    /* font-size: 16px; */
+    /* font-weight: 600; */
+    /* color: #666; */
+    margin: 12px 15px 8px;
+}
+
+.pin-desc {
+    display: block;
+    /* font-size: 14px; */
+    /* color: #888; */
+    margin: 0 15px 12px;
+    line-height: 1.5;
+}
+
+.pinned-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .pinned-item {
+        max-width: 100%;
+    }
+}
