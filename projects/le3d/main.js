@@ -1397,7 +1397,7 @@ function stopRender() {
 }
 
 async function main() {
-    const scenes = ['./assets/splats/gardenlights', './assets/splats/windowlegovary', './assets/splats/candle', './assets/splats/livingroom', './assets/splats/stove'];
+    const scenes = ['./assets/splats/gardenlights', './assets/splats/windowlegovary', './assets/splats/candle', './assets/splats/candlefiat', './assets/splats/livingroom', './assets/splats/stove', './assets/splats/notchbush', './assets/splats/scooter', './assets/splats/sharpshadow'];
     let sceneIndex = 0;
     const sceneSelect = document.getElementById('sceneSelect');
     sceneSelect.innerHTML = scenes.map((scene, index) => `<option value="${index}">${scene.split('/').pop()}</option>`).join('');
