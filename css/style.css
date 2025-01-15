@@ -233,7 +233,7 @@ td {
 .pin-title {
     display: block;
     /* font-size: 16px; */
-    /* font-weight: 600; */
+    font-weight: bold;
     /* color: #666; */
     margin: 12px 15px 8px;
 }
