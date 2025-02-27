@@ -75,6 +75,7 @@
         <h2 class="noselect">News</h2>
         <div class="news-container">
             <ul class="news-list noselect">
+                <li class="news-item">2025/02 -- Two papers got accepted by <a href="https://cvpr.thecvf.com/Conferences/2025">CVPR</a> 2025! <span class="particle-text">Maybe one is gonna be hosted in <a href="https://www.adobe.com/products/premiere.html">Premiere Pro</a> &#x1F92B;</span></li>
                 <li class="news-item">2025/02 -- We released the <a href="assets/paper_translated/23ICCV_LED.pdf">Chinese version</a> of Lighting Every Darkness in Two Pairs: A Calibration-Free Pipeline for RAW Denoising; and <a href="/projects/le3d/index.html">LE3D</a>'s explanation on <a href="https://zhuanlan.zhihu.com/p/703582016">知乎</a>.</li>
                 <li class="news-item">2025/01 -- We released the <a href="assets/paper_translated/23CVPR_DNF.pdf">Chinese version</a> of DNF: Decouple and Feedback Network for Seeing in the Dark.</li>
                 <li class="news-item">2025/01 -- Code release on <a href="https://github.com/Srameo/LE3D">github</a> for <a href="/projects/le3d/">LE3D</a>!</li>
@@ -110,7 +111,7 @@
             <div class="row-text">
                 <a class="publication-title bold" href="https://arxiv.org/abs/2411.15678">Towards RAW Object Detection in Diverse Conditions</a><br/>
                 Zhong-Yu Li, <span class="bold">Xin Jin</span>, Boyuan Sun, Chun-Le Guo, Ming-Ming Cheng# <br/>
-                <span class="italic">arxiv</span>, 2024 <br/>
+                <span class="italic"><a href="https://cvpr.thecvf.com/Conferences/2025">CVPR</a></span>, 2025 <img style="position: relative; top:6px;" src="https://img.shields.io/github/stars/lzyhha/AODRaw?label=%F0%9F%8C%9F%20Star&color=blue">&nbsp;<img style="position: relative; top:6px;" src="https://img.shields.io/github/forks/lzyhha/AODRaw?label=%F0%9F%94%A7%20Fork&color=green"><br/><br/>
                 <a class="btn btn-red" href="https://arxiv.org/abs/2411.15678">paper</a> / <a class="btn btn-dark" href="https://github.com/lzyhha/AODRaw">code</a> / <a class="btn btn-dark" href="bibtex/li2024towards.html">bibtex</a>
             </div>
         </div>
@@ -274,6 +275,50 @@
     </div>
 </div>
 
+<style>
+.particle-text {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.particle-text .hover-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: max-content;
+    white-space: nowrap;
+}
+
+.particle-text:hover .hover-content {
+    display: inline-block;
+}
+
+.particle-text .particle-placeholder {
+    visibility: visible;
+}
+
+.particle-text:hover .particle-placeholder {
+    visibility: hidden;
+}
+
+.particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.7;
+}
+
+.particle-text:hover .particle-canvas {
+    display: none;
+}
+</style>
+
 <script>
 function sortPublications(criteria) {
     const container = document.getElementById('publications');
@@ -310,5 +355,141 @@ function sortPublications(criteria) {
 
 document.addEventListener('DOMContentLoaded', function() {
     sortPublications('author');
+});
+
+// Particle effect for text
+document.addEventListener('DOMContentLoaded', function() {
+    const particleTexts = document.querySelectorAll('.particle-text');
+    
+    particleTexts.forEach(text => {
+        // 保存原始内容并测量其宽度
+        const originalContent = text.innerHTML;
+        
+        // 创建一个临时元素来测量文本宽度
+        const tempSpan = document.createElement('span');
+        tempSpan.style.visibility = 'hidden';
+        tempSpan.style.position = 'absolute';
+        tempSpan.style.whiteSpace = 'nowrap';
+        tempSpan.innerHTML = originalContent;
+        document.body.appendChild(tempSpan);
+        
+        // 获取文本宽度
+        const textWidth = tempSpan.offsetWidth;
+        const textHeight = tempSpan.offsetHeight;
+        
+        // 移除临时元素
+        document.body.removeChild(tempSpan);
+        
+        // 将原始内容包装到hover-content中，并添加样式确保宽度一致
+        const placeholderSpan = document.createElement('span');
+        placeholderSpan.className = 'particle-placeholder';
+        placeholderSpan.style.display = 'inline-block';
+        placeholderSpan.style.width = textWidth + 'px';
+        placeholderSpan.innerHTML = '✨'.repeat(Math.max(1, Math.ceil(textWidth / 20)));
+        
+        const hoverSpan = document.createElement('span');
+        hoverSpan.className = 'hover-content';
+        hoverSpan.style.whiteSpace = 'nowrap';
+        hoverSpan.innerHTML = originalContent;
+        
+        text.innerHTML = '';
+        text.appendChild(placeholderSpan);
+        text.appendChild(hoverSpan);
+        text.style.width = textWidth + 'px';
+        text.style.display = 'inline-block';
+        
+        // Create a canvas element for each particle text
+        const canvas = document.createElement('canvas');
+        canvas.className = 'particle-canvas';
+        canvas.style.width = textWidth + 'px';  // 设置canvas宽度与文本相同
+        text.appendChild(canvas);
+        
+        // Initialize particle system immediately instead of on hover
+        const ctx = canvas.getContext('2d');
+        const particles = [];
+        let animationFrame;
+        
+        // Set canvas size
+        const resizeCanvas = () => {
+            canvas.width = textWidth;
+            canvas.height = Math.max(textHeight, 20); // 确保高度足够
+        };
+        resizeCanvas();
+        
+        // Particle class
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 2 - 1;
+                this.speedY = Math.random() * 2 - 1;
+                this.color = `hsl(${Math.random() * 60 + 180}, 100%, 50%)`;
+                // this.color = `hsl(0, 0%, ${Math.random() * 100}%)`;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                // 边界检查，让粒子保持在文本区域内
+                if (this.x < 0 || this.x > canvas.width) {
+                    this.speedX = -this.speedX;
+                }
+                if (this.y < 0 || this.y > canvas.height) {
+                    this.speedY = -this.speedY;
+                }
+                
+                if (this.size > 0.2) this.size -= 0.05;
+            }
+            
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        // Create particles
+        const createParticles = () => {
+            // 根据文本宽度调整粒子数量
+            const particleCount = Math.max(1, Math.floor(textWidth / 30));
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        };
+        
+        // Animation loop
+        const animate = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            createParticles();
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                
+                if (particles[i].size <= 0.2) {
+                    particles.splice(i, 1);
+                    i--;
+                }
+            }
+            
+            animationFrame = requestAnimationFrame(animate);
+        };
+        
+        // Start animation immediately
+        animate();
+        
+        // Pause animation on hover
+        text.addEventListener('mouseenter', () => {
+            cancelAnimationFrame(animationFrame);
+        });
+        
+        // Resume animation when not hovering
+        text.addEventListener('mouseleave', () => {
+            animate();
+        });
+    });
 });
 </script>
