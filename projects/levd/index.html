@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+  <title>Classic Video Denoising in a Machine Learning World: Robust, Fast, and Controllable</title>
+  
+  <meta name="author" content="Xin Jin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" type="text/css" href="/css/projects.css">
+  <!-- navbar -->
+  <script src="/js/navbar.js"></script>
+  <link rel="stylesheet" href="/css/bulma/bulma.min.css">
+  <link rel="stylesheet" href="/css/bulma/bulma-carousel.min.css">
+  <!-- <link rel="stylesheet" href="/css/bulma/bulma-slider.min.css"> -->
+  <script src="/js/bulma/bulma-carousel.min.js"></script>
+  <script src="/js/bulma/bulma-slider.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+    rel="stylesheet">
+</head>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+<div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    </a>
+</div>
+<div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+    <a class="navbar-item" href="https://srameo.github.io">
+    <span class="icon">
+        <svg class="svg-inline--fa fa-home fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>
+    </span>
+    </a>
+
+    <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+        More Research
+        </a>
+        <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://srameo.github.io/projects/le3d">
+                LE3D
+            </a>
+            <a class="navbar-item" href="https://srameo.github.io/projects/led-extension">
+                LED Extension
+            </a>
+            <a class="navbar-item" href="https://srameo.github.io/projects/led-iccv23">
+                LED
+            </a>
+            <a class="navbar-item" href="https://github.com/Srameo/DNF">
+                DNF (RAW LLIE)
+            </a>
+        </div>
+    </div>
+    </div>
+
+</div>
+</nav>
+
+<body style="width: 100%;">
+    <div style="width: 100%;">
+        <!-- Title -->
+        <div class="root-content" style="padding-top: 30px;">
+            <name>Classic Video Denoising in a Machine Learning World: <br/>Robust, Fast, and Controllable</name>
+            <br>
+            <div id="author-list"">
+                <a href="https://srameo.github.io">Xin Jin</a><sup>1,*</sup>&nbsp;
+                <a href="https://sniklaus.com/welcome">Simon Niklaus</a><sup>2,&#8224;</sup>&nbsp;
+                <a href="https://ztzhang.info/">Zhoutong Zhang</a><sup>3</sup>&nbsp;
+                <a href="https://likesum.github.io/">Zhihao Xia</a><sup>2</sup>&nbsp;
+                <a href="https://mmcheng.net/clguo/">Chunle Guo</a><sup>1,#</sup>&nbsp;
+                <a href="https://yyuting.github.io/">Yuting Yang</a><sup>3</sup>&nbsp;
+                <a href="https://people.csail.mit.edu/jiawen/">Jiawen Chen</a><sup>3</sup>&nbsp;
+                <a href="https://li-chongyi.github.io/">Chong-Yi Li</a><sup>1</sup>&nbsp;
+            </div>
+            <div id="institution-list">
+                <sup>1</sup>VCIP, CS, Nankai University&nbsp;&nbsp;&nbsp;
+                <sup>2</sup>Adobe Research&nbsp;&nbsp;&nbsp;
+                <sup>3</sup>Adobe&nbsp;&nbsp;&nbsp;<br/>
+                <sup>*</sup>This work was done when Xin Jin was an intern at Adobe Research&nbsp;&nbsp;&nbsp;<br/>
+                <sup>&#8224;</sup>Project Lead&nbsp;&nbsp;&nbsp;
+                <sup>#</sup>Corresponding Author
+            </div>
+            <p id="publication">
+                CVPR 2025
+            </p>
+            <div id="button-list">
+                <span class="link-button">
+                    <a class="link-button-content", href="", target="_blank">
+                        <span>
+                            <svg class="svg-inline--fa fa-file-pdf fa-w-12" style="position: relative; top: 0.15em;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg>
+                        </span>
+                        &nbsp;
+                        Paper (TBD)
+                    </a>
+                </span>
+                <span class="link-button">
+                    <a class="link-button-content" href="https://github.com/Srameo/LEVD", target="_blank">
+                        <span>
+                            <svg class="svg-inline--fa fa-file-pdf" aria-hidden="true" version="1.1" viewBox="0 0 16 16" width="1.2em" style="position: relative; top: 0.25em;"><path fill="currentColor" fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+                        </span>
+                        &nbsp; 
+                        Code (TBD)
+                    </a>
+                </span>
+                <span class="link-button">
+                    <a class="link-button-content", href="#bib">
+                        <span>
+                            <svg class="svg-inline--fa fa-file-pdf" aria-hidden="true" style="position: relative; top: 0.15em;" width="1em" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmarks" viewBox="0 0 16 16"> <path fill="currentColor" fill-rule="evenodd" d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z" fill="white"></path> <path fill="currentColor" fill-rule="evenodd" d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z" fill="white"></path> </svg>
+                        </span>
+                        &nbsp;  
+                        BibTex
+                    </a>
+                </span>
+            </div>
+        </div>
+
+
+        <!-- Visual Results -->
+        <div style="background-color: #f5f5f5; margin-right: auto; margin-left: auto;">
+            <div class="root-content" style="padding-top: 10px;">
+                <h1 class="section-name" style="font-weight: bold;">&#128293; General Video Denoising with Real-Time Performance! &#128293;</h1>
+                <span class="section-name" style="font-size: x-large;">Nearly 32 FPS on a single RTX 3090 GPU with HD video inputs!</span>
+                <p class="section-content-text">
+                    Compared to previous SOTA video denoising methods (all methods are trained with same noise model), our method could effectively remove <b>out-of-model</b> noise from various videos with real-time performance! 
+                    <p style="color: gray;"><br/>
+                        &#8224; means we retrain those models with our proposed degradation pipeline.<br/>
+                        'teaser_video' is provided by Robert Kjettrup
+                    </p>
+                </p>
+            </div>
+
+            <div class="root-content" style="padding-top: 10px; width: 85%; margin: 0 auto;">
+                <iframe src="compare.html" width="100%" height="1100px"></iframe>
+            </div>
+
+            <div class="root-content" style="padding-top: 10px;">
+                <h1 class="section-name">🤖️ Controllable Ability to Remove or Perserve Noise</h1>
+                <p class="section-content-text">
+                    With classical video denoising methods, we can control the denoising strength for videos. <br/>
+                    Best viewed with maximum contrast and minimum saturation.
+                    <p style="color: gray;"><br/>
+                        This footage is shoted for movie 'Spiral' (2013)
+                    </p>
+                </p>
+            </div>
+
+                
+            <div class="root-content" style="padding-top: 10px; width: 85%; margin: 0 auto;">
+                <iframe src="control.html" width="100%" height="1040px"></iframe>
+            </div>
+        </div>
+
+        <!-- Paper Information -->
+        <div class="root-content" style="padding-top: 30px;">
+
+            <div>
+                <h1 class="section-name" style="margin-top: 30px; text-align: left; font-size: 25px;">
+                    BibTex
+                </h1>
+                <a name="bib"></a>
+                <pre style="margin-top: 5px;" class="bibtex">
+<code>
+@inproceedings{jin2025classic,
+    title={Classic Video Denoising in a Machine Learning World: Robust, Fast, and Controllable},
+    author={Jin, Xin and Niklaus, Simon and Zhang, Zhoutong and Xia, Zhihao and Guo, Chunle and Yang, Yuting and Chen, Jiawen and Li, Chong-Yi},
+    journal={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+    year={2025}
+}</code>
+                </pre>
+            </div>
+            <div style="margin-bottom: 50px;">
+                <h1 class="section-name" style="margin-top: 30px; margin-bottom: 10px; text-align: left; font-size: 25px;">
+                    Contact
+                </h1>
+                <p class="section-content-text">
+                    Feel free to contact us at <strong>xjin[AT]mail.nankai.edu.cn</strong>!
+                </p>
+            </div>
+        </div>
+
+        <div style="background-color: #f5f5f5; margin-right: auto; margin-left: auto; text-align: center; padding-top: 35px; padding-bottom: 35px;">
+            <img src="https://counter6.optistats.ovh/private/freecounterstat.php?c=zl664qnrp1cmpjqgg64dt65xt4gy7ktr" title="website counter" alt="website counter">
+            <p>Visitor Count</p>
+        </div>
+        
+    </div>
+</body>
