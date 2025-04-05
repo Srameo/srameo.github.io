@@ -35,6 +35,7 @@
                 <a class="btn" href="#contact">Email</a> /
                 <a class="btn" href="https://scholar.google.com/citations?user=22M3mw8AAAAJ&hl=zh-CN">Google Scholar</a> /
                 <a class="btn" href="https://github.com/Srameo">GitHub</a> /
+                <a class="btn" href="https://x.com/srameojin">X</a> /
                 <a class="btn" href="https://www.overleaf.com/read/pxzdywbcvvnw#e0bdd0">CV</a>
             </div>
             <div>
@@ -75,12 +76,13 @@
         <h2 class="noselect">News</h2>
         <div class="news-container">
             <ul class="news-list noselect">
+                <li class="news-item">2025/04 -- Excited to announce <span class="bold">Towards RAW Object Detection in Diverse Conditions</span> has been selected as a Highlight paper by <a href="https://cvpr.thecvf.com/Conferences/2025">CVPR</a> 2025!</li>
                 <li class="news-item">2025/02 -- Two papers got accepted by <a href="https://cvpr.thecvf.com/Conferences/2025">CVPR</a> 2025! <span class="particle-text">Maybe one is gonna be hosted in <a href="https://www.adobe.com/products/premiere.html">Premiere Pro</a> &#x1F92B;</span></li>
                 <li class="news-item">2025/02 -- We released the <a href="assets/paper_translated/23ICCV_LED.pdf">Chinese version</a> of Lighting Every Darkness in Two Pairs: A Calibration-Free Pipeline for RAW Denoising; and <a href="/projects/le3d/index.html">LE3D</a>'s explanation on <a href="https://zhuanlan.zhihu.com/p/703582016">知乎</a>.</li>
                 <li class="news-item">2025/01 -- We released the <a href="assets/paper_translated/23CVPR_DNF.pdf">Chinese version</a> of DNF: Decouple and Feedback Network for Seeing in the Dark.</li>
                 <li class="news-item">2025/01 -- Code release on <a href="https://github.com/Srameo/LE3D">github</a> for <a href="/projects/le3d/">LE3D</a>!</li>
                 <li class="news-item">2025/01 -- We release a <a href="/projects/le3d/index.html">web viewer</a> for <a href="/projects/le3d/index.html">LE3D</a>!</li>
-                <li class="news-item">2024/12 -- <a href="https://adam-duan.github.io/projects/diffretouch-aaai25/">DiffRetouch</a> has been accepted by AAAI 2025!</li>
+                <li class="news-item">2024/12 -- <a href="https://adam-duan.github.io/projects/retouch/">DiffRetouch</a> has been accepted by AAAI 2025!</li>
                 <li class="news-item">2024/10 -- <a href="/projects/le3d/">LE3D</a> has been accepted by NeurIPS 2024! We are working on the release of the code. Please stay tuned! Hope to see you guys at Vancouver, Canada!</li>
                 <li class="news-item">2024/06 -- We present <a href="/projects/le3d/">LE3D</a>, enabling real-time rendering for HDR view synthesis!</li>
                 <li class="news-item">2024/01 -- The <a href="https://codalab.lisn.upsaclay.fr/competitions/17017">Few-shot RAW Image Denoising Track</a> in MIPI 2024 has started!</li>
@@ -101,19 +103,28 @@
     </div>
 
     <!-- Publications -->
-    <div id="publications">
+    <div id="publications" class="noselect">
         <h2 class="noselect">Publications <span style="font-size: 12px; color: #666;">(click to sort: 
             <a class="btn active" id="sort-author" onclick="sortPublications('author')">first author</a> / 
             <a class="btn" id="sort-date" onclick="sortPublications('date')">date</a>)</span></h2>
         <p>* Equal contribution. # Corresponding author. Representative papers are <span style="background-color: #fff8df">highlighted</span>.</p>
+        <div class="publication row clearfix" data-author="Zheng-Peng Duan" data-date="202504">
+            <div class="row-media" style="height: 120px; background-image: url(/assets/paper_teaser/dit4sr/dit4sr.gif);"></div>
+            <div class="row-text">
+                <a class="publication-title bold" href="https://adam-duan.github.io/projects/dit4sr/">DiT4SR: Taming Diffusion Transformer for Real-World Image Super-Resolution</a><br/>
+                Zheng-Peng Duan, Jiawei Zhang, <span class="bold">Xin Jin</span>, Ziheng Zhang, Zheng Xiong, Dongqing Zou, Jimmy Ren, Chunle Guo, Chongyi Li#. <br/>
+                <span class="italic">arxiv</span>, 2025 <br/>
+                <a class="btn btn-red" href="https://adam-duan.github.io/projects/dit4sr/">project</a> / <a class="btn btn-red" href="https://arxiv.org/abs/2503.23580">paper</a>
+            </div>
+        </div>
         <div class="publication row clearfix" data-author="Xin Jin" data-date="202503">
             <div class="row-media" style="height: 120px; background-image: url(/assets/paper_teaser/levd.gif);"></div>
             <div class="row-text">
                 <a class="publication-title bold" href="projects/levd/">Classic Video Denoising in a Machine Learning World: Robust, Fast, and Controllable</a><br/>
-                <span class="bold">Xin Jin</span>, Simon Niklaus, Zhoutong Zhang, Zhihao Xia, Chunle Guo#, Yuting Yang, Jiawen Chen, Chongyi Li <br/>
+                <span class="bold">Xin Jin</span>, Simon Niklaus#, Zhoutong Zhang, Zhihao Xia, Chunle Guo, Yuting Yang, Jiawen Chen, Chongyi Li <br/>
                 <span style="color:gray; font-size: smaller;">Teaser video is provided by Robert Kjettrup, enhanced for best view of noise removal.</span><br/>
                 <span class="italic"><a href="https://cvpr.thecvf.com/Conferences/2025">CVPR</a></span>, 2025 <br/>
-                <a class="btn btn-red" href="projects/levd">project</a> / <a class="btn btn-dark" href="bibtex/jin2025classic.html">bibtex</a>
+                <a class="btn btn-red" href="projects/levd">project</a> / <a class="btn btn-dark" href="bibtex/jin2025levd.html">bibtex</a>
             </div>
         </div>
         <div class="publication row clearfix" data-author="Zhong-Yu Li" data-date="202412">
@@ -121,17 +132,17 @@
             <div class="row-text">
                 <a class="publication-title bold" href="https://arxiv.org/abs/2411.15678">Towards RAW Object Detection in Diverse Conditions</a><br/>
                 Zhong-Yu Li, <span class="bold">Xin Jin</span>, Boyuan Sun, Chun-Le Guo, Ming-Ming Cheng# <br/>
-                <span class="italic"><a href="https://cvpr.thecvf.com/Conferences/2025">CVPR</a></span>, 2025 <img style="position: relative; top:6px;" src="https://img.shields.io/github/stars/lzyhha/AODRaw?label=%F0%9F%8C%9F%20Star&color=blue">&nbsp;<img style="position: relative; top:6px;" src="https://img.shields.io/github/forks/lzyhha/AODRaw?label=%F0%9F%94%A7%20Fork&color=green"><br/><br/>
+                <span class="italic"><a href="https://cvpr.thecvf.com/Conferences/2025">CVPR</a></span>, 2025, (<span style="color: #f09228;">Highlight</span>) <img style="position: relative; top:6px;" src="https://img.shields.io/github/stars/lzyhha/AODRaw?label=%F0%9F%8C%9F%20Star&color=blue">&nbsp;<img style="position: relative; top:6px;" src="https://img.shields.io/github/forks/lzyhha/AODRaw?label=%F0%9F%94%A7%20Fork&color=green"><br/>
                 <a class="btn btn-red" href="https://arxiv.org/abs/2411.15678">paper</a> / <a class="btn btn-dark" href="https://github.com/lzyhha/AODRaw">code</a> / <a class="btn btn-dark" href="bibtex/li2024towards.html">bibtex</a>
             </div>
         </div>
         <div class="publication row clearfix" data-author="Zheng-Peng Duan" data-date="202407">
             <div class="row-media" style="height: 100px; background-image: url(/assets/paper_teaser/diffretouch_teaser.png);"></div>
             <div class="row-text">
-                <a class="publication-title bold" href="https://adam-duan.github.io/projects/diffretouch-aaai25/">DiffRetouch: Using Diffusion to Retouch on the Shoulder of Experts</a><br/>
+                <a class="publication-title bold" href="https://adam-duan.github.io/projects/retouch/">DiffRetouch: Using Diffusion to Retouch on the Shoulder of Experts</a><br/>
                 Zheng-Peng Duan, Jiawei zhang, Zheng Lin, <span class="bold">Xin Jin</span>, Dongqing Zou, Chunle Guo, Chongyi Li# <br/>
                 <span class="italic"><a href="https://aaai.org/conference/aaai/aaai-25/">AAAI</a></span>, 2025 <br/>
-                <a class="btn btn-red" href="https://adam-duan.github.io/projects/diffretouch-aaai25/">project</a> / <a class="btn btn-red" href="https://arxiv.org/abs/2407.03757">paper</a> / <a class="btn btn-dark" href="bibtex/duan2024diffretouch.html">bibtex</a>
+                <a class="btn btn-red" href="https://adam-duan.github.io/projects/retouch/">project</a> / <a class="btn btn-red" href="https://arxiv.org/abs/2407.03757">paper</a> / <a class="btn btn-dark" href="bibtex/duan2024diffretouch.html">bibtex</a>
             </div>
         </div>
         <div class="highlight publication row clearfix" data-author="Xin Jin" data-date="202405">
@@ -216,21 +227,6 @@
                 <table>
                     <tr>
                         <td class="icon">
-                            <a href="https://mipi-challenge.org/MIPI2024/">
-                            <img src="/assets/experience/mipi.png" alt="MIPI"></a><br>
-                            <span style="font-size: 13px;">2023/12 - 2024/06<br> Seattle WA, USA</span>
-                        </td>
-                        <td class="description">
-                            <h4><b>Joint Organizer</b></h4>
-                            <p style="font-size: 13px;">Organized the MIPI workshop @ CVPR 2024 with <a href="https://www.mmlab-ntu.com/person/ccloy/">Chen Change Loy</a>, <a href="https://www.jimmyren.com/">Jimmy S. Ren</a>, <a href="https://shangchenzhou.com/">Shangchen Zhou</a>, etc. I lead the <a href="https://codalab.lisn.upsaclay.fr/competitions/17017">Few-shot RAW Image Denoising Track</a>.</p>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="timeline-item">
-                <table>
-                    <tr>
-                        <td class="icon">
                             <a href="https://en.megvii.com/">
                             <img src="/assets/experience/megvii.png" alt="Megvii"></a><br>
                             <span style="font-size: 13px;">2022/05 - 2022/09 <span style="font-size: 8px;">(Engineer)</span><br> 2023/05 - 2024/06 <span style="font-size: 8px;">(Scientist)</span><br> Beijing, China</span>
@@ -243,6 +239,49 @@
                 </table>
             </div>
         </div>
+
+        <details>
+            <summary style="font-size: 14px;">As Conference and Workshop Committee</summary>
+            <div class="timeline noselect">
+                <div class="timeline-item">
+                    <table>
+                        <tr>
+                            <td class="icon">
+                                <a href="https://cvlai.net/ntire/2025/">
+                                <img src="assets/experience/NTIRE2020_logo.png" alt="NTIRE"></a><br>
+                                <span style="font-size: 13px;">2025/01 - 2025/06<br> Nashville TN, USA</span>
+                            </td>
+                            <td class="description">
+                                <h4><b>Co-organizer</b></h4>
+                                <p style="font-size: 13px;">
+                                    Help organized the NTIRE workshop @ CVPR 2025 with <a href="https://www.cvlai.net/">Radu Timofte</a>, etc, especially track <a href="https://codalab.lisn.upsaclay.fr/competitions/21316">Efficient Burst HDR and Restoration</a>.
+                                    <!-- Report at <a href="">here</a>. -->
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="timeline-item">
+                    <table>
+                        <tr>
+                            <td class="icon">
+                                <a href="https://mipi-challenge.org/MIPI2024/">
+                                <img src="/assets/experience/mipi.png" alt="MIPI"></a><br>
+                                <span style="font-size: 13px;">2023/12 - 2024/06<br> Seattle WA, USA</span>
+                            </td>
+                            <td class="description">
+                                <h4><b>Co-organizer</b></h4>
+                                <p style="font-size: 13px;">
+                                    Organized the MIPI workshop @ CVPR 2024 with <a href="https://www.mmlab-ntu.com/person/ccloy/">Chen Change Loy</a>, <a href="https://www.jimmyren.com/">Jimmy S. Ren</a>, <a href="https://shangchenzhou.com/">Shangchen Zhou</a>, etc. 
+                                    I lead the <a href="https://codalab.lisn.upsaclay.fr/competitions/17017">Few-shot RAW Image Denoising Track</a>.
+                                    Report at <a href="https://openaccess.thecvf.com/content/CVPR2024W/MIPI/papers/Jin_MIPI_2024_Challenge_on_Few-shot_RAW_Image_Denoising_Methods_and_CVPRW_2024_paper.pdf">here</a>.
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </details>
     </div>
 
     <!-- Awards -->
@@ -268,7 +307,10 @@
     <div class="noselect">
         <a id="contact"></a>
         <h2>Contact</h2>
-        You are very welcome to contact me regarding my research. I typically respond within a few days.<br/>
+        You are very welcome to contact me regarding my research, offer some startup ideas, or just say hi.<br/>
+        <span style="text-decoration: line-through; opacity: 0.7;">I typically respond within a few days.</span>
+        Busy these days, maybe take some time to reply.
+        <br/>
         I can be contacted directly at <span class="bold">xjin</span> [at] <span class="bold">mail.nankai.edu.cn</span>.
     </div>
 </div>
@@ -281,7 +323,7 @@
 
 <div class="footer noselect">
     <div class="footer-content">
-        &copy; 2024 Xin Jin. This template is now maintained by <a href="https://github.com/Srameo/srameo.github.io">me</a>, originally template from <a style="color: white; text-decoration: underline;" href="https://nicklashansen.github.io">here</a>.
+        &copy; 2025 Xin Jin. This template is now maintained by <a href="https://github.com/Srameo/srameo.github.io">me</a>, originally template from <a style="color: white; text-decoration: underline;" href="https://nicklashansen.github.io">here</a>.
     </div>
 </div>
 
@@ -395,7 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
         placeholderSpan.className = 'particle-placeholder';
         placeholderSpan.style.display = 'inline-block';
         placeholderSpan.style.width = textWidth + 'px';
-        placeholderSpan.innerHTML = '✨'.repeat(Math.max(1, Math.ceil(textWidth / 20)));
+        placeholderSpan.innerHTML = '.'.repeat(1);
         
         const hoverSpan = document.createElement('span');
         hoverSpan.className = 'hover-content';
