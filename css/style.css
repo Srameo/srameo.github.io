@@ -210,7 +210,7 @@ td {
 
 .pinned-item {
     flex: 1;
-    min-width: 280px;
+    min-width: 180px;
     max-width: calc(33.33% - 16px);
     background: white;
     border-radius: 12px;
