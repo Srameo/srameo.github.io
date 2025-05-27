@@ -1,0 +1,21 @@
+{
+  "name": "srameo.github.io",
+  "version": "1.0.0",
+  "description": "Repository for [my personal site](https://srameo.github.io/).",
+  "main": "index.js",
+  "scripts": {
+    "fetch-stars": "node scripts/fetch-stars.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Srameo/srameo.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Srameo/srameo.github.io/issues"
+  },
+  "homepage": "https://github.com/Srameo/srameo.github.io#readme"
+}
