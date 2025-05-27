@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import fs from 'fs';
-import https from 'https';
-import path from 'path';
+const fs = require('fs');
+const https = require('https');
+const path = require('path');
 
 const token = process.env.GITHUB_TOKEN;
 if (!token) {
@@ -47,6 +47,8 @@ function fetchStars(githubUrl) {
   console.log('Fetching GitHub star counts...');
   for (const item of data) {
     if (item.github_url) {
+      // 有 URL 则取 star，没有则置 0
+      // eslint-disable-next-line no-await-in-loop
       item.stars = await fetchStars(item.github_url);
     } else {
       item.stars = 0;

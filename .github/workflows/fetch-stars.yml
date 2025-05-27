@@ -1,6 +1,10 @@
 name: Update GitHub Stars
 
-# 定时每天触发（UTC 零点），也可以手动触发
+# 给 GITHUB_TOKEN 内容写权限
+permissions:
+  contents: write
+
+# 定时每天触发（UTC 零点），也可手动触发
 on:
   schedule:
     - cron: '0 0 * * *'
@@ -10,24 +14,27 @@ jobs:
   update-stars:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+      # Checkout 并保留写权限的凭证
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: true
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    - name: Fetch GitHub star counts
-      run: |
-        npm ci
-        node scripts/fetch-stars.js
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Fetch GitHub star counts
+        run: |
+          npm ci
+          node scripts/fetch-stars.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Commit updated galaxy.json
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add galaxy.json
-        git diff --quiet && echo "No changes to commit" || git commit -m "chore: update GitHub star counts"
-        git push
+      - name: Commit updated projects/galaxy.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add projects/galaxy.json
+          git diff --quiet && echo "No changes to commit" || git commit -m "chore: update GitHub star counts"
+          git push
