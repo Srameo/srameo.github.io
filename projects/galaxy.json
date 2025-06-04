@@ -19,13 +19,14 @@
     "homepage": "https://adam-duan.github.io/projects/retouch/",
     "published": "AAAI 2024",
     "teaser": "<img src='/assets/paper_teaser/diffretouch_teaser.png' style='width: 99%; height: auto;'>",
+    "github_url": "https://github.com/Adam-duan/DiffRetouch",
     "core_contributor": false,
     "pos": [
       9.434100151062012,
       11.855199813842773,
       -5.724899768829346
     ],
-    "stars": 0
+    "stars": 2
   },
   {
     "id": "duan2025dit4sr",
@@ -139,7 +140,7 @@
       10.85789966583252,
       -4.377099990844727
     ],
-    "stars": 163
+    "stars": 165
   },
   {
     "id": "jin2023lighting",
@@ -169,7 +170,7 @@
       11.65530014038086,
       -3.845400094985962
     ],
-    "stars": 360
+    "stars": 362
   },
   {
     "id": "jin2023make",
