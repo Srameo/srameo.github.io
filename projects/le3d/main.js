@@ -383,18 +383,39 @@ function createWorker(self) {
 
     function runSort(viewProj) {
         if (!buffer) return;
-        const f_buffer = new Float32Array(buffer);
-        if (lastVertexCount == vertexCount) {
-            let dot =
-                lastProj[2] * viewProj[2] +
-                lastProj[6] * viewProj[6] +
-                lastProj[10] * viewProj[10];
-            if (Math.abs(dot - 1) < 0.01) {
-                return;
-            }
+
+        let f_buffer;
+        try {
+        // 确认 buffer 长度为 4 的倍数，否则截断
+        const byteLength = buffer.byteLength;
+        const elementSize = Float32Array.BYTES_PER_ELEMENT; // 4
+        if (byteLength % elementSize !== 0) {
+            console.warn(
+            `[runSort] buffer.byteLength=${byteLength} 不是 ${elementSize} 的倍数，截断到 ${
+                Math.floor(byteLength / elementSize) * elementSize
+            }`
+            );
+            buffer = buffer.slice(0, Math.floor(byteLength / elementSize) * elementSize);
+        }
+        f_buffer = new Float32Array(buffer);
+        } catch (e) {
+        console.error('[runSort] 构造 Float32Array 失败：', e);
+        return;
+        }
+
+        if (lastVertexCount === vertexCount) {
+        const dot =
+            lastProj[2]  * viewProj[2]  +
+            lastProj[6]  * viewProj[6]  +
+            lastProj[10] * viewProj[10];
+        if (Math.abs(dot - 1) < 0.01) {
+            // 投影几乎没变，跳过排序等后续逻辑
+            return;
+        }
         } else {
-            generateTexture();
-            lastVertexCount = vertexCount;
+        // 顶点数量变了，重新生成贴图
+        generateTexture();
+        lastVertexCount = vertexCount;
         }
 
         console.time("sort");
