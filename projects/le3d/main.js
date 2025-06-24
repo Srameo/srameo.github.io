@@ -663,11 +663,9 @@ async function startRender(scene) {
 
     const rowLength = 3 * 4 + 3 * 4 + 4 + 4;
     const reader = req.body.getReader();
-    let splatData = new Uint8Array(req.headers.get("content-length"));
+    let splatData;
 
-    const downsample =
-        splatData.length / rowLength > 500000 ? 1 : 1 / devicePixelRatio;
-    console.log(splatData.length / rowLength, downsample);
+    const downsample = 1 / devicePixelRatio;
 
     currentWorker = new Worker(
         URL.createObjectURL(
@@ -1273,7 +1271,7 @@ async function startRender(scene) {
             document.getElementById("spinner").style.display = "";
             start = Date.now() + 2000;
         }
-        const progress = (100 * vertexCount) / (splatData.length / rowLength);
+        const progress = splatData && splatData.length > 0 ? (100 * vertexCount) / (splatData.length / rowLength) : 0;
         if (progress < 100) {
             document.getElementById("progress").style.width = progress + "%";
         } else {
@@ -1378,30 +1376,30 @@ async function startRender(scene) {
         adjustWhiteBalance();
     });
 
-    let bytesRead = 0;
-    let lastVertexCount = -1;
-    let stopLoading = false;
-
+    const chunks = [];
     while (isRendering) {
         const { done, value } = await reader.read();
-        if (done || stopLoading) break;
-
-        splatData.set(value, bytesRead);
-        bytesRead += value.length;
-
-        if (vertexCount > lastVertexCount) {
-            currentWorker.postMessage({
-                buffer: splatData.buffer,
-                vertexCount: Math.floor(bytesRead / rowLength),
-            });
-            lastVertexCount = vertexCount;
-        }
+        if (done || !isRendering) break;
+        chunks.push(value);
     }
-    if (!stopLoading) {
+    
+    if (isRendering) {
+        const blob = new Blob(chunks);
+        const buffer = await blob.arrayBuffer();
+        splatData = new Uint8Array(buffer);
+
         currentWorker.postMessage({
             buffer: splatData.buffer,
-            vertexCount: Math.floor(bytesRead / rowLength),
+            vertexCount: Math.floor(splatData.byteLength / rowLength),
         });
+    }
+}
+
+function stopRender() {
+    isRendering = false;
+    if (currentWorker) {
+        currentWorker.terminate();
+        currentWorker = null;
     }
 }
 
