@@ -1,0 +1,17 @@
+name: Deploy to GitHub Pages
+on:
+  push: { branches: [main] }
+  workflow_dispatch:
+
+permissions: { contents: read, pages: write, id-token: write }
+concurrency: { group: "pages", cancel-in-progress: true }
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4      # 会把源码拉下来
+        with: { lfs: true }            # ↙︎ 把 LFS 图片一起拉下
+      - uses: actions/upload-pages-artifact@v3   # 打包当前目录
+        with: { path: . }              # ← 关键，只要把仓库里的一切原样上传
+      - uses: actions/deploy-pages@v4  # 部署到 gh-pages 分支  [oai_citation:0‡github.com](https://github.com/Srameo) [oai_citation:1‡github.com](https://github.com/actions/deploy-pages?utm_source=chatgpt.com)
