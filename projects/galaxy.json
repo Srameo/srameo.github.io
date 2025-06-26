@@ -19,14 +19,13 @@
     "homepage": "https://adam-duan.github.io/projects/retouch/",
     "published": "AAAI 2024",
     "teaser": "<img src='/assets/paper_teaser/diffretouch_teaser.png' style='width: 99%; height: auto;'>",
-    "github_url": "https://github.com/Adam-duan/DiffRetouch",
     "core_contributor": false,
     "pos": [
-      9.434100151062012,
-      11.855199813842773,
-      -5.724899768829346
+      0.7764999866485596,
+      15.9975004196167,
+      -1.356600046157837
     ],
-    "stars": 8
+    "stars": 0
   },
   {
     "id": "duan2025dit4sr",
@@ -49,13 +48,13 @@
       "Super-Resolution"
     ],
     "homepage": "https://adam-duan.github.io/projects/dit4sr/",
-    "published": "Arxiv Preprint",
+    "published": "ICCV 2025",
     "teaser": "<img src='/assets/paper_teaser/dit4sr/dit4sr.gif' style='width: 99%; height: auto;'>",
     "core_contributor": false,
     "pos": [
-      8.942000389099121,
-      11.160699844360352,
-      -5.336400032043457
+      0.7993000149726868,
+      15.786199569702148,
+      -2.1928999423980713
     ],
     "stars": 0
   },
@@ -78,9 +77,9 @@
     "teaser": "<img src='/assets/paper_teaser/icpr2023teaser.png' style='width: 99%; height: auto;'>",
     "core_contributor": false,
     "pos": [
-      10.156499862670898,
-      11.427200317382812,
-      -4.156099796295166
+      1.219499945640564,
+      16.582500457763672,
+      -3.6582000255584717
     ],
     "stars": 0
   },
@@ -107,9 +106,9 @@
     "github_url": "https://github.com/RQ-Wu/UnderwaterRanker",
     "core_contributor": false,
     "pos": [
-      9.902799606323242,
-      11.70359992980957,
-      -5.162199974060059
+      0.3596000075340271,
+      16.507699966430664,
+      -1.753100037574768
     ],
     "stars": 113
   },
@@ -136,9 +135,9 @@
     "github_url": "https://github.com/Srameo/DNF",
     "core_contributor": true,
     "pos": [
-      8.441699981689453,
-      10.85789966583252,
-      -4.377099990844727
+      0.897599995136261,
+      17.18589973449707,
+      -3.0481998920440674
     ],
     "stars": 165
   },
@@ -166,9 +165,9 @@
     "github_url": "https://github.com/Srameo/LED",
     "core_contributor": true,
     "pos": [
-      8.42770004272461,
-      11.65530014038086,
-      -3.845400094985962
+      0.03579999879002571,
+      16.95549964904785,
+      -3.446199893951416
     ],
     "stars": 370
   },
@@ -195,9 +194,9 @@
     "teaser": "<img src='/projects/led-extension/assets/multiraw.jpg' style='width: 99%; height: auto;'>",
     "core_contributor": true,
     "pos": [
-      9.188899993896484,
-      11.689200401306152,
-      -3.593600034713745
+      -0.21279999613761902,
+      16.150999069213867,
+      -3.4677000045776367
     ],
     "stars": 0
   },
@@ -227,9 +226,9 @@
     "github_url": "https://github.com/Srameo/LE3D",
     "core_contributor": true,
     "pos": [
-      9.29259967803955,
-      10.955400466918945,
-      -3.8248000144958496
+      0.4065999984741211,
+      15.727100372314453,
+      -3.5404000282287598
     ],
     "stars": 227
   },
@@ -257,9 +256,9 @@
     "teaser": "<img src='/assets/paper_teaser/levd.gif' style='width: 99%; height: auto;'>",
     "core_contributor": true,
     "pos": [
-      8.871800422668457,
-      12.1003999710083,
-      -4.465099811553955
+      -0.23600000143051147,
+      16.658899307250977,
+      -2.6798999309539795
     ],
     "stars": 0
   },
@@ -285,10 +284,37 @@
     "github_url": "https://github.com/lzyhha/AODRaw",
     "core_contributor": false,
     "pos": [
-      9.390700340270996,
-      10.746100425720215,
-      -4.683800220489502
+      1.031599998474121,
+      16.63319969177246,
+      -2.447999954223633
     ],
     "stars": 26
+  },
+  {
+    "id": "meng2025ultraled",
+    "title": "Learning to See Everything in Ultra-High Dynamic Range Scenes",
+    "authors": [
+      "Yuang Meng",
+      "Xin Jin",
+      "Lina Lei",
+      "Chun-Le Guo",
+      "Chongyi Li"
+    ],
+    "abstract": "Ultra-high dynamic range (UHDR) scenes exhibit pronounced exposure disparities between bright and dark regions. Such conditions are common in nighttime scenes with light sources. Even standard exposure settings often result in a bimodal intensity distribution with boundary peaks, making it challenging to simultaneously preserve both highlight and shadow details. RGB-based bracketing methods can capture details at both ends using short-long exposure pairs, but are susceptible to misalignment and ghosting artifacts. A short-exposure image, however, already retains sufficient highlight detail. The main challenge lies in denoising and recovering information in dark regions. RAW images, thanks to their higher bit depth and more predictable noise characteristics, offer greater potential for addressing this challenge. This raises a key question: can we learn to see everything in UHDR scenes using only a single short-exposure RAW image? Our method, relying solely on one short-exposure frame, inherently avoids ghosting and motion blur, making it particularly robust in dynamic scenes. To achieve that, we introduce a two-stage framework: exposure correction via a ratio map to balance dynamic range, followed by brightness-aware noise modeling to enhance detail recovery in dark regions. To support this, we design a 9-stop bracketing pipeline to synthesize realistic UHDR images, and construct a dataset accordingly on static scenes, using only the shortest exposure as input for reconstruction. Experiments show that our method significantly outperforms existing single-frame approaches. Code will be released publicly.",
+    "tags": [
+      "Camera",
+      "ISP",
+      "HDR"
+    ],
+    "homepage": "https://srameo.github.io/projects/ultraled/",
+    "published": "Arxiv Preprint",
+    "teaser": "<img src='/assets/paper_teaser/ultraled.gif' style='width: 99%; height: auto;'>",
+    "core_contributor": true,
+    "pos": [
+      0.8317999839782715,
+      16.033199310302734,
+      -3.085599899291992
+    ],
+    "stars": 0
   }
 ]

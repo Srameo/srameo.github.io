@@ -492,6 +492,32 @@
             updateFilters();
         });
         document.querySelector('.filter-controls').appendChild(resetButton);
+        
+        // -------- Video Synchronization --------
+        function syncVideos() {
+            // 当两视频时间差超过 40ms 时进行对齐
+            const diff = Math.abs(video1.currentTime - video2.currentTime);
+            if (diff > 0.04) {
+                // 让 video2 紧跟 video1
+                video2.currentTime = video1.currentTime;
+            }
+        }
+
+        // 在播放进度更新时持续同步
+        video1.addEventListener('timeupdate', syncVideos);
+
+        // 在 loop 回到开头时也同步，避免累积误差
+        video1.addEventListener('ended', () => {
+            video2.currentTime = 0;
+        });
+
+        // 当用户暂停/播放或切换场景再次校正播放速率与时间
+        function alignOnPlay() {
+            video2.currentTime = video1.currentTime;
+            video2.playbackRate = video1.playbackRate;
+        }
+        video1.addEventListener('play', alignOnPlay);
+        video2.addEventListener('play', alignOnPlay);
 
         const playPauseButton = document.getElementById('playPauseButton');
         let isPlaying = true;

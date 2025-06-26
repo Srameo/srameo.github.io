@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Comparison</title>
+    <style>
+        .comparison-container {
+            position: relative;
+            width: 1600px;
+            height: 900px;
+            margin: 20px auto;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .video-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        #video1 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #video2-container {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #video2 {
+            position: absolute;
+            width: 1600px;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider {
+            position: absolute;
+            width: 5px;
+            height: 100%;
+            background: white;
+            left: 50%;
+            cursor: ew-resize;
+            z-index: 10;
+        }
+
+        .slider-button {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: ew-resize;
+        }
+
+        .method-selector {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .left-selector {
+            left: 20px;
+        }
+
+        .right-selector {
+            right: 20px;
+        }
+
+        .method-button {
+            display: block;
+            margin: 5px;
+            padding: 8px 12px;
+            background: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 120px;
+        }
+
+        .method-button:hover {
+            background: #e0e0e0;
+        }
+
+        .method-button.active {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .filter-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 20;
+        }
+
+        .filter-control {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        .filter-control label {
+            margin-bottom: 5px;
+        }
+
+        .filter-control input {
+            width: 150px;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            height: 5px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        .play-pause-button {
+            background: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            margin-right: 20px;
+            width: 80px;
+        }
+
+        .play-pause-button:hover {
+            background: #e0e0e0;
+        }
+
+        .readme-container {
+            z-index: 999;
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: calc(70px * 5 + 4 * 5px + 30px);
+        }
+
+        .readme-box {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .readme-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .readme-content {
+            line-height: 1.4;
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+            line-height: 1;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .close-button:hover {
+            color: #ff6b6b;
+        }
+
+        .scene-selector {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .scene-button {
+            padding: 8px 16px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .scene-button.active {
+            background: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="readme-container">
+        <div class="readme-box">
+            <div class="readme-title">
+                README
+                <button id="closeReadme" class="close-button">×</button>
+            </div>
+            <div class="readme-content">
+                • Left: Original video<br>
+                • Right: Processed video<br>
+                • Use the upper button to adjust the scene<br>
+                • Drag slider to compare<br>
+                • Use sliders on the left to adjust brightness, contrast, and saturation of the left video only<br>
+            </div>
+        </div>
+    </div>
+
+    <div class="scene-selector">
+        <button class="scene-button active" data-scene="1">Scene 1</button>
+        <button class="scene-button" data-scene="2">Scene 2</button>
+        <button class="scene-button" data-scene="3">Scene 3</button>
+        <button class="scene-button" data-scene="4">Scene 4</button>
+        <button class="scene-button" data-scene="5">Scene 5</button>
+    </div>
+
+    <div class="comparison-container">
+        <div class="video-container">
+            <video id="video1" loop muted playsinline>
+                <source src="./assets/video_demo/A/output1.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div id="video2-container">
+            <video id="video2" loop muted playsinline>
+                <source src="./assets/video_demo/B/input1.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="slider">
+            <div class="slider-button"></div>
+        </div>
+    </div>
+
+    <div class="filter-controls">
+        <button class="play-pause-button" id="playPauseButton">Pause</button>
+        
+        <div class="filter-control">
+            <label for="brightness">Brightness</label>
+            <input type="range" id="brightness" min="0" max="500" value="100">
+            <span id="brightnessValue">100%</span>
+        </div>
+        <div class="filter-control">
+            <label for="contrast">Contrast</label>
+            <input type="range" id="contrast" min="0" max="200" value="100">
+            <span id="contrastValue">100%</span>
+        </div>
+        <div class="filter-control">
+            <label for="saturation">Saturation</label>
+            <input type="range" id="saturation" min="0" max="200" value="100">
+            <span id="saturationValue">100%</span>
+        </div>
+    </div>
+
+    <script>
+        const container = document.querySelector('.comparison-container');
+        const slider = document.querySelector('.slider');
+        const video2Container = document.getElementById('video2-container');
+        const video1 = document.getElementById('video1');
+        const video2 = document.getElementById('video2');
+        const sceneButtons = document.querySelectorAll('.scene-button');
+        let isDragging = false;
+        let isPlaying = true;
+
+        function updateVideoSources(sceneNumber) {
+            const wasPlaying = isPlaying;
+            
+            video1.pause();
+            video2.pause();
+
+            video1.querySelector('source').src = `./assets/video_demo/A/output${sceneNumber}.mp4`;
+            video2.querySelector('source').src = `./assets/video_demo/B/input${sceneNumber}.mp4`;
+
+            video1.load();
+            video2.load();
+
+            video1.onloadedmetadata = () => {
+                if(wasPlaying) video1.play();
+            }
+            video2.onloadedmetadata = () => {
+                if(wasPlaying) video2.play();
+            }
+        }
+
+        sceneButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                sceneButtons.forEach(b => b.classList.remove('active'));
+                button.classList.add('active');
+                const sceneNumber = button.dataset.scene;
+                updateVideoSources(sceneNumber);
+            });
+        });
+
+        function handleSliderMove(e) {
+            if (!isDragging) return;
+
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percentage = (x / rect.width) * 100;
+
+            const limitedPercentage = Math.min(Math.max(percentage, 0), 100);
+
+            slider.style.left = `${limitedPercentage}%`;
+            video2Container.style.width = `${limitedPercentage}%`;
+        }
+
+        slider.addEventListener('mousedown', () => isDragging = true);
+        document.addEventListener('mousemove', handleSliderMove);
+        document.addEventListener('mouseup', () => isDragging = false);
+
+        slider.addEventListener('touchstart', () => isDragging = true);
+        document.addEventListener('touchmove', (e) => {
+            if (isDragging) {
+                e.preventDefault();
+                handleSliderMove(e.touches[0]);
+            }
+        });
+        document.addEventListener('touchend', () => isDragging = false);
+
+        const brightnessSlider = document.getElementById('brightness');
+        const contrastSlider = document.getElementById('contrast');
+        const saturationSlider = document.getElementById('saturation');
+        const brightnessValue = document.getElementById('brightnessValue');
+        const contrastValue = document.getElementById('contrastValue');
+        const saturationValue = document.getElementById('saturationValue');
+
+        function updateFilters() {
+            const brightness = brightnessSlider.value;
+            const contrast = contrastSlider.value;
+            const saturation = saturationSlider.value;
+
+            const filterString = `brightness(${brightness}%) contrast(${contrast}%) saturate(${saturation}%)`;
+            
+            video2.style.filter = filterString;
+
+            brightnessValue.textContent = `${brightness}%`;
+            contrastValue.textContent = `${contrast}%`;
+            saturationValue.textContent = `${saturation}%`;
+        }
+
+        brightnessSlider.addEventListener('input', updateFilters);
+        contrastSlider.addEventListener('input', updateFilters);
+        saturationSlider.addEventListener('input', updateFilters);
+
+        const resetButton = document.createElement('button');
+        resetButton.textContent = 'Reset';
+        resetButton.style.marginLeft = '20px';
+        resetButton.addEventListener('click', () => {
+            brightnessSlider.value = 100;
+            contrastSlider.value = 100;
+            saturationSlider.value = 100;
+            updateFilters();
+        });
+        document.querySelector('.filter-controls').appendChild(resetButton);
+
+        // -------- Video Synchronization --------
+        function syncVideos() {
+            // 当两视频时间差超过 40ms 时进行对齐
+            const diff = Math.abs(video1.currentTime - video2.currentTime);
+            if (diff > 0.04) {
+                // 让 video2 紧跟 video1
+                video2.currentTime = video1.currentTime;
+            }
+        }
+
+        // 在播放进度更新时持续同步
+        video1.addEventListener('timeupdate', syncVideos);
+
+        // 在 loop 回到开头时也同步，避免累积误差
+        video1.addEventListener('ended', () => {
+            video2.currentTime = 0;
+        });
+
+        // 当用户暂停/播放或切换场景再次校正播放速率与时间
+        function alignOnPlay() {
+            video2.currentTime = video1.currentTime;
+            video2.playbackRate = video1.playbackRate;
+        }
+        video1.addEventListener('play', alignOnPlay);
+        video2.addEventListener('play', alignOnPlay);
+
+        const playPauseButton = document.getElementById('playPauseButton');
+        playPauseButton.addEventListener('click', () => {
+            if (isPlaying) {
+                video1.pause();
+                video2.pause();
+                playPauseButton.textContent = 'Play';
+            } else {
+                video1.play();
+                video2.play();
+                playPauseButton.textContent = 'Pause';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        const closeReadmeButton = document.getElementById('closeReadme');
+        closeReadmeButton.addEventListener('click', () => {
+            const readmeContainer = document.querySelector('.readme-container');
+            readmeContainer.style.display = 'none';
+        });
+
+        video1.play();
+        video2.play();
+    </script>
+</body>
+</html>

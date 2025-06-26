@@ -1,0 +1,493 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+  <title>Learning to See Everything in Ultra High Dynamic Range Scenes</title>
+  
+  <meta name="author" content="Xin Jin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" type="text/css" href="/css/projects.css">
+  <!-- flexbox -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/twentytwenty/js/jquery-3.2.1.min.js" defer type="text/javascript"></script>
+  <script src="/twentytwenty/js/jquery.event.move.js" defer type="text/javascript"></script>
+  <script src="/twentytwenty/js/jquery.twentytwenty.js" defer type="text/javascript"></script>
+  <link rel="stylesheet" href="/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" /> 
+  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+  <!-- navbar -->
+  <script src="/js/navbar.js"></script>
+  <link rel="stylesheet" href="/css/bulma/bulma.min.css">
+  <link rel="stylesheet" href="/css/bulma/bulma-carousel.min.css">
+  <!-- <link rel="stylesheet" href="/css/bulma/bulma-slider.min.css"> -->
+  <script src="/js/bulma/bulma-carousel.min.js"></script>
+  <script src="/js/bulma/bulma-slider.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+    rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💡</text></svg>">
+</head>
+
+<style>
+  /* Style the buttons */
+  .btn {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 8px;
+  }
+  
+  /* Style the active class, and buttons on mouse-over */
+  .active, .btn:hover {
+    background-color: #666;
+    color: white;
+  }
+
+  /* Highlight the toggle button */
+  .toggle-input-btn {
+    background-color: #777777 !important; /* Bulma danger color */
+    color: #fff !important;
+    font-weight: 600;
+    padding: 12px 24px;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+
+  .toggle-input-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  }
+
+  /* .twentytwenty-container {
+    min-height: 200px;
+} */
+
+  /* Patch preview styles */
+  .patch-view {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    border: 2px solid #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    z-index: 1001;
+    pointer-events: none; /* allow mouse events to pass through */
+  }
+  .patch-segment {
+    width: 160px;
+    height: 160px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+
+  /* Align carousel-tip style with README box */
+  #carousel-tip {
+    background: rgba(0, 0, 0, 0.7) !important;
+    color: white !important;
+    border-radius: 5px !important;
+    padding: 15px !important;
+    font-size: 14px;
+  }
+
+  #carousel-tip .delete {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    line-height: 1;
+  }
+
+  #carousel-tip .delete:hover {
+    color: #ff6b6b;
+  }
+</style>
+
+<div id="navbar-placeholder"></div>
+<script>
+$(function(){
+    $("#navbar-placeholder").load("/projects/navbar.html", function(response, status, xhr) {
+    if (status == "error") {
+        console.log("Error loading navbar:", xhr.status, xhr.statusText);
+        return;
+    }
+
+    // The navbar-burger part of the navbar needs some JS to work.
+    // From https://bulma.io/documentation/components/navbar/
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+
+            // Get the target from the "data-target" attribute
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+
+            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+
+        });
+        });
+    }
+    });
+});
+</script>
+
+<body style="width: 100%;">
+    <div style="width: 100%;">
+        <!-- Title -->
+        <div class="root-content" style="padding-top: 30px;">
+            <center><img src="./assets/logo.jpg" style="width: 20%; margin-bottom: 10px;"/></center>
+            <name style="font-size: 36px;"><span style="color: red;">L</span>earning to See <span style="color: red;">E</span>verything in <span style="color: red;">Ultra</span> High <span style="color: red;">D</span>ynamic Range Scenes</name>
+            <br>
+            <div id="author-list"">
+                Yuang Meng<sup>*</sup>&nbsp;&nbsp;&nbsp;
+                <a href="https://srameo.github.io">Xin Jin</a><sup>*</sup>&nbsp;&nbsp;&nbsp;
+                Lina Lei&nbsp;&nbsp;&nbsp;
+                <a href="https://mmcheng.net/clguo/">Chunle Guo</a>&nbsp;&nbsp;&nbsp;
+                <a href="https://li-chongyi.github.io/">Chong-Yi Li</a>&nbsp;&nbsp;&nbsp;
+            </div>
+            <div id="institution-list">
+                <sup>*</sup>Equal contribution&nbsp;&nbsp;&nbsp;&nbsp;
+                VCIP, CS, Nankai University
+            </div>
+            <p id="publication">
+                Arxiv 2025
+            </p>
+            <div id="button-list">
+                <span class="link-button">
+                    <a class="link-button-content", href="#bib">
+                        <span>
+                            <svg class="svg-inline--fa fa-file-pdf" aria-hidden="true" style="position: relative; top: 0.15em;" width="1em" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmarks" viewBox="0 0 16 16"> <path fill="currentColor" fill-rule="evenodd" d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z" fill="white"></path> <path fill="currentColor" fill-rule="evenodd" d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z" fill="white"></path> </svg>
+                        </span>
+                        &nbsp;  
+                        BibTex
+                    </a>
+                </span>
+            </div>
+        </div>
+
+
+        <!-- Visual Results -->
+        <div style="background-color: #f5f5f5; margin-right: auto; margin-left: auto;">
+            <div class="root-content" style="padding-top: 10px;">
+                <h1 class="section-name">&#128293; Want to See Everything in UHDR Scenes? Try UltraLED! &#128293;</h1>
+                <p class="section-content-text">
+                    UltraLED generates UHDR results from a single short-exposure RAW image. As a result, it avoids hallucination in highlight regions and eliminates the need for alignment processing, unlike bracketing-based approaches.
+                    <p style="font-size: large;">Here are some results with UltraLED.</p>
+                    <br/>
+                </p>
+                
+                <!-- 横向连续轮播开始 -->
+                <div class="carousel-wrapper" style="width: 100%; margin: auto; position: relative;">
+                    <div id="led-carousel" class="carousel" style="width: 100%;">
+                        <div class="item">
+                            <div class="compare comparison-container" style="cursor: pointer; width: 80%; margin: auto;">
+                                <img class="slider-image before-image"
+                                     src="./assets/image_demo/DSC01016_in.jpg"
+                                     data-src-alt1="./assets/image_demo/DSC01016_in.jpg"
+                                     data-src-alt2="./assets/image_demo/DSC01016_in_noisy.jpg"/>
+                                <img class="slider-image after-image" src="./assets/image_demo/DSC01016_out.jpg"/>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="compare comparison-container" style="cursor: pointer; width: 80%; margin: auto;">
+                                <img class="slider-image before-image"
+                                     src="./assets/image_demo/DSC01018_in.jpg"
+                                     data-src-alt1="./assets/image_demo/DSC01018_in.jpg"
+                                     data-src-alt2="./assets/image_demo/DSC01018_in_noisy.jpg"/>
+                                <img class="slider-image after-image" src="./assets/image_demo/DSC01018_out.jpg"/>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="compare comparison-container" style="cursor: pointer; width: 80%; margin: auto;">
+                                <img class="slider-image before-image"
+                                     src="./assets/image_demo/DSC01041_in.jpg"
+                                     data-src-alt1="./assets/image_demo/DSC01041_in.jpg"
+                                     data-src-alt2="./assets/image_demo/DSC01041_in_noisy.jpg"/>
+                                <img class="slider-image after-image" src="./assets/image_demo/DSC01041_out.jpg"/>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="compare comparison-container" style="cursor: pointer; width: 80%; margin: auto;">
+                                <img class="slider-image before-image"
+                                     src="./assets/image_demo/DSC01060_in.jpg"
+                                     data-src-alt1="./assets/image_demo/DSC01060_in.jpg"
+                                     data-src-alt2="./assets/image_demo/DSC01060_in_noisy.jpg"/>
+                                <img class="slider-image after-image" src="./assets/image_demo/DSC01060_out.jpg"/>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="compare comparison-container" style="cursor: pointer; width: 80%; margin: auto;">
+                                <img class="slider-image before-image"
+                                     src="./assets/image_demo/DSC01074_in.jpg"
+                                     data-src-alt1="./assets/image_demo/DSC01074_in.jpg"
+                                     data-src-alt2="./assets/image_demo/DSC01074_in_noisy.jpg"/>
+                                <img class="slider-image after-image" src="./assets/image_demo/DSC01074_out.jpg"/>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="compare comparison-container" style="cursor: pointer; width: 80%; margin: auto;">
+                                <img class="slider-image before-image"
+                                     src="./assets/image_demo/DSC01090_in.jpg"
+                                     data-src-alt1="./assets/image_demo/DSC01090_in.jpg"
+                                     data-src-alt2="./assets/image_demo/DSC01090_in_noisy.jpg"/>
+                                <img class="slider-image after-image" src="./assets/image_demo/DSC01090_out.jpg"/>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="compare comparison-container" style="cursor: pointer; width: 80%; margin: auto;">
+                                <img class="slider-image before-image"
+                                     src="./assets/image_demo/DSC01126_in.jpg"
+                                     data-src-alt1="./assets/image_demo/DSC01126_in.jpg"
+                                     data-src-alt2="./assets/image_demo/DSC01126_in_noisy.jpg"/>
+                                <img class="slider-image after-image" src="./assets/image_demo/DSC01126_out.jpg"/>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="compare comparison-container" style="cursor: pointer; width: 80%; margin: auto;">
+                                <img class="slider-image before-image"
+                                     src="./assets/image_demo/DSC01139_in.jpg"
+                                     data-src-alt1="./assets/image_demo/DSC01139_in.jpg"
+                                     data-src-alt2="./assets/image_demo/DSC01139_in_noisy.jpg"/>
+                                <img class="slider-image after-image" src="./assets/image_demo/DSC01139_out.jpg"/>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="compare comparison-container" style="cursor: pointer; width: 80%; margin: auto;">
+                                <img class="slider-image before-image"
+                                     src="./assets/image_demo/DSC01151_in.jpg"
+                                     data-src-alt1="./assets/image_demo/DSC01151_in.jpg"
+                                     data-src-alt2="./assets/image_demo/DSC01151_in_noisy.jpg"/>
+                                <img class="slider-image after-image" src="./assets/image_demo/DSC01151_out.jpg"/>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="compare comparison-container" style="cursor: pointer; width: 80%; margin: auto;">
+                                <img class="slider-image before-image"
+                                     src="./assets/image_demo/DSC01170_in.jpg"
+                                     data-src-alt1="./assets/image_demo/DSC01170_in.jpg"
+                                     data-src-alt2="./assets/image_demo/DSC01170_in_noisy.jpg"/>
+                                <img class="slider-image after-image" src="./assets/image_demo/DSC01170_out.jpg"/>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="compare comparison-container" style="cursor: pointer; width: 80%; margin: auto;">
+                                <img class="slider-image before-image"
+                                     src="./assets/image_demo/DSC01191_in.jpg"
+                                     data-src-alt1="./assets/image_demo/DSC01191_in.jpg"
+                                     data-src-alt2="./assets/image_demo/DSC01191_in_noisy.jpg"/>
+                                <img class="slider-image after-image" src="./assets/image_demo/DSC01191_out.jpg"/>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Hint Popup (dismissible) -->
+                    <div id="carousel-tip" class="notification is-info" style="position: absolute; left: 10px; top: 10px; max-width: 280px; z-index: 1000;">
+                        <button class="delete"></button>
+                        Click the button below to switch the left input image between the original and the enhanced one.
+                    </div>
+                </div>
+                <!-- 在轮播下方添加统一切换按钮 -->
+                <center style="margin: 15px 0;">
+                    <button class="btn toggle-input-btn">Toggle Input (Original / Enhanced)</button>
+                </center>
+                <!-- 横向连续轮播结束 -->
+
+                <h1 class="section-name">🤖️ Powerful Ability to Deploy on Videos!</h1>
+                <p class="section-content-text">
+                    <center>
+                        Even when trained only on images, UltraLED can be rapidly adapted to videos.
+                    </center>
+                </p>
+
+                <div class="root-content" style="padding-top: 10px; width: 100%; margin: 0 auto;">
+                    <iframe src="compare.html" width="100%" height="1015px"></iframe>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Paper Information -->
+        <div class="root-content" style="padding-top: 30px;">
+            <div class="section-content">
+            <h1 class="section-name"> Abstract </h1>
+                <p class="section-content-text">
+                    Ultra-high dynamic range (UHDR) scenes exhibit pronounced exposure disparities between bright and dark regions. Such conditions are common in nighttime scenes with light sources. Even standard exposure settings often result in a bimodal intensity distribution with boundary peaks, making it challenging to simultaneously preserve both highlight and shadow details. RGB-based bracketing methods can capture details at both ends using short-long exposure pairs, but are susceptible to misalignment and ghosting artifacts. A short-exposure image, however, already retains sufficient highlight detail. The main challenge lies in denoising and recovering information in dark regions. RAW images, thanks to their higher bit depth and more predictable noise characteristics, offer greater potential for addressing this challenge. This raises a key question: can we learn to see everything in UHDR scenes using only a single short-exposure RAW image? Our method, relying solely on one short-exposure frame, inherently avoids ghosting and motion blur, making it particularly robust in dynamic scenes. To achieve that, we introduce a two-stage framework: exposure correction via a ratio map to balance dynamic range, followed by brightness-aware noise modeling to enhance detail recovery in dark regions. To support this, we design a 9-stop bracketing pipeline to synthesize realistic UHDR images, and construct a dataset accordingly on static scenes, using only the shortest exposure as input for reconstruction. Experiments show that our method significantly outperforms existing single-frame approaches. Code will be released publicly.
+                </p>
+            </div>
+
+            <!-- <div style="padding-top: 20px;">
+                <h1 class="section-name">Method</h1>
+                <center><img src="assets/led_pipeline.svg" width="1000"/></center>
+                <p class="section-content-text">
+                    Overview of our LED. <br/>
+                    Unlike typical calibration-based algorithms, our method, as shown in the figure, consists of four steps in total:
+                    <br/><br/>
+                    1. Synthetic Noise Generation.<br/>
+                    2. Pre-training the denoiser.<br/>
+                    3. Collecting few-shot paired data using the target camera.<br/>
+                    4. Fine-tuning the denoiser using the data collected in Step 3.<br/>
+                    <br/>
+                    Compared to calibration-based algorithms, LED uses randomly sampled virtual camera parameters during synthetic noise generation, thereby avoiding the calibration process.<br/>
+                    During each iteration of pre-training, a random virtual camera is first selected, and the training is performed using the paired data synthesized with that virtual camera. When the k-th virtual camera is selected, only the k-th CSA (Camera-Specific Alignment) is trained. This approach aims to decouple camera-specific information from noise information.<br/>
+                    During Finetuning, the first step is to average all CSAs to enhance generalization capability. After that, an additional branch is added to handle out-of-model noise. It's important to note that the blue 3x3 convolution is frozen during this process.<br/>
+                    <br/>
+                    <strong style="color: brown;">Note</strong>: The network architecture of LED is exactly the same as other methods during deployment! This is possible thanks to the reparameterization technique. Below are the details regarding these aspects.<br/>
+                    More detail can be found in our main paper.
+                    <details>
+                        <summary>Details when deploy</summary>
+                        LED's another highlight lies in its final deployment, where the neural network remains completely consistent with other methods! No additional computational overhead is added, thanks to the following reparameterization process.
+                        <center><img src="assets/rep.svg" width="600"/></center>
+                    </details>
+                </p>
+            </div> -->
+
+            <div>
+                <h1 class="section-name" style="margin-top: 30px; text-align: left; font-size: 25px;">
+                    BibTex
+                </h1>
+                <a name="bib"></a>
+                <pre style="margin-top: 5px;" class="bibtex">
+<code>
+@article{jin2025learning,
+    title={Learning to See Everything in Ultra High Dynamic Range},
+    author={Meng, Yuang and Jin, Xin and Lei, Lina and Guo, Chunle and Li, Chongyi},
+    journal={arXiv preprint},
+    year={2025}
+}</code>
+                </pre>
+            </div>
+            <div style="margin-bottom: 50px;">
+                <h1 class="section-name" style="margin-top: 30px; margin-bottom: 10px; text-align: left; font-size: 25px;">
+                    Contact
+                </h1>
+                <p class="section-content-text">
+                    Feel free to contact us at <strong>xjin[AT]mail.nankai.edu.cn</strong>!
+                </p>
+            </div>
+        </div>
+
+        <div style="background-color: #f5f5f5; margin-right: auto; margin-left: auto; text-align: center; padding-top: 35px; padding-bottom: 35px;">
+            <img src="https://counter1.optistats.ovh/private/freecounterstat.php?c=ntmwhkyw84tkwl9m4f1k9w2fl783dwm3" title="web counter" alt="web counter">
+            <p>Visitor Count</p>
+        </div>
+        
+    </div>
+    <script src="/js/compare.js"></script>
+</body>
+
+<script>
+    $(document).ready(function(){
+        // Find all comparison containers
+        $(".comparison-container").each(function() {
+            const $container = $(this);
+
+            /* Ensure relative positioning so patch can be placed absolutely */
+            if ($container.css("position") === "static") {
+                $container.css("position", "relative");
+            }
+
+            /* Create patch view */
+            const $patchView = $(
+                `<div class="patch-view" style="width: 320px;">
+                    <div class="patch-segment patch-before"></div>
+                    <div class="patch-segment patch-after"></div>
+                </div>`
+            );
+            $container.append($patchView);
+
+            const patchSize = 40; // px
+            const scale = 4; // 4x zoom
+
+            $container.on("mousemove", function(e){
+                const offset = $container.offset();
+                const x = e.pageX - offset.left;
+                const y = e.pageY - offset.top;
+
+                const beforeImg = $container.find(".before-image");
+                const afterImg  = $container.find(".after-image");
+
+                if (!beforeImg.length || !afterImg.length) return;
+
+                const imgWidth  = beforeImg.width();
+                const imgHeight = beforeImg.height();
+
+                // Clamp background origin so patch stays within image bounds
+                const bgX = Math.min(Math.max(x - patchSize/2, 0), imgWidth  - patchSize);
+                const bgY = Math.min(Math.max(y - patchSize/2, 0), imgHeight - patchSize);
+
+                /* Update background images and positions */
+                const bgSizeW = imgWidth * scale;
+                const bgSizeH = imgHeight * scale;
+                $patchView.find('.patch-before')
+                          .css({
+                              'background-image': `url(${beforeImg.attr('src')})`,
+                              'background-size' : `${bgSizeW}px ${bgSizeH}px`,
+                              'background-position': `-${bgX * scale}px -${bgY * scale}px`
+                          });
+                $patchView.find('.patch-after')
+                          .css({
+                              'background-image': `url(${afterImg.attr('src')})`,
+                              'background-size' : `${bgSizeW}px ${bgSizeH}px`,
+                              'background-position': `-${bgX * scale}px -${bgY * scale}px`
+                          });
+            });
+
+            /* Hide patch when leaving container */
+            $container.on("mouseleave", function(){
+                $patchView.hide();
+            }).on("mouseenter", function(){
+                $patchView.show();
+            });
+        });
+
+        // 初始化 Bulma Carousel
+        bulmaCarousel.attach('#led-carousel', {
+            slidesToScroll: 1,
+            slidesToShow: 1,
+            loop: true,
+            navigation: true,
+            pagination: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            pauseOnHover: true
+        });
+
+        // Close button for carousel tip
+        $("#carousel-tip .delete").on("click", function(){
+            $("#carousel-tip").remove();
+        });
+
+        // 统一切换所有 before-image 的按钮逻辑
+        $(".toggle-input-btn").on("click", function(){
+            $(".before-image").each(function(){
+                var beforeImg = $(this);
+                var src1 = beforeImg.data("src-alt1");
+                var src2 = beforeImg.data("src-alt2");
+                var currentSrc = beforeImg.attr("src");
+                beforeImg.attr("src", currentSrc === src1 ? src2 : src1);
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$']]},
+        messageStyle: "none"
+    });
+</script>
