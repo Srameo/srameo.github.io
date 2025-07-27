@@ -10,7 +10,10 @@
     <!-- <link rel="apple-touch-icon" href="/assets/paper_teaser/ucsd-logo.png"> -->
     <!-- <link rel="icon" type="image/png" href="/assets/paper_teaser/ucsd-logo.png"> -->
     <!-- <link rel="manifest" href="/assets/paper_teaser/site.webmanifest"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/bulma/bulma-carousel.min.css">
+    <script src="/js/bulma/bulma-carousel.min.js"></script>
 </head>
 
 <!-- <div class="navbar">
@@ -21,30 +24,97 @@
     <a href="#contact">Contact</a>
 </div> -->
 
-<div class="header noselect" id="about">
-    <div class="content row">
-        <div class="header-profile-picture"></div>
-        <div class="header-text">
-            <div class="header-name">
-                <h1>Xin Jin</h1>
+<div class="hero-section noselect" id="about">
+    <div class="hero-content">
+        <div class="content header-container">
+            <div class="header-text">
+                <div class="header-name">
+                    <h1>Xin Jin</h1>
+                </div>
+                <div class="header-subtitle">
+                    Ph.D. Student at Nankai University<br>
+                    Generative Models &amp; Camera Techniques
+                </div>
+                <div>
+                    <p>
+                        Xin Jin (靳鑫) is a PhD student at <a href="https://en.nankai.edu.cn/">Nankai University</a>, advised by Prof.&nbsp;<a href="https://mmcheng.net/">Ming-Ming&nbsp;Cheng</a>. His research interests include <b>generative models</b> and <b>camera</b>, previously focusing on computational photography &amp; 3D reconstruction.
+                    </p>
+                </div>
+                <div class="header-links">
+                    <a class="btn" href="#contact" aria-label="Email" data-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a class="btn" href="https://scholar.google.com/citations?user=22M3mw8AAAAJ&hl=zh-CN" aria-label="Google Scholar" data-label="Scholar" target="_blank" rel="noopener"><i class="fa-brands fa-google"></i></a>
+                    <a class="btn" href="https://github.com/Srameo" aria-label="GitHub" data-label="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+                    <a class="btn" href="https://x.com/srameojin" aria-label="X" data-label="X" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a class="btn" href="https://www.overleaf.com/read/pxzdywbcvvnw#e0bdd0" aria-label="CV" data-label="CV" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i></a>
+                </div>
             </div>
-            <div class="header-subtitle">
-                PhD student, Nankai University
-            </div>
-            <div class="header-links">
-                <a class="btn" href="#contact">Email</a> /
-                <a class="btn" href="https://scholar.google.com/citations?user=22M3mw8AAAAJ&hl=zh-CN">Google Scholar</a> /
-                <a class="btn" href="https://github.com/Srameo">GitHub</a> /
-                <a class="btn" href="https://x.com/srameojin">X</a> /
-                <a class="btn" href="https://www.overleaf.com/read/pxzdywbcvvnw#e0bdd0">CV</a>
-            </div>
-            <div>
-                <p>
-                    Xin Jin (靳鑫) is a PhD student at <a href="https://en.nankai.edu.cn/">Nankai University</a>, advised by Prof. <a href="https://mmcheng.net/">Ming-Ming Cheng</a>. 
-                    His research interests include computer vision and deep learning, previously focusing on computational photography & 3D reconstruction.
-                </p>
+            <div class="header-profile-picture"></div>
+        </div>
+        <!-- Resume: Experience & Education -->
+        <div class="content resume-wrapper noselect">
+            <div class="resume-carousel carousel" id="resumeCarousel">
+                <a href="#experiences" style="text-decoration: none;">
+                    <div class="resume-item item">
+                        <img class="resume-logo" src="https://upload.wikimedia.org/wikipedia/en/a/a5/Nankai_University_logo.svg" alt="Nankai University">
+                        <div class="resume-org">Nankai University</div>
+                        <div class="resume-role">Ph.D. Student</div>
+                        <div class="resume-time">2022/09 – Present</div>
+                    </div>
+                </a>
+                <a href="#experiences" style="text-decoration: none;">
+                    <div class="resume-item item">
+                        <img class="resume-logo" src="/assets/experience/quark_logo.png" alt="Quark">
+                        <div class="resume-org">Quark</div>
+                        <div class="resume-role">Intern</div>
+                        <!-- <div class="resume-time">2025/04 – Present</div> -->
+                        <div class="resume-time">Present</div>
+                    </div>
+                </a>
+                <!-- <a href="#experiences" style="text-decoration: none;">
+                    <div class="resume-item item">
+                        <img class="resume-logo" src="/assets/experience/NTIRE2020_logo.png" alt="NTIRE">
+                        <div class="resume-org">NTIRE @ CVPR</div>
+                        <div class="resume-role">Co-organizer</div>
+                        <div class="resume-time">2025/01 – 2025/06</div>
+                    </div>
+                </a> -->
+                <a href="#experiences" style="text-decoration: none;">
+                    <div class="resume-item item">
+                        <img class="resume-logo" src="/assets/experience/adobe_logo.png" alt="Adobe Research">
+                        <div class="resume-org">Adobe Research</div>
+                        <div class="resume-role">Research Intern</div>
+                        <div class="resume-time">2024/06 – 2024/11</div>
+                    </div>
+                </a>
+                <!-- <a href="#experiences" style="text-decoration: none;">
+                    <div class="resume-item item">
+                        <img class="resume-logo" src="/assets/experience/mipi_logo.png" alt="MIPI">
+                        <div class="resume-org">MIPI @ CVPR</div>
+                        <div class="resume-role">Co-organizer</div>
+                        <div class="resume-time">2023/12 – 2024/06</div>
+                    </div>
+                </a> -->
+                <a href="#experiences" style="text-decoration: none;">
+                    <div class="resume-item item">
+                        <img class="resume-logo" src="/assets/experience/megvii_logo.png" alt="Megvii">
+                        <div class="resume-org">Megvii</div>
+                        <div class="resume-role">Research Intern</div>
+                        <div class="resume-time">2023/05 – 2024/06<br>2022/05 – 2022/09</div>
+                    </div>
+                </a>
+                <a href="#experiences" style="text-decoration: none;">
+                    <div class="resume-item item">
+                        <img class="resume-logo" src="https://upload.wikimedia.org/wikipedia/en/a/a5/Nankai_University_logo.svg" alt="Nankai University">
+                        <div class="resume-org">Nankai University</div>
+                        <div class="resume-role">B.S. Student</div>
+                        <div class="resume-time">2018/09 – 2022/07</div>
+                    </div>
+                </a>
             </div>
         </div>
+    </div>
+    <div class="scroll-indicator" onclick="scrollToNext()">
+        <i class="fa-solid fa-chevron-down"></i>
     </div>
 </div>
 
@@ -56,7 +126,7 @@
                 <a href="/projects">
                     <span class="pin-title">2025/05</span>
                     <span class="pin-desc">Want to build a <b>GALAXY</b> for publications of your own on homepage? <br/><b style="color: orange;">Tap here</b> to learn more!</span>
-                    <video src="assets/paper_teaser/demo_compressed.mov" alt="LE3D" style="width: 100%; height: auto;" autoplay loop></video>
+                    <video src="assets/paper_teaser/demo_compressed.mp4" alt="LE3D" style="width: 100%; height: auto;" autoplay loop muted playsinline></video>
                 </a>
             </div>
             <div class="pinned-item">
@@ -66,16 +136,21 @@
                     <img src="assets/paper_teaser/le3d.gif" alt="LE3D" style="width: 100%; height: auto;">
                 </a>
             </div>
-            <div class="pinned-item">
-                <a href="https://www.overleaf.com/read/pxzdywbcvvnw#e0bdd0">
-                    <span class="pin-title">Till Now</span>
-                    <span class="pin-desc">I'm actively seeking internship opportunities in <i>Embodied AI, MLLM, 4D reconstruction, AIGC</i>, and beyond. </span>
-                    <span class="pin-desc">My CV &#x2193;</span>
-                    <br>
-                    <img src="assets/cv.png" alt="CV" style="width: 100%; height: auto;">
-                </a>
-            </div>
         </div>
+        <details>
+            <summary>Previous Pinned News</summary>
+            <div class="pinned-container">
+                <div class="pinned-item">
+                    <a href="https://www.overleaf.com/read/pxzdywbcvvnw#e0bdd0">
+                        <span class="pin-title">Till Now</span>
+                        <span class="pin-desc">I'm actively seeking internship opportunities in <i>Embodied AI, MLLM, 4D reconstruction, AIGC</i>, and beyond. </span>
+                        <span class="pin-desc">My CV &#x2193;</span>
+                        <br>
+                        <img src="assets/cv.png" alt="CV" style="width: 100%; height: auto; margin-bottom: 30px;">
+                    </a>
+                </div>
+            </div>
+        </details>
     </div>
 
     <!-- News -->
@@ -232,6 +307,24 @@
                 <table>
                     <tr>
                         <td class="icon">
+                            <a href="https://ai.quark.cn/">
+                            <img style="width: 125px;" src="https://data.alibabagroup.com/ecms-files/1375187346/2f58804f-8e21-4bac-89d0-a30219bf4ef5/%E5%A4%B8%E5%85%8B%E8%8B%B1%E6%96%87.png" alt="Quark"></a><br>
+                            <span style="font-size: 13px;">
+                                <!-- 2025/04 - Present  -->
+                                Present
+                                <br> Hangzhou, China</span>
+                        </td>
+                        <td class="description">
+                            <h4><b>Intern, </b>but working like a startup full-timer...</h4>
+                            <p style="font-size: 13px;">Working with amazing researchers such as <a href="https://scholar.google.com/citations?user=JoLjflYAAAAJ&hl=zh-CN">Steven C.H. Hoi</a>, etc. on unified generative models.</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="timeline-item">
+                <table>
+                    <tr>
+                        <td class="icon">
                             <a href="https://adobe.com/">
                             <img style="width: 125px;" src="https://www.adobe.com/home/assets/adobe_logo_red.svg" alt="Adobe"></a><br>
                             <span style="font-size: 13px;">2024/06 - 2024/11 <br> San Jose CA, USA</span>
@@ -304,15 +397,6 @@
         </details>
     </div>
 
-    <!-- Awards -->
-    <div>
-        <h2 class="noselect">Competitions and Awards</h2>
-        <ul class="noselect">
-            <li style="margin-bottom: 8px;">Second Runner-up (Team Feedforward) in <a href="https://studio.brainpp.com/competition/5?tab=rank">RAW Image Blind Denoising, Megcup 2022</a>, serve as team leader.</li>
-            <li style="margin-bottom: 8px;">Second Runner-up (Team Feedback) in <a href="https://nightimaging.org/final-leaderboard.html">Night Photography Rendering Challenge, CVPR Workshop 2022</a>.</li>
-        </ul>
-    </div>
-
     <!-- Education -->
     <div>
         <h2 class="noselect">Education</h2>
@@ -321,6 +405,15 @@
             <br/><br/>
             <span><strong>2018/09 - 2022/07</strong>, I was an undergraduate student at <a href="https://csen.nankai.edu.cn/">College of Software, Nankai University</a>.</span>
         </div>
+    </div>
+
+    <!-- Awards -->
+    <div>
+        <h2 class="noselect">Competitions and Awards</h2>
+        <ul class="noselect">
+            <li style="margin-bottom: 8px;">Second Runner-up (Team Feedforward) in <a href="https://studio.brainpp.com/competition/5?tab=rank">RAW Image Blind Denoising, Megcup 2022</a>, serve as team leader.</li>
+            <li style="margin-bottom: 8px;">Second Runner-up (Team Feedback) in <a href="https://nightimaging.org/final-leaderboard.html">Night Photography Rendering Challenge, CVPR Workshop 2022</a>.</li>
+        </ul>
     </div>
 
     <!-- Contact -->
@@ -563,5 +656,126 @@ document.addEventListener('DOMContentLoaded', function() {
             animate();
         });
     });
+});
+
+// Scroll to next section function
+function scrollToNext() {
+    const nextSection = document.getElementById('pinned');
+    if (nextSection) {
+        nextSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// Hero section scroll effect
+document.addEventListener('DOMContentLoaded', function() {
+    const heroSection = document.querySelector('.hero-section');
+    const heroContent = document.querySelector('.hero-content');
+    
+    if (!heroSection || !heroContent) return;
+    
+    let ticking = false;
+    // let autoScrollTriggered = false; // 防止重复触发自动滚动
+    // const AUTO_SCROLL_THRESHOLD = 300; // 可调整的滚动阈值
+    
+    function updateScrollEffect() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const heroHeight = heroSection.offsetHeight;
+        
+        // 自动滚动功能：向下滚动200px后自动跳转到下一个部分
+        // if (!autoScrollTriggered && scrollTop > AUTO_SCROLL_THRESHOLD && scrollTop < heroHeight * 0.7) {
+        //     autoScrollTriggered = true;
+        //     // 添加一个小延迟确保用户意图是向下滚动
+        //     setTimeout(() => {
+        //         scrollToNext();
+        //     }, 100);
+        //     // 移除return，继续执行透明度和transform逻辑
+        // }
+        
+        // 如果用户回滚到顶部，重置自动滚动标志
+        // if (scrollTop < AUTO_SCROLL_THRESHOLD * 0.5) {
+        //     autoScrollTriggered = false;
+        // }
+        
+        // Calculate scroll progress (0 to 1)
+        const scrollProgress = Math.min(scrollTop / heroHeight, 1);
+        
+        // Add scrolled class for styling changes
+        if (scrollProgress > 0.05) {
+            heroSection.classList.add('scrolled');
+        } else {
+            heroSection.classList.remove('scrolled');
+        }
+        
+        // Apply parallax effect - content moves slower than scroll
+        if (scrollTop < heroHeight) {
+            // Create a sticky effect where content stays centered longer
+            const centerPoint = heroHeight * 0.4; // Content starts moving after 40% scroll
+            let translateY = 0;
+            
+            if (scrollTop > centerPoint) {
+                translateY = -(scrollTop - centerPoint) * 0.8;
+            }
+            
+            heroContent.style.transform = `translateY(${translateY}px)`;
+            
+            // Fade out effect near the end
+            const opacity = Math.max(1 - (scrollTop / heroHeight) * 1.5, 0);
+            heroContent.style.opacity = opacity;
+        } else {
+            // 确保在hero section外部时，透明度为1
+            heroContent.style.opacity = 1;
+            heroContent.style.transform = 'translateY(0)';
+        }
+        
+        ticking = false;
+    }
+    
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateScrollEffect);
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', requestTick);
+    
+    // Initialize
+    updateScrollEffect();
+});
+
+// Init Bulma carousel for resume
+document.addEventListener('DOMContentLoaded', function () {
+    // Wait a bit to ensure DOM is fully loaded
+    setTimeout(function() {
+        const carouselElement = document.getElementById('resumeCarousel');
+        if (carouselElement && typeof bulmaCarousel !== 'undefined') {
+            try {
+                bulmaCarousel.attach('#resumeCarousel', {
+                    slidesToScroll: 1,
+                    slidesToShow: 4,
+                    loop: true,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    pauseOnHover: true,
+                    navigation: true,
+                    pagination: false,
+                });
+                console.log('Bulma carousel initialized successfully');
+            } catch (error) {
+                console.log('Bulma carousel initialization failed:', error);
+                // Fallback: just ensure the carousel is visible
+                carouselElement.style.display = 'flex';
+            }
+        } else {
+            console.log('Bulma carousel not available, using fallback');
+            // Fallback: just ensure the carousel is visible
+            if (carouselElement) {
+                carouselElement.style.display = 'flex';
+            }
+        }
+    }, 100);
 });
 </script>

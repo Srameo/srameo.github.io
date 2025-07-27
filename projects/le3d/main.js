@@ -493,12 +493,15 @@ uniform highp usampler2D u_texture;
 uniform mat4 projection, view;
 uniform vec2 focal;
 uniform vec2 viewport;
+uniform float u_dMin;
+uniform float u_dMax;
 
 in vec2 position;
 in int index;
 
 out vec4 vColor;
 out vec2 vPosition;
+out float vDepth;
 
 void main () {
     uvec4 cen = texelFetch(u_texture, ivec2((uint(index) & 0x3ffu) << 1, uint(index) >> 10), 0);
@@ -535,6 +538,10 @@ void main () {
 
     vColor = clamp(pos2d.z/pos2d.w+1.0, 0.0, 1.0) * vec4((cov.z) & 0xffffu, (cov.z >> 16) & 0xffffu, (cov.w) & 0xffffu, (cov.w >> 16) & 0xffffu) / 4096.0;
     vPosition = position;
+    float depthRaw = cam.z;
+    float depthNorm = (depthRaw - u_dMin) / (u_dMax - u_dMin);
+    float visibility = clamp(pos2d.z / pos2d.w + 1.0, 0.0, 1.0);
+    vDepth = visibility * clamp(depthNorm, 0.0, 1.0);
 
     vec2 vCenter = vec2(pos2d) / pos2d.w;
     gl_Position = vec4(
@@ -552,11 +559,13 @@ precision highp float;
 // 输入变量
 in vec4 vColor;
 in vec2 vPosition;
+in float vDepth;
 uniform float u_exposure;
 uniform bool u_reinhard;
 uniform vec3 u_gain;
 uniform vec3 u_wb;
 uniform mat3 u_rgb2cam;
+uniform bool u_showDepth;
 
 // 输出颜色
 out vec4 fragColor;
@@ -595,6 +604,11 @@ void main () {
     float A = -dot(vPosition, vPosition);
     if (A < -4.0) discard;
     float B = exp(A) * vColor.a;
+    
+    if (u_showDepth) {
+        fragColor = vec4(vec3(vDepth) * B, B);  // rgb 存分子,  a 存分母
+        return;
+    }
     
     fragColor = vec4(clamp(B * correctedColor, 0.0, 1.0), B);
 }
@@ -1375,6 +1389,58 @@ async function startRender(scene) {
         whiteBalanceB.value = initWhiteBalance[2];
         adjustWhiteBalance();
     });
+
+    // depth checkbox
+    const depthCheckbox = document.getElementById("depthCheckbox");
+    const u_showDepth = gl.getUniformLocation(program, "u_showDepth");
+    gl.uniform1i(u_showDepth, depthCheckbox.checked);
+    
+    // 控制depth相关行的显示/隐藏
+    function toggleDepthRows() {
+        const depthRows = document.querySelectorAll('.depth-row');
+        depthRows.forEach(row => {
+            row.style.display = depthCheckbox.checked ? 'table-row' : 'none';
+        });
+    }
+    
+    // 初始化时设置正确的显示状态
+    toggleDepthRows();
+    
+    depthCheckbox.addEventListener("change", (e) => {
+        gl.uniform1i(u_showDepth, e.target.checked);
+        toggleDepthRows();
+    });
+
+    // 深度范围滑块
+    const depthMinSlider = document.getElementById("depthMinSlider");
+    const depthMaxSlider = document.getElementById("depthMaxSlider");
+    const depthMinValue  = document.getElementById("depthMinValue");
+    const depthMaxValue  = document.getElementById("depthMaxValue");
+
+    const u_dMin = gl.getUniformLocation(program, "u_dMin");
+    const u_dMax = gl.getUniformLocation(program, "u_dMax");
+
+    // 初始 uniform
+    gl.uniform1f(u_dMin, parseFloat(depthMinSlider.value));
+    gl.uniform1f(u_dMax, parseFloat(depthMaxSlider.value));
+
+    function syncDepthRange() {
+        let dMin = parseFloat(depthMinSlider.value);
+        let dMax = parseFloat(depthMaxSlider.value);
+        // 保证 dMax 总是大于 dMin
+        if (dMax <= dMin) {
+            dMax = dMin + 0.1;
+            depthMaxSlider.value = dMax.toFixed(1);
+            depthMaxValue.textContent = dMax.toFixed(1);
+        }
+        depthMinValue.textContent = dMin.toFixed(1);
+        depthMaxValue.textContent = dMax.toFixed(1);
+        gl.uniform1f(u_dMin, dMin);
+        gl.uniform1f(u_dMax, dMax);
+    }
+
+    depthMinSlider.addEventListener("input", syncDepthRange);
+    depthMaxSlider.addEventListener("input", syncDepthRange);
 
     const chunks = [];
     while (isRendering) {

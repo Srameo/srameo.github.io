@@ -1,17 +1,108 @@
-html {-webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
-body {background-color: #fdfdfd; color: #234; margin: 0; font-size: 13px;}
+html {
+    -webkit-text-size-adjust: 100%; 
+    -moz-text-size-adjust: 100%; 
+    -ms-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #fdfdfd; 
+    color: #234; 
+    margin: 0; 
+    font-size: 13px;
+    overflow-x: hidden;
+}
 h1 {margin-bottom: 32px; font-size: 2.6em;}
 h2 {margin-top: 48px;}
 h1, h2 {color: #234;}
 h3, h4, h5 {color: #345;}
 h1, h2, h3, h4, h5, a, p, span, body, div {font-weight: normal; font-family: 'Lato', Verdana, Helvetica, sans-serif;}
+/* Hero Section Styles */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom, #fdfdfd 10%, #f4f4f8 90%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(0);
+    opacity: 1;
+    transition: opacity 0.1s ease-out;
+    will-change: transform, opacity;
+    padding: 20px 0;
+    min-height: auto;
+}
+
+.hero-section.scrolled .hero-content {
+    transform: translateY(-50px);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    color: #666;
+    font-size: 24px;
+    animation: bounce 2s infinite;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    color: #f09228;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Hide scroll indicator when scrolled */
+.hero-section.scrolled .scroll-indicator {
+    opacity: 0;
+    pointer-events: none;
+}
+
 .header {background: linear-gradient(to bottom, #fdfdfd 10%, #f4f4f8 90%); width: 100%; padding-top: 16px; padding-bottom: 32px;}
 .header-text {width: 50%;}
 .header-profile-picture, .header-text {display: inline-block;}
 .header-name h1 {margin: 0;}
 .header-subtitle {margin-bottom: 12px;}
-.header-profile-picture {width: 180px; height: 180px; margin-right: 12px; border-radius: 0%; background-image: url(/assets/me.jpeg); background-position: center; background-size: contain;}
+.header-profile-picture {width: 200px; height: 200px; margin-right: 12px; border-radius: 0%; background-image: url(/assets/me.jpeg); background-position: center; background-size: contain;}
 .content {max-width: 748px; padding-left: 16px; padding-right: 16px; margin: auto; margin-top: 48px;}
+
+/* Content sections after hero */
+.hero-section + .content {
+    margin-top: 0;
+    padding-top: 64px;
+}
+
+/* Ensure proper spacing for main content areas */
+#pinned, #news, #publications, #experiences {
+    position: relative;
+    z-index: 1;
+}
 .hr {width: 100%; height: 1px; margin: 48px 0; background-color: #d6dbdf;}
 a {color: #2471a3; text-decoration: none;}
 a:focus, a:hover {color: #f09228;}
@@ -41,6 +132,21 @@ p {line-height: 1.5em;}
     .header-profile-picture {margin-bottom: 12px; width: 140px; height: 140px;}
     body {font-size: 18px;}
     a.btn {font-size: 14px; padding: 2px 6px;}
+    
+    /* Hero section mobile adjustments */
+    .hero-section {
+        height: 100vh;
+        min-height: 600px;
+    }
+    
+    .hero-content {
+        padding: 20px;
+    }
+    
+    .scroll-indicator {
+        bottom: 20px;
+        font-size: 20px;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -128,7 +234,7 @@ td {
     /* padding: 20px; */
     /* border-radius: 10px; */
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-    max-height: 250px; /* 限制高度以实现滚动效果 */
+    max-height: 150px; /* 限制高度以实现滚动效果 */
     overflow-y: auto; /* 使内容可垂直滚动 */
 }
 .news-container h2 {
@@ -256,5 +362,225 @@ td {
 @media (max-width: 768px) {
     .pinned-item {
         max-width: 100%;
+    }
+}
+
+/* === Custom about section === */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.header-container .header-text {
+    flex: 1 1 320px;
+}
+
+.header-profile-picture {
+    /* border-radius: 50% !important; */
+    background-size: cover !important;
+    flex-shrink: 0;
+}
+
+.header-subtitle {
+    font-size: 1.4em;
+    line-height: 1.4em;
+    margin-bottom: 16px;
+}
+
+.header-links {
+    margin-top: 12px;
+}
+
+.header-links .btn {
+    margin-right: 6px;
+}
+
+/* === Tooltip for header links === */
+.header-links .btn {
+    position: relative;
+    font-size: 24px; /* bigger icons */
+}
+
+.header-links .btn::after {
+    content: attr(data-label);
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 6px);
+    transform: translateY(-50%);
+    background: #ffffff;
+    color: #234;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 10;
+}
+
+.header-links .btn:hover::after {
+    opacity: 1;
+}
+
+@media only screen and (max-width: 600px) {
+    .header-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .header-profile-picture {
+        margin-bottom: 16px;
+    }
+    .header-links .btn::after {
+        left: 50%;
+        top: calc(100% + 6px);
+        transform: translateX(-50%);
+    }
+}
+
+/* === Resume grid === */
+.resume-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.resume-item {
+    flex: 1 1 140px;
+    max-width: 160px;
+    text-align: center;
+    color: #345;
+}
+
+.resume-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #fff; /* 若图片非透明可忽略 */
+    padding: 4px; /* 留出内边距，避免裁切文字 */
+    box-shadow: 0 0 2px rgba(0,0,0,0.08);
+    margin-bottom: 8px;
+}
+
+.resume-org {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.resume-role, .resume-time {
+    font-size: 0.9em;
+    line-height: 1.2em;
+}
+
+/* Hide resume-time by default, show on hover */
+.resume-time {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.resume-item:hover .resume-time,
+a:hover .resume-time {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media(max-width: 600px) {
+    .resume-item {
+        flex: 1 1 45%;
+        max-width: 45%;
+    }
+}
+
+/* === Horizontal carousel === */
+.resume-carousel {
+    display: flex;
+    gap: 24px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+    min-height: 100px; /* 确保有足够高度 */
+    margin-top: 48px;
+}
+
+.resume-carousel::-webkit-scrollbar {
+    display: none; /* hide scrollbar */
+}
+
+.resume-carousel .resume-item,
+.resume-carousel a .resume-item {
+    scroll-snap-align: start;
+    flex: 0 0 160px; /* 固定宽度，避免因压缩导致文本换行 */
+    min-width: 160px; /* 确保最小宽度 */
+    display: block; /* 确保显示 */
+}
+
+/* Ensure anchor tags in carousel display correctly */
+.resume-carousel > a {
+    flex: 0 0 160px;
+    min-width: 160px;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.resume-wrapper {
+    overflow: hidden;
+    margin-top: 32px;
+    width: 100%;
+}
+
+/* Ensure resume wrapper displays correctly in hero section */
+.hero-content .resume-wrapper {
+    margin-top: 32px;
+    display: block;
+    width: 100%;
+    overflow: visible;
+}
+
+.hero-content .content {
+    margin-top: 0;
+    width: 100%;
+}
+
+/* Ensure resume items are visible */
+.hero-content .resume-item {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* JS will control scroll; no CSS animation */
+
+/* === Custom style for resume carousel navigation arrows === */
+.resume-wrapper .slider-navigation-next,
+.resume-wrapper .slider-navigation-previous {
+    background: none !important;   /* 移除背景圆圈 */
+    border: none !important;       /* 移除边框 */
+    border-radius: 0 !important;   /* 取消圆角 */
+    box-shadow: none !important;   /* 取消阴影 */
+    opacity: 0.0;
+    width: 12px;                   /* 调整尺寸 */
+    height: 12px;
+}
+
+.resume-wrapper .slider-navigation-next svg,
+.resume-wrapper .slider-navigation-previous svg {
+    width: 60%;        /* 放大箭头 */
+    fill: #345;        /* 颜色与文字协调 */
+}
+
+@media(max-width: 600px) {
+    /* hide arrows on very small screens where swipe is available */
+    .resume-wrapper .slider-navigation-next,
+    .resume-wrapper .slider-navigation-previous {
+        display: none;
     }
 }
