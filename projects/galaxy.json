@@ -19,13 +19,14 @@
     "homepage": "https://adam-duan.github.io/projects/retouch/",
     "published": "AAAI 2024",
     "teaser": "<img src='/assets/paper_teaser/diffretouch_teaser.png' style='width: 99%; height: auto;'>",
+    "github_url": "https://github.com/Adam-duan/DiffRetouch",
     "core_contributor": false,
     "pos": [
-      0.7764999866485596,
-      15.9975004196167,
-      -1.356600046157837
+      12.979000091552734,
+      8.259200096130371,
+      7.802299976348877
     ],
-    "stars": 0
+    "stars": 11
   },
   {
     "id": "duan2025dit4sr",
@@ -50,13 +51,14 @@
     "homepage": "https://adam-duan.github.io/projects/dit4sr/",
     "published": "ICCV 2025",
     "teaser": "<img src='/assets/paper_teaser/dit4sr/dit4sr.gif' style='width: 99%; height: auto;'>",
+    "github_url": "https://github.com/Adam-duan/DiT4SR",
     "core_contributor": false,
     "pos": [
-      0.7993000149726868,
-      15.786199569702148,
-      -2.1928999423980713
+      12.231100082397461,
+      8.143600463867188,
+      8.422300338745117
     ],
-    "stars": 0
+    "stars": 96
   },
   {
     "id": "guo2022novel",
@@ -77,9 +79,9 @@
     "teaser": "<img src='/assets/paper_teaser/icpr2023teaser.png' style='width: 99%; height: auto;'>",
     "core_contributor": false,
     "pos": [
-      1.219499945640564,
-      16.582500457763672,
-      -3.6582000255584717
+      12.719099998474121,
+      9.763799667358398,
+      8.811300277709961
     ],
     "stars": 0
   },
@@ -106,11 +108,11 @@
     "github_url": "https://github.com/RQ-Wu/UnderwaterRanker",
     "core_contributor": false,
     "pos": [
-      0.3596000075340271,
-      16.507699966430664,
-      -1.753100037574768
+      12.62600040435791,
+      8.895400047302246,
+      8.041500091552734
     ],
-    "stars": 113
+    "stars": 115
   },
   {
     "id": "jin2023dnf",
@@ -135,11 +137,11 @@
     "github_url": "https://github.com/Srameo/DNF",
     "core_contributor": true,
     "pos": [
-      0.897599995136261,
-      17.18589973449707,
-      -3.0481998920440674
+      12.102299690246582,
+      9.236100196838379,
+      9.317500114440918
     ],
-    "stars": 165
+    "stars": 166
   },
   {
     "id": "jin2023lighting",
@@ -165,9 +167,9 @@
     "github_url": "https://github.com/Srameo/LED",
     "core_contributor": true,
     "pos": [
-      0.03579999879002571,
-      16.95549964904785,
-      -3.446199893951416
+      13.068300247192383,
+      9.602399826049805,
+      9.755200386047363
     ],
     "stars": 370
   },
@@ -194,9 +196,9 @@
     "teaser": "<img src='/projects/led-extension/assets/multiraw.jpg' style='width: 99%; height: auto;'>",
     "core_contributor": true,
     "pos": [
-      -0.21279999613761902,
-      16.150999069213867,
-      -3.4677000045776367
+      13.712599754333496,
+      9.403599739074707,
+      9.247300148010254
     ],
     "stars": 0
   },
@@ -226,11 +228,11 @@
     "github_url": "https://github.com/Srameo/LE3D",
     "core_contributor": true,
     "pos": [
-      0.4065999984741211,
-      15.727100372314453,
-      -3.5404000282287598
+      13.269399642944336,
+      8.675299644470215,
+      9.887200355529785
     ],
-    "stars": 227
+    "stars": 229
   },
   {
     "id": "jin2025classic",
@@ -256,9 +258,9 @@
     "teaser": "<img src='/assets/paper_teaser/levd.gif' style='width: 99%; height: auto;'>",
     "core_contributor": true,
     "pos": [
-      -0.23600000143051147,
-      16.658899307250977,
-      -2.6798999309539795
+      13.720100402832031,
+      8.75469970703125,
+      8.575200080871582
     ],
     "stars": 0
   },
@@ -284,11 +286,11 @@
     "github_url": "https://github.com/lzyhha/AODRaw",
     "core_contributor": false,
     "pos": [
-      1.031599998474121,
-      16.63319969177246,
-      -2.447999954223633
+      12.389900207519531,
+      8.447699546813965,
+      9.177900314331055
     ],
-    "stars": 26
+    "stars": 27
   },
   {
     "id": "meng2025ultraled",
@@ -311,9 +313,9 @@
     "teaser": "<img src='/assets/paper_teaser/ultraled.gif' style='width: 99%; height: auto;'>",
     "core_contributor": true,
     "pos": [
-      0.8317999839782715,
-      16.033199310302734,
-      -3.085599899291992
+      13.14680004119873,
+      8.641400337219238,
+      9.270299911499023
     ],
     "stars": 0
   }
