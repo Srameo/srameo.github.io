@@ -11,7 +11,7 @@ body {
     font-size: 13px;
     overflow-x: hidden;
 }
-h1 {margin-bottom: 32px; font-size: 2.6em;}
+h1 {margin-bottom: 10px; font-size: 3.5em;}
 h2 {margin-top: 48px;}
 h1, h2 {color: #234;}
 h3, h4, h5 {color: #345;}
@@ -46,6 +46,19 @@ h1, h2, h3, h4, h5, a, p, span, body, div {font-weight: normal; font-family: 'La
 
 .hero-section.scrolled .hero-content {
     transform: translateY(-50px);
+}
+
+.divider {
+    position: relative;
+}
+.divider::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgba(0,0,0,0.1);
 }
 
 /* Scroll Indicator */
@@ -88,7 +101,7 @@ h1, h2, h3, h4, h5, a, p, span, body, div {font-weight: normal; font-family: 'La
 .header-text {width: 50%;}
 .header-profile-picture, .header-text {display: inline-block;}
 .header-name h1 {margin: 0;}
-.header-subtitle {margin-bottom: 12px;}
+.header-subtitle {margin: 0;}
 .header-profile-picture {width: 200px; height: 200px; margin-right: 12px; border-radius: 0%; background-image: url(/assets/me.jpeg); background-position: center; background-size: contain;}
 .content {max-width: 748px; padding-left: 16px; padding-right: 16px; margin: auto; margin-top: 48px;}
 
@@ -368,13 +381,17 @@ td {
 /* === Custom about section === */
 .header-container {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .header-container .header-text {
     flex: 1 1 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
 }
 
 .header-profile-picture {
@@ -384,13 +401,14 @@ td {
 }
 
 .header-subtitle {
-    font-size: 1.4em;
+    font-size: 1.2em;
     line-height: 1.4em;
-    margin-bottom: 16px;
+    margin-top: 0px;
+    margin-bottom: 50px;
 }
 
 .header-links {
-    margin-top: 12px;
+    margin-top: 0;
 }
 
 .header-links .btn {
@@ -400,7 +418,7 @@ td {
 /* === Tooltip for header links === */
 .header-links .btn {
     position: relative;
-    font-size: 24px; /* bigger icons */
+    font-size: 20px; /* bigger icons */
 }
 
 .header-links .btn::after {
@@ -424,6 +442,14 @@ td {
 
 .header-links .btn:hover::after {
     opacity: 1;
+}
+
+/* === Intro text styling === */
+.intro-text {
+    font-size: 1.1em;
+    line-height: 1.6em;
+    margin-top: 20px;
+    display: block;
 }
 
 @media only screen and (max-width: 600px) {
@@ -534,13 +560,13 @@ a:hover .resume-time {
 
 .resume-wrapper {
     overflow: hidden;
-    margin-top: 32px;
+    margin-top: 10px;
     width: 100%;
 }
 
 /* Ensure resume wrapper displays correctly in hero section */
 .hero-content .resume-wrapper {
-    margin-top: 32px;
+    margin-top: 10px;
     display: block;
     width: 100%;
     overflow: visible;
@@ -584,3 +610,4 @@ a:hover .resume-time {
         display: none;
     }
 }
+
