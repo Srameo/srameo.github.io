@@ -247,8 +247,14 @@ td {
     /* padding: 20px; */
     /* border-radius: 10px; */
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-    max-height: 150px; /* 限制高度以实现滚动效果 */
-    overflow-y: auto; /* 使内容可垂直滚动 */
+    max-height: 275px; /* 限制高度以实现折叠效果 */
+    overflow: hidden; /* 使内容可垂直滚动 */
+    position: relative;
+    transition: max-height 0.5s ease-in-out;
+}
+.news-container.expanded {
+    max-height: 750px;
+    overflow-y: auto;
 }
 .news-container h2 {
     margin-top: 0;
@@ -270,6 +276,35 @@ td {
 .news-item a:hover {
     text-decoration: underline;
     margin-bottom: 10px;
+}
+
+.news-toggle-wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    text-align: right;
+    padding-top: 40px; /* Gradient height */
+    background: linear-gradient(to bottom, rgba(253, 253, 253, 0), #fdfdfd 40%);
+}
+
+.news-toggle-link {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 5px 10px;
+    display: inline-block;
+}
+
+.news-toggle-link:hover {
+    color: #f09228;
+}
+
+.news-container.expanded .news-toggle-wrapper {
+    position: relative;
+    background: none;
+    padding-top: 10px;
+    padding-right: 0;
 }
 
 /* navbar */
@@ -331,6 +366,7 @@ td {
     flex: 1;
     min-width: 180px;
     max-width: calc(33.33% - 16px);
+    max-height: 300px;
     background: white;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -344,7 +380,9 @@ td {
 }
 
 .pinned-item a {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     text-decoration: none;
     color: inherit;
 }
@@ -365,11 +403,23 @@ td {
     line-height: 1.5;
 }
 
-.pinned-item img {
+.pinned-item img,
+.pinned-item video {
     width: 100%;
-    height: auto;
+    flex-grow: 1;
+    min-height: 0;
     display: block;
     object-fit: cover;
+    /* animation: scroll-y 7s linear 0s infinite alternate; */
+}
+
+@keyframes scroll-y {
+  from {
+    object-position: center top;
+  }
+  to {
+    object-position: center bottom;
+  }
 }
 
 @media (max-width: 768px) {
@@ -401,10 +451,10 @@ td {
 }
 
 .header-subtitle {
-    font-size: 1.2em;
+    font-size: 1.15em;
     line-height: 1.4em;
     margin-top: 0px;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .header-links {
