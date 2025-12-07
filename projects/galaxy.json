@@ -22,11 +22,11 @@
     "github_url": "https://github.com/Adam-duan/DiffRetouch",
     "core_contributor": false,
     "pos": [
-      12.979000091552734,
-      8.259200096130371,
-      7.802299976348877
+      2.3041999340057373,
+      10.7701997756958,
+      0.5425999760627747
     ],
-    "stars": 11
+    "stars": 20
   },
   {
     "id": "duan2025dit4sr",
@@ -54,11 +54,11 @@
     "github_url": "https://github.com/Adam-duan/DiT4SR",
     "core_contributor": false,
     "pos": [
-      12.231100082397461,
-      8.143600463867188,
-      8.422300338745117
+      2.0436999797821045,
+      9.821200370788574,
+      1.3193999528884888
     ],
-    "stars": 96
+    "stars": 175
   },
   {
     "id": "guo2022novel",
@@ -79,9 +79,9 @@
     "teaser": "<img src='/assets/paper_teaser/icpr2023teaser.png' style='width: 99%; height: auto;'>",
     "core_contributor": false,
     "pos": [
-      12.719099998474121,
-      9.763799667358398,
-      8.811300277709961
+      3.166100025177002,
+      8.713299751281738,
+      -0.420199990272522
     ],
     "stars": 0
   },
@@ -108,11 +108,11 @@
     "github_url": "https://github.com/RQ-Wu/UnderwaterRanker",
     "core_contributor": false,
     "pos": [
-      12.62600040435791,
-      8.895400047302246,
-      8.041500091552734
+      2.790600061416626,
+      10.222700119018555,
+      0.37459999322891235
     ],
-    "stars": 115
+    "stars": 117
   },
   {
     "id": "jin2023dnf",
@@ -137,11 +137,11 @@
     "github_url": "https://github.com/Srameo/DNF",
     "core_contributor": true,
     "pos": [
-      12.102299690246582,
-      9.236100196838379,
-      9.317500114440918
+      2.455199956893921,
+      9.025400161743164,
+      -0.4564000070095062
     ],
-    "stars": 166
+    "stars": 172
   },
   {
     "id": "jin2023lighting",
@@ -167,11 +167,11 @@
     "github_url": "https://github.com/Srameo/LED",
     "core_contributor": true,
     "pos": [
-      13.068300247192383,
-      9.602399826049805,
-      9.755200386047363
+      2.162899971008301,
+      8.539199829101562,
+      0.16369999945163727
     ],
-    "stars": 370
+    "stars": 386
   },
   {
     "id": "jin2023make",
@@ -196,9 +196,9 @@
     "teaser": "<img src='/projects/led-extension/assets/multiraw.jpg' style='width: 99%; height: auto;'>",
     "core_contributor": true,
     "pos": [
-      13.712599754333496,
-      9.403599739074707,
-      9.247300148010254
+      3.2625999450683594,
+      9.30270004272461,
+      0.15860000252723694
     ],
     "stars": 0
   },
@@ -228,11 +228,11 @@
     "github_url": "https://github.com/Srameo/LE3D",
     "core_contributor": true,
     "pos": [
-      13.269399642944336,
-      8.675299644470215,
-      9.887200355529785
+      3.4377999305725098,
+      8.53219985961914,
+      0.6412000060081482
     ],
-    "stars": 229
+    "stars": 231
   },
   {
     "id": "jin2025classic",
@@ -258,9 +258,9 @@
     "teaser": "<img src='/assets/paper_teaser/levd.gif' style='width: 99%; height: auto;'>",
     "core_contributor": true,
     "pos": [
-      13.720100402832031,
-      8.75469970703125,
-      8.575200080871582
+      2.196000099182129,
+      9.370499610900879,
+      0.36090001463890076
     ],
     "stars": 0
   },
@@ -286,11 +286,11 @@
     "github_url": "https://github.com/lzyhha/AODRaw",
     "core_contributor": false,
     "pos": [
-      12.389900207519531,
-      8.447699546813965,
-      9.177900314331055
+      2.942199945449829,
+      9.21030044555664,
+      0.9815999865531921
     ],
-    "stars": 27
+    "stars": 34
   },
   {
     "id": "meng2025ultraled",
@@ -309,14 +309,107 @@
       "HDR"
     ],
     "homepage": "https://srameo.github.io/projects/ultraled/",
-    "published": "NeurIPS 2025",
+    "published": "Arxiv Preprint",
     "teaser": "<img src='/assets/paper_teaser/ultraled.gif' style='width: 99%; height: auto;'>",
     "core_contributor": true,
     "pos": [
-      13.14680004119873,
-      8.641400337219238,
-      9.270299911499023
+      2.808799982070923,
+      8.469599723815918,
+      0.3912999927997589
     ],
     "stars": 0
+  },
+  {
+    "id": "liu2025decoupled",
+    "title": "Decoupled DMD: CFG Augmentation as the Spear, Distribution Matching as the Shield",
+    "authors": [
+      "Dongyang Liu",
+      "Peng Gao",
+      "David Liu",
+      "Ruoyi Du",
+      "Zhen Li",
+      "Qilong Wu",
+      "Xin Jin",
+      "Sihan Cao",
+      "Shifeng Zhang",
+      "Hongsheng Li",
+      "Steven HOI"
+    ],
+    "abstract": "Diffusion model distillation has emerged as a powerful technique for creating efficient few-step and single-step generators. Among these, Distribution Matching Distillation (DMD) and its variants stand out for their impressive performance, which is widely attributed to their core mechanism of matching the student’s output distribution to that of a pre-trained teacher model. In this work, we challenge this conventional understanding. Through a rigorous decomposition of the DMD training objective, we reveal that in complex tasks like text-to-image generation, where CFGis typically required for desirable few-step performance, the primary driver of few-step distillation is not distribution matching, but a previously overlooked component we identify as CFG Augmentation (CA). We demonstrate that this term acts as the core “engine” of distillation, while the Distribution Matching (DM) term functions as a “regularizer” that ensures training stability and mitigates artifacts. Wefurther validate this decoupling by demonstrating that while the DM term is a highly effective regularizer, it is not unique; simpler non-parametric constraints or GAN-based objectives can serve the same stabilizing function, albeit with different trade-offs. This decoupling of labor motivates a more principled analysis of the properties of both terms, leading to a more systematic and in-depth understanding. This new understanding further enables us to propose principled modifications to the distillation process, such as decoupling the noise schedules for the engine and the regularizer, leading to further performance gains. Notably, our method has been adopted by the Z-Image project to develop a top-tier 8-step image generation model, empirically validating the generalization and robustness of our findings.",
+    "url": "https://www.arxiv.org/abs/2511.22677",
+    "tags": [
+      "Diffusion",
+      "Distillation"
+    ],
+    "homepage": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+    "published": "Arxiv Preprint",
+    "teaser": "<img src='/assets/paper_teaser/decoupled_dmd.jpg' style='width: 99%; height: auto;'>",
+    "core_contributor": false,
+    "pos": [
+      2.2402000427246094,
+      10.572400093078613,
+      1.367799997329712
+    ],
+    "stars": 0
+  },
+  {
+    "id": "jiang2025dmdrl",
+    "title": "Distribution Matching Distillation Meets Reinforcement Learning",
+    "authors": [
+      "Dengyang Jiang",
+      "Dongyang Liu",
+      "Zanyi Wang",
+      "Qilong Wu",
+      "Liuzhuozheng Li",
+      "Hengzhuang Li",
+      "Xin Jin",
+      "David Liu",
+      "Zhen Li",
+      "Bo Zhang",
+      "Mengmeng Wang",
+      "Steven Hoi",
+      "Peng Gao",
+      "Harry Yang"
+    ],
+    "abstract": "Distribution Matching Distillation (DMD) distills a pre-trained multi-step diffusion model to a few-step one to improve inference efficiency. However, the performance of the latter is often capped by the former. To circumvent this dilemma, we propose DMDR, a novel framework that combines Reinforcement Learning (RL) techniques into the distillation process. We show that for the RL of the few-step generator, the DMD loss itself is a more effective regularization compared to the traditional ones. In turn, RL can help to guide the mode coverage process in DMD more effectively. These allow us to unlock the capacity of the few-step generator by conducting distillation and RL simultaneously. Meanwhile, we design the dynamic distribution guidance and dynamic renoise sampling training strategies to improve the initial distillation process. The experiments demonstrate that DMDR can achieve leading visual quality, prompt coherence among few-step methods, and even exhibit performance that exceeds the multi-step teacher.",
+    "url": "https://arxiv.org/abs/2511.13649",
+    "tags": [
+      "Diffusion",
+      "Reinforcement Learning"
+    ],
+    "homepage": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+    "published": "Arxiv Preprint",
+    "teaser": "<img src='/assets/paper_teaser/dmd_rl.jpg' style='width: 99%; height: auto;'>",
+    "core_contributor": false,
+    "pos": [
+      2.887700080871582,
+      10.555500030517578,
+      1.3375999927520752
+    ],
+    "stars": 0
+  },
+  {
+    "id": "z-image",
+    "title": "Z-Image: An Efficient Image Generation Foundation Model with Single-Stream Diffusion Transformer",
+    "authors": [
+      "Z-Image Team"
+    ],
+    "abstract": "The landscape of high-performance image generation models is currently dominated by pro-prietary systems, such as Nano Banana Pro and Seedream 4.0. Leading open-sourcealternatives, including Qwen-Image, Hunyuan-Image-3.0 and FLUX.2, are charac-terized by massive parameter counts (20B to 80B), making them impractical for inference, andfine-tuning on consumer-grade hardware. To address this gap, we propose Z-Image, an efficient 6B-parameter foundation generative model built upon a Scalable Single-Stream Diffusion Transformer (S3-DiT) architecture that challenges the \"scale-at-all-costs\" paradigm. By systematically optimizing the entire model lifecycle – from a curated data infrastructure to a streamlined training curriculum – we complete the full training workflow in just 314K H800 GPU hours (approx. $630K). Our few-step distillation scheme with reward post-training further yields Z-Image-Turbo, offering both sub-second inference latency on an enterprise-grade H800 GPU and compatibility with consumer-grade hardware (<16GB VRAM). Additionally, our omni-pre-training paradigm also enables efficient training of Z-Image-Edit, an editing model with impressive instruction-following capabilities. Both qualitative and quantitative experiments demonstrate that our model achieves performance comparable to or surpassing that of leading competitors across various dimensions. Most notably, Z-Image exhibits exceptional capabilities in photorealisticimage generation and bilingual text rendering, delivering results that rival top-tier commercial models, thereby demonstrating that state-of-the-art results are achievable with significantly reduced computational overhead. We publicly release our code, weights, and online demo to foster the development of accessible, budget-friendly, yet state-of-the-art generative models.",
+    "url": "https://arxiv.org/abs/2511.22699",
+    "tags": [
+      "Diffusion",
+      "Base Model"
+    ],
+    "homepage": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+    "published": "Tech Report",
+    "teaser": "<img src='/assets/paper_teaser/s3_dit.png' style='width: 99%; height: auto;'>",
+    "github_url": "https://github.com/Tongyi-MAI/Z-Image",
+    "core_contributor": true,
+    "pos": [
+      2.5966999530792236,
+      9.92199993133545,
+      1.642199993133545
+    ],
+    "stars": 5212
   }
 ]
