@@ -1,10 +1,10 @@
 <head>
-    <title>Xin Jin</title>
+    <title>Xin Jin - Black Forest Labs</title>
     <meta name="author" content="Xin Jin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Xin Jin">
 	<meta property="og:description" content="PhD student, Nankai University">
-    <meta property="og:image" content="/assets/me.jpeg">
+    <meta property="og:image" content="/assets/me/me_school.jpeg">
 	<meta property="og:url" content="https://srameo.github.io/">
 	<meta name="twitter:card" content="summary_large_image">
     <!-- <link rel="apple-touch-icon" href="/assets/paper_teaser/ucsd-logo.png"> -->
@@ -24,9 +24,9 @@
                     <h1>Xin Jin</h1>
                 </div>
                 <div class="header-subtitle">
-                    Intern, <a href="https://huggingface.co/collections/Tongyi-MAI/z-image">Z-Image</a> @ Tongyi MAI<br>
-                    Ph.D. Student, Nankai University<br>
-                    Working on Generative Models &amp; Camera
+                    Member of Technical Staff, <a href="https://bfl.ai/">Black Forest Labs</a><br>
+                    Ph.D. Student, <a href="https://mmcheng.net/">VCIP, Nankai University</a><br>
+                    Working on Generative Models
                 </div>
                 <div class="header-links">
                     <a class="btn" href="#contact" aria-label="Email" data-label="Email"><i class="fa-solid fa-envelope"></i></a>
@@ -36,17 +36,21 @@
                     <a class="btn" href="https://www.overleaf.com/read/pxzdywbcvvnw#e0bdd0" aria-label="CV" data-label="CV" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i></a>
                 </div>
             </div>
-            <div class="header-profile-picture"></div>
+            <button class="header-profile-picture" id="profilePhoto" type="button" aria-label="School profile photo. Click to switch photo.">
+                <span class="profile-photo-overlay" aria-hidden="true">
+                    <span class="profile-photo-location">School</span>
+                    <span class="profile-photo-note"></span>
+                </span>
+            </button>
         </div>
         <br>
 
         <div class="content header-container divider">
             <span class="intro-text">
-                Currently, I have the privilege of working with <a href="https://scholar.google.com/citations?user=JoLjflYAAAAJ&hl=zh-CN">Steven C.H. Hoi</a>
-                , <a href="https://gaopengcuhk.github.io/">Peng Gao</a>, <a href="https://paper99.github.io/">Zhen Li</a> 
-                at <a href="https://tongyi.aliyun.com/">Tongyi MAI</a> on generative models (e.g., <a href="https://huggingface.co/Tongyi-MAI/Z-Image-Turbo">Z-Image</a>). Previously, I was fortunate to work closely with <a href="https://sniklaus.com/">Simon Niklaus</a>, <a href="https://likesum.github.io/">Zhihao Xia</a>, <a href="https://ztzhang.info/">Zhoutong Zhang</a> at <a href="https://adobe.com/">Adobe Research</a>; <a href="https://bigeagle.me/about">Yuzhi Wang</a> and Xingchao Yang at <a href="https://en.megvii.com/">Megvii</a>.
-                <span style="display: block; margin-top: 10px;"></span>
-                I am a PhD student at <a href="https://en.nankai.edu.cn/">Nankai University</a>, advised by Prof.&nbsp;<a href="https://mmcheng.net/">Ming-Ming&nbsp;Cheng</a>. My research interests include <b>generative models</b> and <b>computational photography</b>.
+                Currently, I'm a member of technical staff at <a href="https://bfl.ai/">Black Forest Labs</a> working on FLUX at Freiburg, Germany. <br/>
+                Previously, I have the privilege of working with <a href="https://scholar.google.com/citations?user=JoLjflYAAAAJ&hl=zh-CN">Steven C.H. Hoi</a>, <a href="https://gaopengcuhk.github.io/">Peng Gao</a>, <a href="https://paper99.github.io/">Zhen Li</a> at <a href="https://tongyi.aliyun.com/">Tongyi MAI</a> on <a href="https://huggingface.co/Tongyi-MAI/Z-Image-Turbo">Z-Image</a>. Also fortunate to work closely with <a href="https://sniklaus.com/">Simon Niklaus</a>, <a href="https://likesum.github.io/">Zhihao Xia</a>, <a href="https://ztzhang.info/">Zhoutong Zhang</a> at <a href="https://adobe.com/">Adobe Research</a>; <a href="https://bigeagle.me/about">Yuzhi Wang</a> and Xingchao Yang at <a href="https://en.megvii.com/">Megvii</a>.
+                <!-- <span style="display: block; margin-top: 10px;"></span>
+                I am a PhD student at <a href="https://en.nankai.edu.cn/">Nankai University</a>, advised by Prof.&nbsp;<a href="https://mmcheng.net/">Ming-Ming&nbsp;Cheng</a>. My research interests include <b>generative models</b> and <b>computational photography</b>. -->
             </span>
         </div>
         <!-- Resume: Experience & Education -->
@@ -57,7 +61,15 @@
                         <img class="resume-logo" src="https://upload.wikimedia.org/wikipedia/en/a/a5/Nankai_University_logo.svg" alt="Nankai University">
                         <div class="resume-org">Nankai University</div>
                         <div class="resume-role">Ph.D. Student</div>
-                        <div class="resume-time">2022/09 – Present</div>
+                        <div class="resume-time">2022/09 - Present</div>
+                    </div>
+                </a>
+                <a href="#experiences" style="text-decoration: none;">
+                    <div class="resume-item item">
+                        <img class="resume-logo" src="/assets/experience/bfl_logo.svg" alt="Black Forest Labs" style="object-fit: contain; object-position: center 25%;">
+                        <div class="resume-org">Black Forest Labs</div>
+                        <div class="resume-role">Member of Technical Staff</div>
+                        <div class="resume-time">2026/06 - Present</div>
                     </div>
                 </a>
                 <a href="#experiences" style="text-decoration: none;">
@@ -65,8 +77,7 @@
                         <img class="resume-logo" src="/assets/experience/tongyi_logo.avif" alt="Tongyi Lab">
                         <div class="resume-org">Tongyi MAI</div>
                         <div class="resume-role">Intern</div>
-                        <!-- <div class="resume-time">2025/04 – Present</div> -->
-                        <div class="resume-time">Present</div>
+                        <div class="resume-time">2025/04 - 2026/05</div>
                     </div>
                 </a>
                 <!-- <a href="#experiences" style="text-decoration: none;">
@@ -74,7 +85,7 @@
                         <img class="resume-logo" src="/assets/experience/NTIRE2020_logo.png" alt="NTIRE">
                         <div class="resume-org">NTIRE @ CVPR</div>
                         <div class="resume-role">Co-organizer</div>
-                        <div class="resume-time">2025/01 – 2025/06</div>
+                        <div class="resume-time">2025/01 - 2025/06</div>
                     </div>
                 </a> -->
                 <a href="#experiences" style="text-decoration: none;">
@@ -82,7 +93,7 @@
                         <img class="resume-logo" src="/assets/experience/adobe_logo.png" alt="Adobe Research">
                         <div class="resume-org">Adobe Research</div>
                         <div class="resume-role">Research Intern</div>
-                        <div class="resume-time">2024/06 – 2024/11</div>
+                        <div class="resume-time">2024/06 - 2024/11</div>
                     </div>
                 </a>
                 <!-- <a href="#experiences" style="text-decoration: none;">
@@ -90,7 +101,7 @@
                         <img class="resume-logo" src="/assets/experience/mipi_logo.png" alt="MIPI">
                         <div class="resume-org">MIPI @ CVPR</div>
                         <div class="resume-role">Co-organizer</div>
-                        <div class="resume-time">2023/12 – 2024/06</div>
+                        <div class="resume-time">2023/12 - 2024/06</div>
                     </div>
                 </a> -->
                 <a href="#experiences" style="text-decoration: none;">
@@ -98,7 +109,7 @@
                         <img class="resume-logo" src="/assets/experience/megvii_logo.png" alt="Megvii">
                         <div class="resume-org">Megvii</div>
                         <div class="resume-role">Research Intern</div>
-                        <div class="resume-time">2023/05 – 2024/06<br>2022/05 – 2022/09</div>
+                        <div class="resume-time">2023/05 - 2024/06<br>2022/05 - 2022/09</div>
                     </div>
                 </a>
                 <a href="#experiences" style="text-decoration: none;">
@@ -106,7 +117,7 @@
                         <img class="resume-logo" src="https://upload.wikimedia.org/wikipedia/en/a/a5/Nankai_University_logo.svg" alt="Nankai University">
                         <div class="resume-org">Nankai University</div>
                         <div class="resume-role">B.S. Student</div>
-                        <div class="resume-time">2018/09 – 2022/07</div>
+                        <div class="resume-time">2018/09 - 2022/07</div>
                     </div>
                 </a>
             </div>
@@ -216,6 +227,16 @@
             <a class="btn" href="/projects" style="font-size: 16px;">By GALAXY!</a>)</span></h2>
         <p>* Equal contribution. # Corresponding author. Representative papers are <span style="background-color: #fff8df">highlighted</span>.</p>
 
+        <div class="publication row clearfix" data-author="Dengyang Jiang" data-date="202605">
+            <div class="row-media" style="height: 120px; background-image: url(/assets/paper_teaser/dopsd.jpg);"></div>
+            <div class="row-text">
+                <a class="publication-title bold" href="projects/ultraled">D-OPSD: On-Policy Self-Distillation for Continuously Tuning Step-Distilled Diffusion Models</a><br/>
+                Dengyang Jiang, <span class="bold">Xin Jin</span>, Dongyang Liu, Zanyi Wang, Mingzhe Zheng, Ruoyi Du, Xiangpeng Yang, Qilong Wu, Zhen Li, Peng Gao, Harry Yang, Steven Hoi. <br/>
+                <span class="italic">Arxiv Preprint</span>, 2026 
+                <img style="position: relative; top:6px;" src="https://img.shields.io/github/stars/vvvvvjdy/D-OPSD?label=%F0%9F%8C%9F%20Star&color=blue">&nbsp;<img style="position: relative; top:6px;" src="https://img.shields.io/github/forks/vvvvvjdy/D-OPSD?label=%F0%9F%94%A7%20Fork&color=green"><br/>
+                <a class="btn btn-red" href="https://vvvvvjdy.github.io/d-opsd/">project</a> / <a class="btn btn-red" href="https://arxiv.org/abs/2605.05204">paper</a> / <a class="btn btn-dark" href="https://github.com/vvvvvjdy/D-OPSD">code</a>
+            </div>
+        </div>
         <div class="highlight publication row clearfix" data-author="Xin Jin" data-date="202511">
             <div class="row-media" style="height: 120px; background-image: url(/assets/paper_teaser/s3_dit.png);"></div>
             <div class="row-text">
@@ -232,7 +253,7 @@
                 <a class="publication-title bold" href="projects/ultraled">Decoupled DMD: CFG Augmentation as the Spear, Distribution Matching as the Shield</a><br/>
                 Dongyang Liu, Peng Gao, David Liu, Ruoyi Du, Zhen Li, Qilong Wu, <span class="bold">Xin Jin</span>, Sihan Cao, Shifeng Zhang, Hongsheng Li, Steven Hoi. <br/>
                 <span style="color:gray; font-size: smaller;">This paper is served as a component of Z-Image.</span><br/>
-                <span class="italic">Arxiv Preprint</span>, 2025 <br/>
+                <span class="italic">ICLR</span>, 2026 <br/>
                 <a class="btn btn-red" href="https://arxiv.org/abs/2510.07741">paper</a>
             </div>
         </div>
@@ -361,10 +382,27 @@
                 <table>
                     <tr>
                         <td class="icon">
+                            <a href="https://bfl.ai/">
+                            <img style="width: 125px;" src="/assets/experience/bfl.svg" alt="Black Forest Labs"></a><br>
+                            <span style="font-size: 13px;">
+                                2026/06 - Present 
+                                <br> Freiburg, Germany</span>
+                        </td>
+                        <td class="description">
+                            <h4><b>Member of Technical Staff</b></h4>
+                            <p style="font-size: 13px;">Working on FLUX.</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="timeline-item">
+                <table>
+                    <tr>
+                        <td class="icon">
                             <a href="https://tongyi.aliyun.com/">
                             <img style="width: 125px;" src="/assets/experience/tongyi.png" alt="Tongyi Lab"></a><br>
                             <span style="font-size: 13px;">
-                                2025/04 - Present 
+                                2025/04 - 2026/06 
                                 <br> Hangzhou, China</span>
                         </td>
                         <td class="description">
@@ -477,7 +515,32 @@
         <span style="text-decoration: line-through; opacity: 0.7;">I typically respond within a few days.</span>
         Busy these days, maybe take some time to reply.
         <br/>
-        I can be contacted directly at <span class="bold" title="I use srameo as my alias because it was my first randomly generated string from a sample I created back in 2017, and I've kept it ever since as a personal memento.">srameojin</span> [at] <span class="bold">gmail.com</span>, or through <a href="https://x.com/srameojin">my twitter account</a>.
+        I can be contacted directly at 
+        <span class="bold hover-title-trigger" data-title="I use srameo as my alias because it was my first randomly generated string from a sample I created back in 2017, and I've kept it ever since as a personal memento.">srameojin
+            <span class="custom-title-tooltip" style="display:none; position:absolute; z-index:1000; background:#222; color:#fff; border-radius:4px; padding:6px 10px; font-size:13px; white-space:normal; box-shadow:0 2px 8px rgba(0,0,0,0.2);"></span>
+        </span> [at] <span class="bold">gmail.com</span>, or through <a href="https://x.com/srameojin">my twitter account</a>.
+        <script>
+        // Tooltip on hover, shown immediately on mouseenter, hidden on mouseleave
+        (function() {
+            var triggers = document.querySelectorAll('.hover-title-trigger');
+            triggers.forEach(function(trigger) {
+                var tooltip = trigger.querySelector('.custom-title-tooltip');
+                var msg = trigger.getAttribute('data-title');
+                if (!tooltip) return;
+                trigger.addEventListener('mouseenter', function(e) {
+                    tooltip.textContent = msg;
+                    tooltip.style.display = 'block';
+                    // Positioning
+                    var rect = trigger.getBoundingClientRect();
+                    tooltip.style.left = (rect.left + window.scrollX) + "px";
+                    tooltip.style.top = (rect.bottom + window.scrollY + 4) + "px";
+                });
+                trigger.addEventListener('mouseleave', function() {
+                    tooltip.style.display = 'none';
+                });
+            });
+        })();
+        </script>
     </div>
 </div>
 
@@ -832,4 +895,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 100);
 });
 </script>
+<script src="js/profile-photos.js"></script>
 <script src="js/news.js"></script>

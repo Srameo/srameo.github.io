@@ -102,7 +102,64 @@ h1, h2, h3, h4, h5, a, p, span, body, div {font-weight: normal; font-family: 'La
 .header-profile-picture, .header-text {display: inline-block;}
 .header-name h1 {margin: 0;}
 .header-subtitle {margin: 0;}
-.header-profile-picture {width: 200px; height: 200px; margin-right: 12px; border-radius: 0%; background-image: url(/assets/me.jpeg); background-position: center; background-size: contain;}
+.header-profile-picture {
+    width: 200px;
+    height: 200px;
+    margin-right: 12px;
+    border: 0;
+    border-radius: 0%;
+    padding: 0;
+    background-color: #f4f4f8;
+    background-image: url(/assets/me/me_school.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    overflow: hidden;
+    position: relative;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.header-profile-picture:focus-visible {
+    outline: 2px solid #f09228;
+    outline-offset: 3px;
+}
+.profile-photo-overlay {
+    position: absolute;
+    inset: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 12px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.08) 70%, rgba(0, 0, 0, 0));
+    color: #fff;
+    opacity: 0;
+    pointer-events: none;
+    text-align: left;
+    transition: opacity 0.2s ease;
+}
+.header-profile-picture:hover .profile-photo-overlay,
+.header-profile-picture:focus-visible .profile-photo-overlay {
+    opacity: 1;
+}
+.profile-photo-location {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.2em;
+}
+.profile-photo-note {
+    display: block;
+    font-size: 11px;
+    line-height: 1.35em;
+    margin-top: 4px;
+}
+.profile-photo-note:empty {
+    display: none;
+}
 .content {max-width: 748px; padding-left: 16px; padding-right: 16px; margin: auto; margin-top: 48px;}
 
 /* Content sections after hero */
@@ -510,6 +567,16 @@ td {
     .header-profile-picture {
         margin-bottom: 16px;
     }
+    .profile-photo-overlay {
+        padding: 8px;
+    }
+    .profile-photo-location {
+        font-size: 11px;
+    }
+    .profile-photo-note {
+        font-size: 9px;
+        line-height: 1.25em;
+    }
     .header-links .btn::after {
         left: 50%;
         top: calc(100% + 6px);
@@ -660,4 +727,3 @@ a:hover .resume-time {
         display: none;
     }
 }
-

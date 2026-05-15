@@ -41,3 +41,8 @@ validation-report.json
 
 # Folders to ignore
 node_modules
+
+# Local Python build environments and caches
+.venv/
+.uv-cache/
+.hf-cache/

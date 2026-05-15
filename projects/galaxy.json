@@ -22,9 +22,9 @@
     "github_url": "https://github.com/Adam-duan/DiffRetouch",
     "core_contributor": false,
     "pos": [
-      2.3041999340057373,
-      10.7701997756958,
-      0.5425999760627747
+      1.7582999467849731,
+      5.63700008392334,
+      8.648900032043457
     ],
     "stars": 23
   },
@@ -54,11 +54,11 @@
     "github_url": "https://github.com/Adam-duan/DiT4SR",
     "core_contributor": false,
     "pos": [
-      2.0436999797821045,
-      9.821200370788574,
-      1.3193999528884888
+      1.4916000366210938,
+      6.0065999031066895,
+      9.631400108337402
     ],
-    "stars": 237
+    "stars": 238
   },
   {
     "id": "guo2022novel",
@@ -79,9 +79,9 @@
     "teaser": "<img src='/assets/paper_teaser/icpr2023teaser.png' style='width: 99%; height: auto;'>",
     "core_contributor": false,
     "pos": [
-      3.166100025177002,
-      8.713299751281738,
-      -0.420199990272522
+      3.310800075531006,
+      5.571199893951416,
+      9.67590045928955
     ],
     "stars": 0
   },
@@ -108,9 +108,9 @@
     "github_url": "https://github.com/RQ-Wu/UnderwaterRanker",
     "core_contributor": false,
     "pos": [
-      2.790600061416626,
-      10.222700119018555,
-      0.37459999322891235
+      2.3234000205993652,
+      6.014699935913086,
+      9.058799743652344
     ],
     "stars": 129
   },
@@ -137,9 +137,9 @@
     "github_url": "https://github.com/Srameo/DNF",
     "core_contributor": true,
     "pos": [
-      2.455199956893921,
-      9.025400161743164,
-      -0.4564000070095062
+      2.6428000926971436,
+      5.511300086975098,
+      9.907299995422363
     ],
     "stars": 179
   },
@@ -167,11 +167,11 @@
     "github_url": "https://github.com/Srameo/LED",
     "core_contributor": true,
     "pos": [
-      2.162899971008301,
-      8.539199829101562,
-      0.16369999945163727
+      3.082900047302246,
+      4.892300128936768,
+      10.195099830627441
     ],
-    "stars": 401
+    "stars": 402
   },
   {
     "id": "jin2023make",
@@ -196,9 +196,9 @@
     "teaser": "<img src='/projects/led-extension/assets/multiraw.jpg' style='width: 99%; height: auto;'>",
     "core_contributor": true,
     "pos": [
-      3.2625999450683594,
-      9.30270004272461,
-      0.15860000252723694
+      2.5445001125335693,
+      5.407400131225586,
+      10.699199676513672
     ],
     "stars": 0
   },
@@ -228,9 +228,9 @@
     "github_url": "https://github.com/Srameo/LE3D",
     "core_contributor": true,
     "pos": [
-      3.4377999305725098,
-      8.53219985961914,
-      0.6412000060081482
+      3.434000015258789,
+      5.665800094604492,
+      10.603699684143066
     ],
     "stars": 235
   },
@@ -258,9 +258,9 @@
     "teaser": "<img src='/assets/paper_teaser/levd.gif' style='width: 99%; height: auto;'>",
     "core_contributor": true,
     "pos": [
-      2.196000099182129,
-      9.370499610900879,
-      0.36090001463890076
+      2.3364999294281006,
+      4.640999794006348,
+      10.094200134277344
     ],
     "stars": 0
   },
@@ -286,9 +286,9 @@
     "github_url": "https://github.com/lzyhha/AODRaw",
     "core_contributor": false,
     "pos": [
-      2.942199945449829,
-      9.21030044555664,
-      0.9815999865531921
+      2.6486001014709473,
+      6.350399971008301,
+      9.862500190734863
     ],
     "stars": 45
   },
@@ -313,9 +313,9 @@
     "teaser": "<img src='/assets/paper_teaser/ultraled.gif' style='width: 99%; height: auto;'>",
     "core_contributor": true,
     "pos": [
-      2.808799982070923,
-      8.469599723815918,
-      0.3912999927997589
+      3.0546000003814697,
+      6.25629997253418,
+      10.567000389099121
     ],
     "stars": 0
   },
@@ -346,9 +346,9 @@
     "teaser": "<img src='/assets/paper_teaser/decoupled_dmd.jpg' style='width: 99%; height: auto;'>",
     "core_contributor": false,
     "pos": [
-      2.2402000427246094,
-      10.572400093078613,
-      1.367799997329712
+      1.092900037765503,
+      5.269800186157227,
+      8.609399795532227
     ],
     "stars": 0
   },
@@ -382,9 +382,9 @@
     "teaser": "<img src='/assets/paper_teaser/dmd_rl.jpg' style='width: 99%; height: auto;'>",
     "core_contributor": false,
     "pos": [
-      2.887700080871582,
-      10.555500030517578,
-      1.3375999927520752
+      1.3430999517440796,
+      4.894400119781494,
+      8.923999786376953
     ],
     "stars": 0
   },
@@ -406,10 +406,45 @@
     "github_url": "https://github.com/Tongyi-MAI/Z-Image",
     "core_contributor": true,
     "pos": [
-      2.5966999530792236,
-      9.92199993133545,
-      1.642199993133545
+      1.1065000295639038,
+      5.422500133514404,
+      9.647299766540527
     ],
-    "stars": 11150
+    "stars": 11185
+  },
+  {
+    "id": "jiang2025dopsd",
+    "title": "D-OPSD: On-Policy Self-Distillation for Continuously Tuning Step-Distilled Diffusion Models",
+    "authors": [
+      "Dengyang Jiang",
+      "Xin Jin",
+      "Dongyang Liu",
+      "Zanyi Wang",
+      "Mingzhe Zheng",
+      "Ruoyi Du",
+      "Xiangpeng Yang",
+      "Qilong Wu",
+      "Zhen Li",
+      "Peng Gao",
+      "Harry Yang",
+      "Steven Hoi"
+    ],
+    "abstract": "The landscape of high-performance image generation models is currently shifting from the inefficient multi-step ones to the efficient few-step counterparts (e.g, Z-Image-Turbo and FLUX.2-klein). However, these models present significant challenges for directly continuous supervised fine-tuning. For example, applying the commonly used fine-tuning technique would compromises their inherent few-step inference capability. To address this, we propose D-OPSD, a novel training paradigm for step-distilled diffusion models that enables on-policy learning during supervised fine-tuning. We first find that the modern diffusion model where the LLM/VLM serves as the encoder can inherit its encoder's in-context capabilities. This enables us to make the training as an on-policy self-distillation process. Specifically, during training, we make the model acts as both the teacher and the student with different contexts, where the student is conditioned only on the text feature, while the teacher is conditioned on the multimodal feature of both the text prompt and the target image. Training minimizes the two predicted distributions over the student's own roll-outs. By optimized on the model's own trajectory and under it's own supervision, D-OPSD enables the model to learn new concept, style, etc. without sacrificing the original few-step capacity.",
+    "url": "https://arxiv.org/abs/2605.05204",
+    "tags": [
+      "Diffusion",
+      "On-Policy Learning"
+    ],
+    "homepage": "https://vvvvvjdy.github.io/d-opsd/",
+    "published": "Arxiv Preprint",
+    "teaser": "<img src='/assets/paper_teaser/dopsd.jpg' style='width: 99%; height: auto;'>",
+    "github_url": "https://github.com/vvvvvjdy/D-OPSD",
+    "core_contributor": false,
+    "pos": [
+      0.8937000036239624,
+      5.760700225830078,
+      9.07699966430664
+    ],
+    "stars": 4
   }
 ]
