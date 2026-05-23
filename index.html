@@ -1,4 +1,5 @@
 <head>
+    <meta charset="UTF-8">
     <title>Xin Jin - Black Forest Labs</title>
     <meta name="author" content="Xin Jin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,16 +7,18 @@
 	<meta property="og:description" content="PhD student, Nankai University">
     <meta property="og:image" content="/assets/me/me_school.jpeg">
 	<meta property="og:url" content="https://srameo.github.io/">
-	<meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary_large_image">
     <!-- <link rel="apple-touch-icon" href="/assets/paper_teaser/ucsd-logo.png"> -->
     <!-- <link rel="icon" type="image/png" href="/assets/paper_teaser/ucsd-logo.png"> -->
     <!-- <link rel="manifest" href="/assets/paper_teaser/site.webmanifest"> -->
+    <script src="/js/theme-init.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="/css/bulma/bulma-carousel.min.css">
     <script src="/js/bulma/bulma-carousel.min.js"></script>
 </head>
 
+<body>
 <div class="hero-section noselect" id="about">
     <div class="hero-content">
         <div class="content header-container">
@@ -33,6 +36,7 @@
                     <a class="btn" href="https://scholar.google.com/citations?user=22M3mw8AAAAJ&hl=zh-CN" aria-label="Google Scholar" data-label="Scholar" target="_blank" rel="noopener"><i class="fa-brands fa-google"></i></a>
                     <a class="btn" href="https://github.com/Srameo" aria-label="GitHub" data-label="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
                     <a class="btn" href="https://x.com/srameojin" aria-label="X" data-label="X" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a class="btn" href="https://www.linkedin.com/in/xin-jin-8752322a8/" aria-label="LinkedIn" data-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
                     <a class="btn" href="https://www.overleaf.com/read/pxzdywbcvvnw#e0bdd0" aria-label="CV" data-label="CV" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i></a>
                 </div>
             </div>
@@ -127,6 +131,10 @@
         <i class="fa-solid fa-chevron-down"></i>
     </div>
 </div>
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" data-label="Theme">
+    <span class="theme-toggle-icon" aria-hidden="true">&#9790;</span>
+</button>
 
 <div class="content" style="padding-bottom: 64px;">
     <!-- Pinned -->
@@ -230,7 +238,7 @@
         <div class="publication row clearfix" data-author="Dengyang Jiang" data-date="202605">
             <div class="row-media" style="height: 120px; background-image: url(/assets/paper_teaser/dopsd.jpg);"></div>
             <div class="row-text">
-                <a class="publication-title bold" href="projects/ultraled">D-OPSD: On-Policy Self-Distillation for Continuously Tuning Step-Distilled Diffusion Models</a><br/>
+                <a class="publication-title bold" href="https://vvvvvjdy.github.io/d-opsd/">D-OPSD: On-Policy Self-Distillation for Continuously Tuning Step-Distilled Diffusion Models</a><br/>
                 Dengyang Jiang, <span class="bold">Xin Jin</span>, Dongyang Liu, Zanyi Wang, Mingzhe Zheng, Ruoyi Du, Xiangpeng Yang, Qilong Wu, Zhen Li, Peng Gao, Harry Yang, Steven Hoi. <br/>
                 <span class="italic">Arxiv Preprint</span>, 2026 
                 <img style="position: relative; top:6px;" src="https://img.shields.io/github/stars/vvvvvjdy/D-OPSD?label=%F0%9F%8C%9F%20Star&color=blue">&nbsp;<img style="position: relative; top:6px;" src="https://img.shields.io/github/forks/vvvvvjdy/D-OPSD?label=%F0%9F%94%A7%20Fork&color=green"><br/>
@@ -253,7 +261,7 @@
                 <a class="publication-title bold" href="projects/ultraled">Decoupled DMD: CFG Augmentation as the Spear, Distribution Matching as the Shield</a><br/>
                 Dongyang Liu, Peng Gao, David Liu, Ruoyi Du, Zhen Li, Qilong Wu, <span class="bold">Xin Jin</span>, Sihan Cao, Shifeng Zhang, Hongsheng Li, Steven Hoi. <br/>
                 <span style="color:gray; font-size: smaller;">This paper is served as a component of Z-Image.</span><br/>
-                <span class="italic">ICLR</span>, 2026 <br/>
+                <span class="italic"><a href="https://iclr.cc/Conferences/2026">ICLR</a></span>, 2026 <br/>
                 <a class="btn btn-red" href="https://arxiv.org/abs/2510.07741">paper</a>
             </div>
         </div>
@@ -511,14 +519,14 @@
     <div class="noselect">
         <a id="contact"></a>
         <h2>Contact</h2>
-        You are very welcome to contact me regarding my research, offer some startup ideas, or just say hi.<br/>
+        You are very welcome to contact me regarding my research or just say hi. For research-related messages, you can reach me at my work email <span class="bold">A</span> [at] <span class="bold">blackforestlabs.ai</span>, where <span class="bold">A = <code>${MY_FIRST_NAME}</code></span>.<br/>
         <span style="text-decoration: line-through; opacity: 0.7;">I typically respond within a few days.</span>
         Busy these days, maybe take some time to reply.
         <br/>
-        I can be contacted directly at 
+        You can also contact me directly at 
         <span class="bold hover-title-trigger" data-title="I use srameo as my alias because it was my first randomly generated string from a sample I created back in 2017, and I've kept it ever since as a personal memento.">srameojin
             <span class="custom-title-tooltip" style="display:none; position:absolute; z-index:1000; background:#222; color:#fff; border-radius:4px; padding:6px 10px; font-size:13px; white-space:normal; box-shadow:0 2px 8px rgba(0,0,0,0.2);"></span>
-        </span> [at] <span class="bold">gmail.com</span>, or through <a href="https://x.com/srameojin">my twitter account</a>.
+        </span> [at] <span class="bold">gmail.com</span>, or through <a href="https://x.com/srameojin">my twitter account</a>.<br/>
         <script>
         // Tooltip on hover, shown immediately on mouseenter, hidden on mouseleave
         (function() {
@@ -552,7 +560,7 @@
 
 <div class="footer noselect">
     <div class="footer-content">
-        &copy; 2025 Xin Jin. This template is maintained by <a href="https://srameo.github.io/">Xin Jin</a>, you could find the source code <a href="https://github.com/Srameo/srameo.github.io">here</a>.
+        &copy; 2023-2026 Xin Jin. This template is maintained by <a href="https://srameo.github.io/">Xin Jin</a>, you could find the source code <a href="https://github.com/Srameo/srameo.github.io">here</a>.
     </div>
 </div>
 
@@ -896,4 +904,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 <script src="js/profile-photos.js"></script>
+<script src="js/theme.js"></script>
 <script src="js/news.js"></script>
+</body>
