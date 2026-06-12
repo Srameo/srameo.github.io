@@ -22,9 +22,9 @@
     "github_url": "https://github.com/Adam-duan/DiffRetouch",
     "core_contributor": false,
     "pos": [
-      1.7582999467849731,
-      5.63700008392334,
-      8.648900032043457
+      13.125499725341797,
+      8.807499885559082,
+      5.2108001708984375
     ],
     "stars": 24
   },
@@ -54,11 +54,11 @@
     "github_url": "https://github.com/Adam-duan/DiT4SR",
     "core_contributor": false,
     "pos": [
-      1.4916000366210938,
-      6.0065999031066895,
-      9.631400108337402
+      12.812999725341797,
+      7.811500072479248,
+      4.75029993057251
     ],
-    "stars": 241
+    "stars": 250
   },
   {
     "id": "guo2022novel",
@@ -79,9 +79,9 @@
     "teaser": "<img src='/assets/paper_teaser/icpr2023teaser.png' style='width: 99%; height: auto;'>",
     "core_contributor": false,
     "pos": [
-      3.310800075531006,
-      5.571199893951416,
-      9.67590045928955
+      14.336099624633789,
+      7.65749979019165,
+      3.680299997329712
     ],
     "stars": 0
   },
@@ -108,11 +108,11 @@
     "github_url": "https://github.com/RQ-Wu/UnderwaterRanker",
     "core_contributor": false,
     "pos": [
-      2.3234000205993652,
-      6.014699935913086,
-      9.058799743652344
+      13.034299850463867,
+      8.635100364685059,
+      4.375100135803223
     ],
-    "stars": 129
+    "stars": 131
   },
   {
     "id": "jin2023dnf",
@@ -137,11 +137,11 @@
     "github_url": "https://github.com/Srameo/DNF",
     "core_contributor": true,
     "pos": [
-      2.6428000926971436,
-      5.511300086975098,
-      9.907299995422363
+      13.801600456237793,
+      7.8078999519348145,
+      4.0065999031066895
     ],
-    "stars": 179
+    "stars": 180
   },
   {
     "id": "jin2023lighting",
@@ -167,11 +167,11 @@
     "github_url": "https://github.com/Srameo/LED",
     "core_contributor": true,
     "pos": [
-      3.082900047302246,
-      4.892300128936768,
-      10.195099830627441
+      14.109199523925781,
+      8.815500259399414,
+      3.7079999446868896
     ],
-    "stars": 403
+    "stars": 404
   },
   {
     "id": "jin2023make",
@@ -196,9 +196,9 @@
     "teaser": "<img src='/projects/led-extension/assets/multiraw.jpg' style='width: 99%; height: auto;'>",
     "core_contributor": true,
     "pos": [
-      2.5445001125335693,
-      5.407400131225586,
-      10.699199676513672
+      14.43910026550293,
+      8.311300277709961,
+      4.218200206756592
     ],
     "stars": 0
   },
@@ -228,11 +228,11 @@
     "github_url": "https://github.com/Srameo/LE3D",
     "core_contributor": true,
     "pos": [
-      3.434000015258789,
-      5.665800094604492,
-      10.603699684143066
+      14.58240032196045,
+      8.277000427246094,
+      3.3615000247955322
     ],
-    "stars": 235
+    "stars": 234
   },
   {
     "id": "jin2025classic",
@@ -258,9 +258,9 @@
     "teaser": "<img src='/assets/paper_teaser/levd.gif' style='width: 99%; height: auto;'>",
     "core_contributor": true,
     "pos": [
-      2.3364999294281006,
-      4.640999794006348,
-      10.094200134277344
+      13.878899574279785,
+      8.84220027923584,
+      4.3643999099731445
     ],
     "stars": 0
   },
@@ -286,9 +286,9 @@
     "github_url": "https://github.com/lzyhha/AODRaw",
     "core_contributor": false,
     "pos": [
-      2.6486001014709473,
-      6.350399971008301,
-      9.862500190734863
+      13.284700393676758,
+      8.043999671936035,
+      3.5360000133514404
     ],
     "stars": 45
   },
@@ -313,9 +313,9 @@
     "teaser": "<img src='/assets/paper_teaser/ultraled.gif' style='width: 99%; height: auto;'>",
     "core_contributor": true,
     "pos": [
-      3.0546000003814697,
-      6.25629997253418,
-      10.567000389099121
+      13.927800178527832,
+      8.152000427246094,
+      3.0822999477386475
     ],
     "stars": 0
   },
@@ -346,9 +346,9 @@
     "teaser": "<img src='/assets/paper_teaser/decoupled_dmd.jpg' style='width: 99%; height: auto;'>",
     "core_contributor": false,
     "pos": [
-      1.092900037765503,
-      5.269800186157227,
-      8.609399795532227
+      12.486000061035156,
+      8.579999923706055,
+      5.611700057983398
     ],
     "stars": 0
   },
@@ -382,9 +382,9 @@
     "teaser": "<img src='/assets/paper_teaser/dmd_rl.jpg' style='width: 99%; height: auto;'>",
     "core_contributor": false,
     "pos": [
-      1.3430999517440796,
-      4.894400119781494,
-      8.923999786376953
+      12.170100212097168,
+      8.586600303649902,
+      5.1118998527526855
     ],
     "stars": 0
   },
@@ -406,11 +406,11 @@
     "github_url": "https://github.com/Tongyi-MAI/Z-Image",
     "core_contributor": true,
     "pos": [
-      1.1065000295639038,
-      5.422500133514404,
-      9.647299766540527
+      13.102800369262695,
+      7.705699920654297,
+      5.355299949645996
     ],
-    "stars": 11296
+    "stars": 11524
   },
   {
     "id": "jiang2025dopsd",
@@ -441,10 +441,44 @@
     "github_url": "https://github.com/vvvvvjdy/D-OPSD",
     "core_contributor": false,
     "pos": [
-      0.8937000036239624,
-      5.760700225830078,
-      9.07699966430664
+      12.319299697875977,
+      7.906099796295166,
+      5.339799880981445
     ],
-    "stars": 4
+    "stars": 244
+  },
+  {
+    "id": "jin2026beyond",
+    "title": "Beyond Scalar Rewards by Internalizing Reasoning into Score Distributions",
+    "authors": [
+      "Xin Jin",
+      "Huanqia Cai",
+      "Zhen Li",
+      "Zechao Zhan",
+      "Dengyang Jiang",
+      "Aiming Hao",
+      "Yuming Jiang",
+      "Chunle Guo",
+      "Peng Gao",
+      "Ming-Ming Cheng",
+      "Steven C.H. Hoi"
+    ],
+    "abstract": "Reward models are central to text-to-image post-training, but visual preference is subjective and better represented as a distribution over rubric scores than as a deterministic scalar. Existing scalar, score-token, and pairwise reward models over-compress uncertainty and fine-grained score differences, while reasoning-based generative rewards provide stronger judgments but are costly to deploy and difficult to use as direct optimization signals. We propose Z-Reward, a teacher-student reward modeling framework that decouples reasoning-heavy judgment from efficient reward deployment. The teacher is a large VLM that uses reasoning to infer rubric-aligned score distributions, and is trained with Group-wise Direct Score Optimization (GDSO), which combines policy-gradient rewards from distribution expectations with direct pointwise and pairwise supervision on score distributions and score gaps. The student is trained with Reasoning-Internalized Score Distillation (RISD), which transfers the teacher's reasoning-conditioned score distribution into a compact VLM without requiring explicit reasoning chains at inference time. On our internally annotated evaluation set, the 27B GDSO teacher reaches 89.6% human preference accuracy, outperforming SFT, RewardDance, and GRPO, while the 9B RISD student reaches 88.6%, outperforming the OPD baseline and closely matching the larger teacher. We further show that Z-Reward can serve as a differentiable reward signal for text-to-image optimization, yielding a 41.3% net human-preference improvement over the SFT baseline.",
+    "url": "https://arxiv.org/abs/2606.09076",
+    "tags": [
+      "VLM",
+      "Reward Model",
+      "Text-to-Image"
+    ],
+    "homepage": "https://srameo.github.io/projects/z-reward/",
+    "published": "Tech Report",
+    "teaser": "<img src='/assets/paper_teaser/z-reward.jpg' style='width: 99%; height: auto;'>",
+    "core_contributor": true,
+    "pos": [
+      12.822199821472168,
+      8.070300102233887,
+      5.982100009918213
+    ],
+    "stars": 0
   }
 ]

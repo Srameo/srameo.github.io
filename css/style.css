@@ -528,6 +528,14 @@ td {
     margin: 20px 0;
 }
 
+.pinned-details {
+    margin: 20px 0;
+}
+
+.pinned-details summary {
+    cursor: pointer;
+}
+
 .pinned-item {
     flex: 1;
     min-width: 180px;

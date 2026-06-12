@@ -46,3 +46,6 @@ node_modules
 .venv/
 .uv-cache/
 .hf-cache/
+
+# Private archives
+private-archive/

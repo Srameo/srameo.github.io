@@ -9,82 +9,82 @@
             location: 'Nankai University',
             note: 'My Phd Life.',
         },
-        {
-            id: 'megvii',
-            src: '/assets/me/me_megvii.jpg',
-            location: 'Beijing',
-            note: 'With Yuzhi during my internship at Megvii.',
-        },
-        {
-            id: 'sanjose',
-            src: '/assets/me/me_sanjose.jpg',
-            location: 'San Jose',
-            note: 'With Simon during my internship at Adobe Research.',
-        },
-        {
-            id: 'santaclara',
-            src: '/assets/me/me_santaclara.JPG',
-            location: 'Santa Clara',
-        },
-        {
-            id: 'shenzhen',
-            src: '/assets/me/me_shenzhen.JPG',
-            location: 'Shenzhen',
-        },
-        {
-            id: 'jeju',
-            src: '/assets/me/me_jeju.JPG',
-            location: 'Jeju',
-        },
-        {
-            id: 'xiamen',
-            src: '/assets/me/me_xiamen.jpg',
-            location: 'Xiamen',
-        },
-        {
-            id: 'lasvegas',
-            src: '/assets/me/me_lasvegas.jpg',
-            location: 'Las Vegas',
-        },
-        {
-            id: 'beijing',
-            src: '/assets/me/me_beijing.JPG',
-            location: 'Beijing',
-        },
-        {
-            id: 'tianjin',
-            src: '/assets/me/me_tianjin.JPG',
-            location: 'Tianjin',
-        },
-        {
-            id: 'vancouver',
-            src: '/assets/me/me_vancouver.jpg',
-            location: 'Vancouver',
-            note: 'When I was there for NeurIPS.',
-        },
-        {
-            id: 'shanghai',
-            src: '/assets/me/me_shanghai.jpg',
-            location: 'Shanghai',
-        },
-        {
-            id: 'nashville',
-            src: '/assets/me/me_nashville.JPG',
-            location: 'Nashville',
-            note: 'When I was there for CVPR.',
-        },
-        {
-            id: 'cats',
-            src: '/assets/me/me_cats.JPG',
-            location: 'Home',
-            note: 'My cats.',
-        },
-        {
-            id: 'hangzhou',
-            src: '/assets/me/me_hangzhou.JPG',
-            location: 'Hangzhou',
-            note: 'With part of the Z-Image team.',
-        },
+        // {
+        //     id: 'megvii',
+        //     src: '/assets/me/me_megvii.jpg',
+        //     location: 'Beijing',
+        //     note: 'With Yuzhi during my internship at Megvii.',
+        // },
+        // {
+        //     id: 'sanjose',
+        //     src: '/assets/me/me_sanjose.jpg',
+        //     location: 'San Jose',
+        //     note: 'With Simon during my internship at Adobe Research.',
+        // },
+        // {
+        //     id: 'santaclara',
+        //     src: '/assets/me/me_santaclara.JPG',
+        //     location: 'Santa Clara',
+        // },
+        // {
+        //     id: 'shenzhen',
+        //     src: '/assets/me/me_shenzhen.JPG',
+        //     location: 'Shenzhen',
+        // },
+        // {
+        //     id: 'jeju',
+        //     src: '/assets/me/me_jeju.JPG',
+        //     location: 'Jeju',
+        // },
+        // {
+        //     id: 'xiamen',
+        //     src: '/assets/me/me_xiamen.jpg',
+        //     location: 'Xiamen',
+        // },
+        // {
+        //     id: 'lasvegas',
+        //     src: '/assets/me/me_lasvegas.jpg',
+        //     location: 'Las Vegas',
+        // },
+        // {
+        //     id: 'beijing',
+        //     src: '/assets/me/me_beijing.JPG',
+        //     location: 'Beijing',
+        // },
+        // {
+        //     id: 'tianjin',
+        //     src: '/assets/me/me_tianjin.JPG',
+        //     location: 'Tianjin',
+        // },
+        // {
+        //     id: 'vancouver',
+        //     src: '/assets/me/me_vancouver.jpg',
+        //     location: 'Vancouver',
+        //     note: 'When I was there for NeurIPS.',
+        // },
+        // {
+        //     id: 'shanghai',
+        //     src: '/assets/me/me_shanghai.jpg',
+        //     location: 'Shanghai',
+        // },
+        // {
+        //     id: 'nashville',
+        //     src: '/assets/me/me_nashville.JPG',
+        //     location: 'Nashville',
+        //     note: 'When I was there for CVPR.',
+        // },
+        // {
+        //     id: 'cats',
+        //     src: '/assets/me/me_cats.JPG',
+        //     location: 'Home',
+        //     note: 'My cats.',
+        // },
+        // {
+        //     id: 'hangzhou',
+        //     src: '/assets/me/me_hangzhou.JPG',
+        //     location: 'Hangzhou',
+        //     note: 'With part of the Z-Image team.',
+        // },
         ],
     };
 
